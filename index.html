@@ -15,13 +15,14 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍💻</text></svg>" />
   <style>
     :root{
-      --accent:#6C63FF; --accent-2:#00d1b2;
-      --bg:#0d0d12; --bg-soft:#15151e; --card:#1a1a25; --border:#262633;
-      --text:#e9e9f0; --muted:#9a9ab0; --shadow:0 10px 30px rgba(0,0,0,.35);
+      /* Blue & white — light is the default look */
+      --accent:#2563EB; --accent-2:#60A5FA;
+      --bg:#f5f8fc; --bg-soft:#ffffff; --card:#ffffff; --border:#e2eaf4;
+      --text:#0f1c33; --muted:#5a6b85; --shadow:0 12px 34px rgba(37,99,235,.10);
     }
-    :root[data-theme="light"]{
-      --bg:#f7f7fb; --bg-soft:#ffffff; --card:#ffffff; --border:#e6e6ef;
-      --text:#1a1a2e; --muted:#5b5b78; --shadow:0 10px 30px rgba(20,20,60,.08);
+    :root[data-theme="dark"]{
+      --bg:#0a1226; --bg-soft:#10192e; --card:#142138; --border:#24334f;
+      --text:#e8eefb; --muted:#9daac4; --shadow:0 12px 34px rgba(0,0,0,.45);
     }
     *{margin:0;padding:0;box-sizing:border-box}
     html{scroll-behavior:smooth}
@@ -60,7 +61,7 @@
     .avatar-ring{width:300px; height:300px; border-radius:50%; padding:6px;
       background:linear-gradient(135deg,var(--accent),var(--accent-2));
       box-shadow:0 20px 50px rgba(108,99,255,.35); display:grid; place-items:center}
-    .avatar-ring img{width:100%; height:100%; border-radius:50%; object-fit:cover; display:block}
+    .avatar-ring img{width:100%; height:100%; border-radius:50%; object-fit:cover; object-position:center top; display:block; background:var(--bg-soft)}
     .avatar-ring span{width:100%; height:100%; border-radius:50%; display:grid; place-items:center;
       background:var(--bg-soft); font-size:5.5rem; font-weight:800; color:var(--accent); letter-spacing:2px}
     .hero .eyebrow{color:var(--accent); font-weight:700; letter-spacing:2px;
@@ -200,9 +201,7 @@
       </div>
       <div class="hero-photo reveal show">
         <div class="avatar-ring">
-          <!-- 📸 PHOTO: when you send a headshot, replace the <span>JP</span> line below with:
-               <img src="assets/profile.jpg" alt="Jaikrishna P S"> -->
-          <span>JP</span>
+          <img src="assets/profile.png" alt="Jaikrishna P S" />
         </div>
       </div>
     </div>
@@ -373,12 +372,13 @@
     document.getElementById('year').textContent = new Date().getFullYear();
 
     const root=document.documentElement, tBtn=document.getElementById('themeBtn');
-    const saved=localStorage.getItem('theme');
-    if(saved){root.setAttribute('data-theme',saved); tBtn.textContent = saved==='light'?'☀️':'🌙';}
+    const saved=localStorage.getItem('theme') || 'light';
+    root.setAttribute('data-theme',saved);
+    tBtn.textContent = saved==='dark'?'☀️':'🌙';
     tBtn.onclick=()=>{
-      const cur=root.getAttribute('data-theme')==='light'?'dark':'light';
+      const cur=root.getAttribute('data-theme')==='dark'?'light':'dark';
       root.setAttribute('data-theme',cur); localStorage.setItem('theme',cur);
-      tBtn.textContent = cur==='light'?'☀️':'🌙';
+      tBtn.textContent = cur==='dark'?'☀️':'🌙';
     };
 
     const burger=document.getElementById('burger'), links=document.getElementById('navLinks');

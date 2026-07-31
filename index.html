@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<!--
+  ══════════════════════════════════════════════════════════════════
+   PORTFOLIO WEBSITE  ·  Jaikrishna P S
+   Hosts free at:  https://jaikrishna22.github.io
+   (repo must be named  jaikrishna22.github.io )
+
+   ✏️  EDIT anything marked  <!-- EDIT -->  with your real info.
+       Search this file for "EDIT" to find every spot.
+  ══════════════════════════════════════════════════════════════════
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jaikrishna P S · Senior Software Developer</title>
+  <meta name="description" content="Jaikrishna P S — Senior Software Developer specialising in C#/.NET backend, distributed systems and enterprise platforms." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍💻</text></svg>" />
+  <style>
+    :root{
+      --accent:#6C63FF; --accent-2:#00d1b2;
+      --bg:#0d0d12; --bg-soft:#15151e; --card:#1a1a25; --border:#262633;
+      --text:#e9e9f0; --muted:#9a9ab0; --shadow:0 10px 30px rgba(0,0,0,.35);
+    }
+    :root[data-theme="light"]{
+      --bg:#f7f7fb; --bg-soft:#ffffff; --card:#ffffff; --border:#e6e6ef;
+      --text:#1a1a2e; --muted:#5b5b78; --shadow:0 10px 30px rgba(20,20,60,.08);
+    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:'Segoe UI',system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;
+      background:var(--bg); color:var(--text); line-height:1.65;
+      -webkit-font-smoothing:antialiased; overflow-x:hidden;
+    }
+    a{color:inherit;text-decoration:none}
+    section{padding:96px 24px; max-width:1080px; margin:0 auto}
+    h2.title{font-size:clamp(1.6rem,4vw,2.4rem); font-weight:800; margin-bottom:8px}
+    h2.title span{color:var(--accent)}
+    .subtitle{color:var(--muted); margin-bottom:48px; font-size:1.02rem}
+
+    /* NAV */
+    nav{
+      position:sticky; top:0; z-index:50; backdrop-filter:blur(12px);
+      background:color-mix(in srgb, var(--bg) 78%, transparent);
+      border-bottom:1px solid var(--border);
+    }
+    .nav-inner{max-width:1080px; margin:0 auto; display:flex; align-items:center;
+      justify-content:space-between; padding:16px 24px}
+    .logo{font-weight:800; font-size:1.15rem; letter-spacing:.5px}
+    .logo span{color:var(--accent)}
+    .nav-links{display:flex; gap:28px; align-items:center}
+    .nav-links a{color:var(--muted); font-weight:500; font-size:.95rem; transition:.2s}
+    .nav-links a:hover,.nav-links a.active{color:var(--text)}
+    .theme-btn{background:var(--card); border:1px solid var(--border); color:var(--text);
+      width:40px;height:40px;border-radius:12px;cursor:pointer;font-size:1.1rem;
+      display:grid;place-items:center;transition:.2s}
+    .theme-btn:hover{border-color:var(--accent);transform:translateY(-2px)}
+    .burger{display:none;background:none;border:none;color:var(--text);font-size:1.5rem;cursor:pointer}
+
+    /* HERO */
+    .hero{min-height:92vh; display:flex; flex-direction:column; justify-content:center;
+      max-width:1080px; margin:0 auto; padding:24px; position:relative}
+    .hero .eyebrow{color:var(--accent); font-weight:700; letter-spacing:2px;
+      text-transform:uppercase; font-size:.85rem; margin-bottom:16px}
+    .hero h1{font-size:clamp(2.4rem,7vw,4.6rem); font-weight:900; line-height:1.05;
+      letter-spacing:-1px; margin-bottom:14px}
+    .hero h1 .grad{background:linear-gradient(120deg,var(--accent),var(--accent-2));
+      -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+    .hero .role{font-size:clamp(1.1rem,3vw,1.6rem); color:var(--muted); font-weight:600;
+      min-height:2em; margin-bottom:22px}
+    .hero .role .type{color:var(--text); border-right:2px solid var(--accent); padding-right:4px}
+    .hero p.lead{max-width:620px; color:var(--muted); font-size:1.08rem; margin-bottom:36px}
+    .cta{display:flex; gap:14px; flex-wrap:wrap}
+    .btn{padding:13px 26px; border-radius:12px; font-weight:600; font-size:.98rem;
+      display:inline-flex; align-items:center; gap:9px; transition:.25s; border:1px solid transparent}
+    .btn-primary{background:var(--accent); color:#fff; box-shadow:0 8px 24px rgba(108,99,255,.35)}
+    .btn-primary:hover{transform:translateY(-3px); box-shadow:0 12px 30px rgba(108,99,255,.5)}
+    .btn-ghost{background:transparent; border-color:var(--border); color:var(--text)}
+    .btn-ghost:hover{border-color:var(--accent); transform:translateY(-3px)}
+    .scroll-hint{position:absolute; bottom:28px; left:50%; transform:translateX(-50%);
+      color:var(--muted); font-size:.8rem; letter-spacing:1px; animation:bob 2s infinite}
+    @keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,8px)}}
+
+    /* ABOUT */
+    .about-grid{display:grid; grid-template-columns:1.4fr 1fr; gap:48px; align-items:start}
+    .about-text p{color:var(--muted); margin-bottom:18px}
+    .about-text strong{color:var(--text)}
+    .facts{display:grid; gap:14px}
+    .fact{background:var(--card); border:1px solid var(--border); border-radius:14px;
+      padding:18px 20px; display:flex; gap:14px; align-items:center; box-shadow:var(--shadow)}
+    .fact .n{font-size:1.7rem; font-weight:800; color:var(--accent); line-height:1}
+    .fact .l{color:var(--muted); font-size:.9rem}
+
+    /* SKILLS */
+    .skill-groups{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:22px}
+    .skill-card{background:var(--card); border:1px solid var(--border); border-radius:16px;
+      padding:26px; box-shadow:var(--shadow); transition:.25s}
+    .skill-card:hover{transform:translateY(-5px); border-color:var(--accent)}
+    .skill-card h3{font-size:1.05rem; margin-bottom:16px; display:flex; gap:10px; align-items:center}
+    .skill-card h3 .dot{width:9px;height:9px;border-radius:50%;background:var(--accent)}
+    .chips{display:flex; flex-wrap:wrap; gap:9px}
+    .chip{background:var(--bg-soft); border:1px solid var(--border); color:var(--text);
+      padding:6px 13px; border-radius:20px; font-size:.85rem; font-weight:500; transition:.2s}
+    .chip:hover{background:var(--accent); color:#fff; border-color:var(--accent)}
+
+    /* PROJECTS */
+    .projects{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:24px}
+    .proj{background:var(--card); border:1px solid var(--border); border-radius:18px;
+      padding:28px; box-shadow:var(--shadow); transition:.28s; display:flex; flex-direction:column}
+    .proj:hover{transform:translateY(-6px); border-color:var(--accent)}
+    .proj .ico{width:52px;height:52px;border-radius:13px;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      display:grid;place-items:center;font-size:1.5rem;margin-bottom:18px}
+    .proj h3{font-size:1.2rem; margin-bottom:10px}
+    .proj p{color:var(--muted); font-size:.95rem; margin-bottom:18px; flex:1}
+    .proj .tags{display:flex; flex-wrap:wrap; gap:7px; margin-bottom:18px}
+    .proj .tags span{font-size:.78rem; color:var(--accent); background:color-mix(in srgb,var(--accent) 14%,transparent);
+      padding:4px 10px; border-radius:6px; font-weight:600}
+    .proj .links{display:flex; gap:16px; font-size:.9rem; font-weight:600}
+    .proj .links a{color:var(--accent); display:inline-flex; gap:6px; align-items:center}
+    .proj .links a:hover{text-decoration:underline}
+
+    /* EXPERIENCE */
+    .timeline{position:relative; max-width:760px; margin:0 auto; padding-left:32px}
+    .timeline::before{content:""; position:absolute; left:7px; top:6px; bottom:6px;
+      width:2px; background:var(--border)}
+    .tl-item{position:relative; padding-bottom:36px}
+    .tl-item::before{content:""; position:absolute; left:-32px; top:5px; width:16px; height:16px;
+      border-radius:50%; background:var(--accent); border:3px solid var(--bg)}
+    .tl-item:last-child{padding-bottom:0}
+    .tl-item .role{font-weight:700; font-size:1.1rem}
+    .tl-item .co{color:var(--accent); font-weight:600; font-size:.95rem}
+    .tl-item .date{color:var(--muted); font-size:.85rem; margin:4px 0 10px}
+    .tl-item p{color:var(--muted); font-size:.95rem}
+
+    /* CONTACT */
+    .contact{text-align:center}
+    .contact .box{background:var(--card); border:1px solid var(--border); border-radius:24px;
+      padding:56px 32px; box-shadow:var(--shadow)}
+    .contact h2{font-size:clamp(1.8rem,5vw,2.8rem); font-weight:800; margin-bottom:14px}
+    .contact p{color:var(--muted); max-width:520px; margin:0 auto 30px}
+    .socials{display:flex; gap:16px; justify-content:center; flex-wrap:wrap}
+    .soc{width:52px;height:52px;border-radius:14px;background:var(--bg-soft);
+      border:1px solid var(--border);display:grid;place-items:center;transition:.25s}
+    .soc:hover{background:var(--accent);border-color:var(--accent);transform:translateY(-4px)}
+    .soc svg{width:22px;height:22px;fill:var(--text)}
+    .soc:hover svg{fill:#fff}
+
+    footer{text-align:center; padding:36px 24px; color:var(--muted); font-size:.9rem;
+      border-top:1px solid var(--border)}
+
+    /* reveal animation */
+    .reveal{opacity:0; transform:translateY(30px); transition:.7s cubic-bezier(.2,.7,.3,1)}
+    .reveal.show{opacity:1; transform:none}
+
+    @media(max-width:760px){
+      .nav-links{position:fixed;inset:0 0 0 auto;width:70%;max-width:300px;flex-direction:column;
+        background:var(--bg-soft);border-left:1px solid var(--border);padding:88px 32px;gap:22px;
+        transform:translateX(100%);transition:.3s}
+      .nav-links.open{transform:none}
+      .burger{display:block;z-index:60}
+      .about-grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════ NAV ══════════ -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#home" class="logo">Jai<span>krishna</span></a>
+      <div class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+        <button class="theme-btn" id="themeBtn" title="Toggle theme">🌙</button>
+      </div>
+      <button class="burger" id="burger">☰</button>
+    </div>
+  </nav>
+
+  <!-- ══════════ HERO ══════════ -->
+  <header class="hero" id="home">
+    <div class="reveal show">
+      <p class="eyebrow">👋 Hello, I'm</p>
+      <h1>Jaikrishna <span class="grad">P S</span></h1>
+      <p class="role"><span class="type" id="typed"></span></p>
+      <!-- EDIT: this intro paragraph -->
+      <p class="lead">Senior Software Developer building reliable <strong style="color:var(--text)">backend services, workflow engines and enterprise platforms</strong> with C# / .NET. I care about clean architecture, solid data layers, and software that just keeps running.</p>
+      <div class="cta">
+        <a href="#projects" class="btn btn-primary">View My Work →</a>
+        <!-- EDIT: add your resume PDF to this repo and update the href, or delete this button -->
+        <a href="#" class="btn btn-ghost">📄 Résumé</a>
+        <a href="https://www.linkedin.com/in/jaikrishna-p-s-27a49b19a/" target="_blank" rel="noopener" class="btn btn-ghost">in&nbsp; LinkedIn</a>
+      </div>
+    </div>
+    <div class="scroll-hint">SCROLL ↓</div>
+  </header>
+
+  <!-- ══════════ ABOUT ══════════ -->
+  <section id="about">
+    <h2 class="title reveal">About <span>Me</span></h2>
+    <p class="subtitle reveal">A little background on who I am and how I work.</p>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <!-- EDIT: rewrite these paragraphs in your own words -->
+        <p>I'm a <strong>Senior Software Developer</strong> with a focus on backend engineering — designing and building the services, data layers and orchestration logic that power enterprise systems.</p>
+        <p>My day-to-day sits around <strong>C# / .NET</strong>, <strong>Entity Framework Core</strong> and relational databases across SQL Server, MySQL, PostgreSQL and Oracle. I enjoy problems involving <strong>reliability, workflow automation and multi-system integration</strong>.</p>
+        <p>I care about writing code that's maintainable, well-tested and honest about its trade-offs. When I'm not coding, I'm <!-- EDIT -->learning about cloud architecture and system design.</p>
+      </div>
+      <div class="facts reveal">
+        <!-- EDIT: real numbers -->
+        <div class="fact"><span class="n">5+</span><span class="l">Years building<br>software</span></div>
+        <div class="fact"><span class="n">.NET</span><span class="l">Backend &amp; enterprise<br>specialist</span></div>
+        <div class="fact"><span class="n">4</span><span class="l">Database engines<br>worked with</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ SKILLS ══════════ -->
+  <section id="skills">
+    <h2 class="title reveal">Tech <span>Stack</span></h2>
+    <p class="subtitle reveal">Tools and technologies I work with. <!-- EDIT: add/remove chips --></p>
+    <div class="skill-groups">
+      <div class="skill-card reveal">
+        <h3><span class="dot"></span>Languages</h3>
+        <div class="chips"><span class="chip">C#</span><span class="chip">SQL</span><span class="chip">PowerShell</span><span class="chip">JavaScript</span></div>
+      </div>
+      <div class="skill-card reveal">
+        <h3><span class="dot"></span>Frameworks</h3>
+        <div class="chips"><span class="chip">.NET</span><span class="chip">ASP.NET Core</span><span class="chip">EF Core</span><span class="chip">Web API</span></div>
+      </div>
+      <div class="skill-card reveal">
+        <h3><span class="dot"></span>Databases</h3>
+        <div class="chips"><span class="chip">SQL Server</span><span class="chip">MySQL</span><span class="chip">PostgreSQL</span><span class="chip">Oracle</span></div>
+      </div>
+      <div class="skill-card reveal">
+        <h3><span class="dot"></span>Tools &amp; Cloud</h3>
+        <div class="chips"><span class="chip">Git</span><span class="chip">Docker</span><span class="chip">Azure</span><span class="chip">Visual Studio</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ PROJECTS ══════════ -->
+  <section id="projects">
+    <h2 class="title reveal">Featured <span>Projects</span></h2>
+    <p class="subtitle reveal">A selection of things I've built. <!-- EDIT: replace all 3 with real projects --></p>
+    <div class="projects">
+      <article class="proj reveal">
+        <div class="ico">⚙️</div>
+        <h3>Project One</h3>
+        <p>One or two lines on what this project does, the problem it solves, and your role in building it.</p>
+        <div class="tags"><span>C#</span><span>.NET</span><span>SQL</span></div>
+        <div class="links"><a href="#" target="_blank">Code ↗</a><a href="#" target="_blank">Live ↗</a></div>
+      </article>
+      <article class="proj reveal">
+        <div class="ico">🗄️</div>
+        <h3>Project Two</h3>
+        <p>One or two lines describing the project, tech used, and impact / outcome.</p>
+        <div class="tags"><span>EF Core</span><span>Web API</span></div>
+        <div class="links"><a href="#" target="_blank">Code ↗</a></div>
+      </article>
+      <article class="proj reveal">
+        <div class="ico">🚀</div>
+        <h3>Project Three</h3>
+        <p>One or two lines describing the project, tech used, and impact / outcome.</p>
+        <div class="tags"><span>Azure</span><span>Docker</span></div>
+        <div class="links"><a href="#" target="_blank">Code ↗</a></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ══════════ EXPERIENCE ══════════ -->
+  <section id="experience">
+    <h2 class="title reveal">Work <span>Experience</span></h2>
+    <p class="subtitle reveal">My professional journey. <!-- EDIT: fill from your LinkedIn --></p>
+    <div class="timeline">
+      <div class="tl-item reveal">
+        <div class="role">Senior Software Developer</div>
+        <div class="co">Company Name</div>
+        <div class="date">20XX — Present</div>
+        <p>Key responsibilities and achievements. What you built, technologies used, and the impact you had.</p>
+      </div>
+      <div class="tl-item reveal">
+        <div class="role">Software Developer</div>
+        <div class="co">Company Name</div>
+        <div class="date">20XX — 20XX</div>
+        <p>Key responsibilities and achievements.</p>
+      </div>
+      <div class="tl-item reveal">
+        <div class="role">Education / Degree</div>
+        <div class="co">University Name</div>
+        <div class="date">20XX — 20XX</div>
+        <p>Your qualification and field of study.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ CONTACT ══════════ -->
+  <section id="contact" class="contact">
+    <div class="box reveal">
+      <h2>Let's Work <span style="color:var(--accent)">Together</span></h2>
+      <!-- EDIT: your email in the mailto below and the first social button -->
+      <p>Have a project in mind, a role to fill, or just want to connect? My inbox is always open.</p>
+      <div class="socials">
+        <a class="soc" href="mailto:your-email@example.com" title="Email">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5z"/></svg>
+        </a>
+        <a class="soc" href="https://www.linkedin.com/in/jaikrishna-p-s-27a49b19a/" target="_blank" rel="noopener" title="LinkedIn">
+          <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8.34 17V9.75H6V17h2.34zM7.17 8.7a1.36 1.36 0 1 0 0-2.72 1.36 1.36 0 0 0 0 2.72zM18 17v-4.17c0-2.23-1.19-3.27-2.78-3.27-1.28 0-1.86.7-2.18 1.2V9.75h-2.34V17h2.34v-3.86c0-.2.01-.41.07-.56.17-.41.54-.84 1.17-.84.83 0 1.16.63 1.16 1.55V17H18z"/></svg>
+        </a>
+        <a class="soc" href="https://github.com/Jaikrishna22" target="_blank" rel="noopener" title="GitHub">
+          <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.22.66-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.6 9.6 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85v2.74c0 .27.16.57.67.48A10 10 0 0 0 22 12 10 10 0 0 0 12 2z"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © <span id="year"></span> Jaikrishna P S · Built with plain HTML &amp; CSS · Hosted on GitHub Pages
+  </footer>
+
+  <script>
+    // year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // theme toggle (persisted)
+    const root=document.documentElement, tBtn=document.getElementById('themeBtn');
+    const saved=localStorage.getItem('theme');
+    if(saved){root.setAttribute('data-theme',saved); tBtn.textContent = saved==='light'?'☀️':'🌙';}
+    tBtn.onclick=()=>{
+      const cur=root.getAttribute('data-theme')==='light'?'dark':'light';
+      root.setAttribute('data-theme',cur); localStorage.setItem('theme',cur);
+      tBtn.textContent = cur==='light'?'☀️':'🌙';
+    };
+
+    // mobile menu
+    const burger=document.getElementById('burger'), links=document.getElementById('navLinks');
+    burger.onclick=()=>links.classList.toggle('open');
+    links.querySelectorAll('a').forEach(a=>a.onclick=()=>links.classList.remove('open'));
+
+    // typing effect
+    const phrases=['Senior Software Developer','C# / .NET Backend Engineer','Databases & Distributed Systems','I build reliable enterprise software'];
+    const el=document.getElementById('typed'); let pi=0,ci=0,del=false;
+    (function type(){
+      const p=phrases[pi];
+      el.textContent = del ? p.slice(0,ci--) : p.slice(0,ci++);
+      if(!del && ci===p.length+1){del=true; setTimeout(type,1400); return;}
+      if(del && ci<0){del=false; ci=0; pi=(pi+1)%phrases.length;}
+      setTimeout(type, del?45:85);
+    })();
+
+    // scroll reveal
+    const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+    // active nav highlight
+    const secs=[...document.querySelectorAll('section[id],header[id]')];
+    const nav=[...document.querySelectorAll('.nav-links a')];
+    window.addEventListener('scroll',()=>{
+      let cur=''; secs.forEach(s=>{if(scrollY>=s.offsetTop-120)cur=s.id});
+      nav.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur));
+    });
+  </script>
+</body>
+</html>

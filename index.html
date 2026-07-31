@@ -55,6 +55,14 @@
     /* HERO */
     .hero{min-height:92vh; display:flex; flex-direction:column; justify-content:center;
       max-width:1080px; margin:0 auto; padding:24px; position:relative}
+    .hero-inner{display:grid; grid-template-columns:1.25fr .75fr; gap:40px; align-items:center; width:100%}
+    .hero-photo{justify-self:center}
+    .avatar-ring{width:300px; height:300px; border-radius:50%; padding:6px;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      box-shadow:0 20px 50px rgba(108,99,255,.35); display:grid; place-items:center}
+    .avatar-ring img{width:100%; height:100%; border-radius:50%; object-fit:cover; display:block}
+    .avatar-ring span{width:100%; height:100%; border-radius:50%; display:grid; place-items:center;
+      background:var(--bg-soft); font-size:5.5rem; font-weight:800; color:var(--accent); letter-spacing:2px}
     .hero .eyebrow{color:var(--accent); font-weight:700; letter-spacing:2px;
       text-transform:uppercase; font-size:.85rem; margin-bottom:16px}
     .hero h1{font-size:clamp(2.4rem,7vw,4.6rem); font-weight:900; line-height:1.05;
@@ -150,6 +158,11 @@
       .nav-links.open{transform:none}
       .burger{display:block;z-index:60}
       .about-grid{grid-template-columns:1fr}
+      .hero-inner{grid-template-columns:1fr; text-align:center; gap:28px}
+      .hero-photo{order:-1}
+      .avatar-ring{width:190px; height:190px}
+      .avatar-ring span{font-size:3.4rem}
+      .cta{justify-content:center}
     }
   </style>
 </head>
@@ -173,15 +186,24 @@
 
   <!-- ══════════ HERO ══════════ -->
   <header class="hero" id="home">
-    <div class="reveal show">
-      <p class="eyebrow">👋 Hello, I'm</p>
-      <h1>Jaikrishna <span class="grad">P S</span></h1>
-      <p class="role"><span class="type" id="typed"></span></p>
-      <p class="lead">Senior Software Engineer with <strong style="color:var(--text)">8+ years</strong> building enterprise software — specialising in <strong style="color:var(--text)">Disaster Recovery &amp; Business Continuity</strong> automation and full-stack <strong style="color:var(--text)">.NET, Angular &amp; React</strong> development. I turn complex requirements into reliable systems with minimal downtime.</p>
-      <div class="cta">
-        <a href="#projects" class="btn btn-primary">View My Work →</a>
-        <a href="mailto:jaikrishnabe95@gmail.com" class="btn btn-ghost">✉️ Get in Touch</a>
-        <a href="https://www.linkedin.com/in/jaikrishna-p-s-27a49b19a/" target="_blank" rel="noopener" class="btn btn-ghost">in&nbsp; LinkedIn</a>
+    <div class="hero-inner">
+      <div class="hero-text reveal show">
+        <p class="eyebrow">👋 Hello, I'm</p>
+        <h1>Jaikrishna <span class="grad">P S</span></h1>
+        <p class="role"><span class="type" id="typed"></span></p>
+        <p class="lead">Senior Software Engineer with <strong style="color:var(--text)">8+ years</strong> building enterprise software — specialising in <strong style="color:var(--text)">Disaster Recovery &amp; Business Continuity</strong> automation and full-stack <strong style="color:var(--text)">.NET, Angular &amp; React</strong> development. I turn complex requirements into reliable systems with minimal downtime.</p>
+        <div class="cta">
+          <a href="#projects" class="btn btn-primary">View My Work →</a>
+          <a href="mailto:jaikrishnabe95@gmail.com" class="btn btn-ghost">✉️ Get in Touch</a>
+          <a href="https://www.linkedin.com/in/jaikrishna-p-s-27a49b19a/" target="_blank" rel="noopener" class="btn btn-ghost">in&nbsp; LinkedIn</a>
+        </div>
+      </div>
+      <div class="hero-photo reveal show">
+        <div class="avatar-ring">
+          <!-- 📸 PHOTO: when you send a headshot, replace the <span>JP</span> line below with:
+               <img src="assets/profile.jpg" alt="Jaikrishna P S"> -->
+          <span>JP</span>
+        </div>
       </div>
     </div>
     <div class="scroll-hint">SCROLL ↓</div>

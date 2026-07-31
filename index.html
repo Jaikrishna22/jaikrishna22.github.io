@@ -4,17 +4,14 @@
    PORTFOLIO WEBSITE  ·  Jaikrishna P S
    Hosts free at:  https://jaikrishna22.github.io
    (repo must be named  jaikrishna22.github.io )
-
-   ✏️  EDIT anything marked  <!-- EDIT -->  with your real info.
-       Search this file for "EDIT" to find every spot.
   ══════════════════════════════════════════════════════════════════
 -->
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jaikrishna P S · Senior Software Developer</title>
-  <meta name="description" content="Jaikrishna P S — Senior Software Developer specialising in C#/.NET backend, distributed systems and enterprise platforms." />
+  <title>Jaikrishna P S · Disaster Recovery Specialist & Full-Stack Developer</title>
+  <meta name="description" content="Jaikrishna P S — Senior Software Engineer with 8+ years in Disaster Recovery, BCP/ITDR and full-stack .NET / Angular / React development." />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍💻</text></svg>" />
   <style>
     :root{
@@ -40,11 +37,8 @@
     .subtitle{color:var(--muted); margin-bottom:48px; font-size:1.02rem}
 
     /* NAV */
-    nav{
-      position:sticky; top:0; z-index:50; backdrop-filter:blur(12px);
-      background:color-mix(in srgb, var(--bg) 78%, transparent);
-      border-bottom:1px solid var(--border);
-    }
+    nav{position:sticky; top:0; z-index:50; backdrop-filter:blur(12px);
+      background:color-mix(in srgb, var(--bg) 78%, transparent); border-bottom:1px solid var(--border)}
     .nav-inner{max-width:1080px; margin:0 auto; display:flex; align-items:center;
       justify-content:space-between; padding:16px 24px}
     .logo{font-weight:800; font-size:1.15rem; letter-spacing:.5px}
@@ -70,7 +64,7 @@
     .hero .role{font-size:clamp(1.1rem,3vw,1.6rem); color:var(--muted); font-weight:600;
       min-height:2em; margin-bottom:22px}
     .hero .role .type{color:var(--text); border-right:2px solid var(--accent); padding-right:4px}
-    .hero p.lead{max-width:620px; color:var(--muted); font-size:1.08rem; margin-bottom:36px}
+    .hero p.lead{max-width:640px; color:var(--muted); font-size:1.08rem; margin-bottom:36px}
     .cta{display:flex; gap:14px; flex-wrap:wrap}
     .btn{padding:13px 26px; border-radius:12px; font-weight:600; font-size:.98rem;
       display:inline-flex; align-items:center; gap:9px; transition:.25s; border:1px solid transparent}
@@ -89,7 +83,7 @@
     .facts{display:grid; gap:14px}
     .fact{background:var(--card); border:1px solid var(--border); border-radius:14px;
       padding:18px 20px; display:flex; gap:14px; align-items:center; box-shadow:var(--shadow)}
-    .fact .n{font-size:1.7rem; font-weight:800; color:var(--accent); line-height:1}
+    .fact .n{font-size:1.7rem; font-weight:800; color:var(--accent); line-height:1; white-space:nowrap}
     .fact .l{color:var(--muted); font-size:.9rem}
 
     /* SKILLS */
@@ -112,19 +106,16 @@
     .proj .ico{width:52px;height:52px;border-radius:13px;
       background:linear-gradient(135deg,var(--accent),var(--accent-2));
       display:grid;place-items:center;font-size:1.5rem;margin-bottom:18px}
-    .proj h3{font-size:1.2rem; margin-bottom:10px}
+    .proj h3{font-size:1.2rem; margin-bottom:4px}
+    .proj .meta{color:var(--accent); font-size:.82rem; font-weight:600; margin-bottom:12px}
     .proj p{color:var(--muted); font-size:.95rem; margin-bottom:18px; flex:1}
-    .proj .tags{display:flex; flex-wrap:wrap; gap:7px; margin-bottom:18px}
+    .proj .tags{display:flex; flex-wrap:wrap; gap:7px}
     .proj .tags span{font-size:.78rem; color:var(--accent); background:color-mix(in srgb,var(--accent) 14%,transparent);
       padding:4px 10px; border-radius:6px; font-weight:600}
-    .proj .links{display:flex; gap:16px; font-size:.9rem; font-weight:600}
-    .proj .links a{color:var(--accent); display:inline-flex; gap:6px; align-items:center}
-    .proj .links a:hover{text-decoration:underline}
 
     /* EXPERIENCE */
     .timeline{position:relative; max-width:760px; margin:0 auto; padding-left:32px}
-    .timeline::before{content:""; position:absolute; left:7px; top:6px; bottom:6px;
-      width:2px; background:var(--border)}
+    .timeline::before{content:""; position:absolute; left:7px; top:6px; bottom:6px; width:2px; background:var(--border)}
     .tl-item{position:relative; padding-bottom:36px}
     .tl-item::before{content:""; position:absolute; left:-32px; top:5px; width:16px; height:16px;
       border-radius:50%; background:var(--accent); border:3px solid var(--bg)}
@@ -147,10 +138,8 @@
     .soc svg{width:22px;height:22px;fill:var(--text)}
     .soc:hover svg{fill:#fff}
 
-    footer{text-align:center; padding:36px 24px; color:var(--muted); font-size:.9rem;
-      border-top:1px solid var(--border)}
+    footer{text-align:center; padding:36px 24px; color:var(--muted); font-size:.9rem; border-top:1px solid var(--border)}
 
-    /* reveal animation */
     .reveal{opacity:0; transform:translateY(30px); transition:.7s cubic-bezier(.2,.7,.3,1)}
     .reveal.show{opacity:1; transform:none}
 
@@ -188,12 +177,10 @@
       <p class="eyebrow">👋 Hello, I'm</p>
       <h1>Jaikrishna <span class="grad">P S</span></h1>
       <p class="role"><span class="type" id="typed"></span></p>
-      <!-- EDIT: this intro paragraph -->
-      <p class="lead">Senior Software Developer building reliable <strong style="color:var(--text)">backend services, workflow engines and enterprise platforms</strong> with C# / .NET. I care about clean architecture, solid data layers, and software that just keeps running.</p>
+      <p class="lead">Senior Software Engineer with <strong style="color:var(--text)">8+ years</strong> building enterprise software — specialising in <strong style="color:var(--text)">Disaster Recovery &amp; Business Continuity</strong> automation and full-stack <strong style="color:var(--text)">.NET, Angular &amp; React</strong> development. I turn complex requirements into reliable systems with minimal downtime.</p>
       <div class="cta">
         <a href="#projects" class="btn btn-primary">View My Work →</a>
-        <!-- EDIT: add your resume PDF to this repo and update the href, or delete this button -->
-        <a href="#" class="btn btn-ghost">📄 Résumé</a>
+        <a href="mailto:jaikrishnabe95@gmail.com" class="btn btn-ghost">✉️ Get in Touch</a>
         <a href="https://www.linkedin.com/in/jaikrishna-p-s-27a49b19a/" target="_blank" rel="noopener" class="btn btn-ghost">in&nbsp; LinkedIn</a>
       </div>
     </div>
@@ -203,19 +190,18 @@
   <!-- ══════════ ABOUT ══════════ -->
   <section id="about">
     <h2 class="title reveal">About <span>Me</span></h2>
-    <p class="subtitle reveal">A little background on who I am and how I work.</p>
+    <p class="subtitle reveal">Chennai, Tamil Nadu, India · Senior Software Engineer @ Perpetuuiti Technosoft</p>
     <div class="about-grid">
       <div class="about-text reveal">
-        <!-- EDIT: rewrite these paragraphs in your own words -->
-        <p>I'm a <strong>Senior Software Developer</strong> with a focus on backend engineering — designing and building the services, data layers and orchestration logic that power enterprise systems.</p>
-        <p>My day-to-day sits around <strong>C# / .NET</strong>, <strong>Entity Framework Core</strong> and relational databases across SQL Server, MySQL, PostgreSQL and Oracle. I enjoy problems involving <strong>reliability, workflow automation and multi-system integration</strong>.</p>
-        <p>I care about writing code that's maintainable, well-tested and honest about its trade-offs. When I'm not coding, I'm <!-- EDIT -->learning about cloud architecture and system design.</p>
+        <p>I'm a self-motivated IT professional with <strong>8+ years</strong> of proven experience across the <strong>.NET</strong> and <strong>Angular/React</strong> stacks, building secure, user-friendly web applications and enterprise tools.</p>
+        <p>My core specialisation is <strong>Disaster Recovery (DR), Business Continuity Planning (BCP) and IT Disaster Recovery (ITDR)</strong> — I design, implement and automate DR solutions for enterprise clients across <strong>Telecom, Banking, Financial Services, Insurance and Retail</strong>. That includes hands-on <strong>failover, switchover and switchback drills</strong> tuned to strict RTO/RPO targets, across operating systems, databases, virtualization, cloud, storage, networking and replication technologies.</p>
+        <p>I like breaking complex requirements into clean architectural components, practise <strong>test-driven development</strong>, and enjoy <strong>leading mixed teams</strong> of junior and senior engineers through end-to-end delivery, code reviews and architecture decisions.</p>
       </div>
       <div class="facts reveal">
-        <!-- EDIT: real numbers -->
-        <div class="fact"><span class="n">5+</span><span class="l">Years building<br>software</span></div>
-        <div class="fact"><span class="n">.NET</span><span class="l">Backend &amp; enterprise<br>specialist</span></div>
-        <div class="fact"><span class="n">4</span><span class="l">Database engines<br>worked with</span></div>
+        <div class="fact"><span class="n">8+</span><span class="l">Years of<br>experience</span></div>
+        <div class="fact"><span class="n">DR·BCP</span><span class="l">ITDR &amp; automation<br>specialist</span></div>
+        <div class="fact"><span class="n">Full-Stack</span><span class="l">.NET · Angular · React<br>end to end</span></div>
+        <div class="fact"><span class="n">5+</span><span class="l">Database engines<br>worked with</span></div>
       </div>
     </div>
   </section>
@@ -223,23 +209,31 @@
   <!-- ══════════ SKILLS ══════════ -->
   <section id="skills">
     <h2 class="title reveal">Tech <span>Stack</span></h2>
-    <p class="subtitle reveal">Tools and technologies I work with. <!-- EDIT: add/remove chips --></p>
+    <p class="subtitle reveal">Technologies I work with day to day.</p>
     <div class="skill-groups">
       <div class="skill-card reveal">
         <h3><span class="dot"></span>Languages</h3>
-        <div class="chips"><span class="chip">C#</span><span class="chip">SQL</span><span class="chip">PowerShell</span><span class="chip">JavaScript</span></div>
+        <div class="chips"><span class="chip">C#</span><span class="chip">TypeScript</span><span class="chip">JavaScript</span><span class="chip">SQL</span><span class="chip">PowerShell</span></div>
       </div>
       <div class="skill-card reveal">
-        <h3><span class="dot"></span>Frameworks</h3>
-        <div class="chips"><span class="chip">.NET</span><span class="chip">ASP.NET Core</span><span class="chip">EF Core</span><span class="chip">Web API</span></div>
+        <h3><span class="dot"></span>Frameworks &amp; Front-End</h3>
+        <div class="chips"><span class="chip">.NET</span><span class="chip">ASP.NET Core</span><span class="chip">ASP.NET MVC</span><span class="chip">Entity Framework</span><span class="chip">Angular</span><span class="chip">React.js</span></div>
       </div>
       <div class="skill-card reveal">
-        <h3><span class="dot"></span>Databases</h3>
-        <div class="chips"><span class="chip">SQL Server</span><span class="chip">MySQL</span><span class="chip">PostgreSQL</span><span class="chip">Oracle</span></div>
+        <h3><span class="dot"></span>Databases &amp; Cache</h3>
+        <div class="chips"><span class="chip">SQL Server</span><span class="chip">Oracle</span><span class="chip">PostgreSQL</span><span class="chip">MySQL</span><span class="chip">Redis</span></div>
       </div>
       <div class="skill-card reveal">
-        <h3><span class="dot"></span>Tools &amp; Cloud</h3>
-        <div class="chips"><span class="chip">Git</span><span class="chip">Docker</span><span class="chip">Azure</span><span class="chip">Visual Studio</span></div>
+        <h3><span class="dot"></span>Cloud &amp; DevOps</h3>
+        <div class="chips"><span class="chip">Azure</span><span class="chip">AWS</span><span class="chip">Azure DevOps</span><span class="chip">Docker</span><span class="chip">Git</span><span class="chip">SonarQube</span></div>
+      </div>
+      <div class="skill-card reveal">
+        <h3><span class="dot"></span>DR / Infrastructure</h3>
+        <div class="chips"><span class="chip">DR · BCP · ITDR</span><span class="chip">Replication</span><span class="chip">Virtualization</span><span class="chip">Storage</span><span class="chip">Networking</span><span class="chip">WMI / SSH</span></div>
+      </div>
+      <div class="skill-card reveal">
+        <h3><span class="dot"></span>Practices</h3>
+        <div class="chips"><span class="chip">TDD</span><span class="chip">Microservices</span><span class="chip">Code Review</span><span class="chip">Team Leadership</span><span class="chip">Agile Delivery</span></div>
       </div>
     </div>
   </section>
@@ -247,28 +241,35 @@
   <!-- ══════════ PROJECTS ══════════ -->
   <section id="projects">
     <h2 class="title reveal">Featured <span>Projects</span></h2>
-    <p class="subtitle reveal">A selection of things I've built. <!-- EDIT: replace all 3 with real projects --></p>
+    <p class="subtitle reveal">Enterprise systems I've designed and built.</p>
     <div class="projects">
       <article class="proj reveal">
-        <div class="ico">⚙️</div>
-        <h3>Project One</h3>
-        <p>One or two lines on what this project does, the problem it solves, and your role in building it.</p>
-        <div class="tags"><span>C#</span><span>.NET</span><span>SQL</span></div>
-        <div class="links"><a href="#" target="_blank">Code ↗</a><a href="#" target="_blank">Live ↗</a></div>
+        <div class="ico">🛡️</div>
+        <h3>Continuity Patrol</h3>
+        <div class="meta">Perpetuuiti Technosoft · Design &amp; Development · Team 30+</div>
+        <p>Enterprise Disaster Recovery &amp; Business Continuity automation platform. Auto-discovers application infrastructure and interdependencies, enables single-click switchover/switchback, and drives failover drills with real-time RTO/RPO dashboards to minimise data loss and downtime.</p>
+        <div class="tags"><span>.NET</span><span>SQL</span><span>Oracle</span><span>PowerShell</span><span>WMI/SSH</span></div>
       </article>
       <article class="proj reveal">
-        <div class="ico">🗄️</div>
-        <h3>Project Two</h3>
-        <p>One or two lines describing the project, tech used, and impact / outcome.</p>
-        <div class="tags"><span>EF Core</span><span>Web API</span></div>
-        <div class="links"><a href="#" target="_blank">Code ↗</a></div>
+        <div class="ico">📄</div>
+        <h3>Contract Builder (CMT)</h3>
+        <div class="meta">Elevondata · Senior Software Engineer</div>
+        <p>A Content Management Tool for dynamically assembling contracts from boilerplates, parameters and validation rules. Full versioning with snapshots &amp; hotfixes, a release center for the latest ready version, cross-environment transport with data-consistency guarantees, and multi-language templates (EN/DE/DA/FR).</p>
+        <div class="tags"><span>.NET</span><span>Entity Framework</span><span>SQL</span><span>Background Jobs</span></div>
       </article>
       <article class="proj reveal">
-        <div class="ico">🚀</div>
-        <h3>Project Three</h3>
-        <p>One or two lines describing the project, tech used, and impact / outcome.</p>
-        <div class="tags"><span>Azure</span><span>Docker</span></div>
-        <div class="links"><a href="#" target="_blank">Code ↗</a></div>
+        <div class="ico">🏧</div>
+        <h3>ATM Service CRM + TSS</h3>
+        <div class="meta">Cogent Innovations · Software Engineer</div>
+        <p>An ATM uptime &amp; service-request management platform for banks — follow-ups, dispatch, re-allocation and image attachments. Integrated a Ticket Synchronization System (TSS) as middleware to relay complaint calls between the in-house and vendor CRMs, with a customer portal for live status.</p>
+        <div class="tags"><span>ASP.NET</span><span>MVC</span><span>SQL Server</span></div>
+      </article>
+      <article class="proj reveal">
+        <div class="ico">🧾</div>
+        <h3>Textile Billing System</h3>
+        <div class="meta">Kaizen Technosoft · Junior Software Developer</div>
+        <p>A billing &amp; inventory application for textile retailers — captures vendor and customer information, monitors stock availability, and generates weekly, monthly and yearly reports on purchases and sales.</p>
+        <div class="tags"><span>.NET</span><span>SQL</span><span>Reporting</span></div>
       </article>
     </div>
   </section>
@@ -276,25 +277,49 @@
   <!-- ══════════ EXPERIENCE ══════════ -->
   <section id="experience">
     <h2 class="title reveal">Work <span>Experience</span></h2>
-    <p class="subtitle reveal">My professional journey. <!-- EDIT: fill from your LinkedIn --></p>
+    <p class="subtitle reveal">8+ years across DR automation, full-stack product and enterprise development.</p>
     <div class="timeline">
       <div class="tl-item reveal">
-        <div class="role">Senior Software Developer</div>
-        <div class="co">Company Name</div>
-        <div class="date">20XX — Present</div>
-        <p>Key responsibilities and achievements. What you built, technologies used, and the impact you had.</p>
+        <div class="role">Senior Software Engineer</div>
+        <div class="co">Perpetuuiti Technosoft PTE LTD · Chennai</div>
+        <div class="date">Feb 2025 — Present</div>
+        <p>Designing and developing <strong>Continuity Patrol</strong>, an enterprise DR/BCP automation platform (team 30+). DR/BCP/ITDR consulting across Telecom, Banking, Financial Services, Insurance &amp; Retail — auto-discovery, single-click switchover/switchback, and RTO/RPO-driven recovery drills.</p>
+      </div>
+      <div class="tl-item reveal">
+        <div class="role">Senior Software Engineer</div>
+        <div class="co">Elevondata · Gurgaon</div>
+        <div class="date">Dec 2022 — Aug 2024</div>
+        <p>Built <strong>Contract Builder / CMT</strong> — a dynamic contract-templating platform with versioning, snapshots, a release center, cross-environment transport and multi-language support, backed by background job services.</p>
+      </div>
+      <div class="tl-item reveal">
+        <div class="role">Software Engineer</div>
+        <div class="co">Schawk! · Chennai</div>
+        <div class="date">Aug 2022 — Nov 2022</div>
+        <p>Contributed to software development within a fast-paced production environment.</p>
       </div>
       <div class="tl-item reveal">
         <div class="role">Software Developer</div>
-        <div class="co">Company Name</div>
-        <div class="date">20XX — 20XX</div>
-        <p>Key responsibilities and achievements.</p>
+        <div class="co">Perpetuuiti Technosoft PTE LTD · Chennai</div>
+        <div class="date">Feb 2021 — Jul 2022</div>
+        <p>Developed on <strong>Continuity Patrol</strong>, the DR automation tool — configuring primary/DR sites, connecting client servers via WMI/SSH/PowerShell, and executing switchover/switchback drills within client RTO/RPO windows with dashboard monitoring.</p>
       </div>
       <div class="tl-item reveal">
-        <div class="role">Education / Degree</div>
-        <div class="co">University Name</div>
-        <div class="date">20XX — 20XX</div>
-        <p>Your qualification and field of study.</p>
+        <div class="role">Software Engineer</div>
+        <div class="co">Cogent Innovations Pvt Ltd · Chennai</div>
+        <div class="date">Sep 2019 — Nov 2020</div>
+        <p>Built an ATM uptime &amp; service-request CRM for banks with ticket synchronization (TSS) middleware between customer and vendor CRMs, plus field-activity and image-attachment workflows.</p>
+      </div>
+      <div class="tl-item reveal">
+        <div class="role">Junior Software Developer</div>
+        <div class="co">Kaizen Technosoft · Chennai</div>
+        <div class="date">Jun 2018 — Sep 2019</div>
+        <p>Developed a billing &amp; inventory application for textile shops with vendor/customer management and periodic purchase/sales reporting.</p>
+      </div>
+      <div class="tl-item reveal">
+        <div class="role">B.E. — Electrical, Electronics &amp; Communications Engineering</div>
+        <div class="co">King College of Technology</div>
+        <div class="date">2012 — 2016</div>
+        <p>Bachelor of Engineering.</p>
       </div>
     </div>
   </section>
@@ -303,10 +328,9 @@
   <section id="contact" class="contact">
     <div class="box reveal">
       <h2>Let's Work <span style="color:var(--accent)">Together</span></h2>
-      <!-- EDIT: your email in the mailto below and the first social button -->
-      <p>Have a project in mind, a role to fill, or just want to connect? My inbox is always open.</p>
+      <p>Have a project in mind, a role to fill, or a DR/BCP challenge to solve? My inbox is always open.</p>
       <div class="socials">
-        <a class="soc" href="mailto:your-email@example.com" title="Email">
+        <a class="soc" href="mailto:jaikrishnabe95@gmail.com" title="Email">
           <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5z"/></svg>
         </a>
         <a class="soc" href="https://www.linkedin.com/in/jaikrishna-p-s-27a49b19a/" target="_blank" rel="noopener" title="LinkedIn">
@@ -320,14 +344,12 @@
   </section>
 
   <footer>
-    © <span id="year"></span> Jaikrishna P S · Built with plain HTML &amp; CSS · Hosted on GitHub Pages
+    © <span id="year"></span> Jaikrishna P S · Chennai, India · Built with plain HTML &amp; CSS · Hosted on GitHub Pages
   </footer>
 
   <script>
-    // year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // theme toggle (persisted)
     const root=document.documentElement, tBtn=document.getElementById('themeBtn');
     const saved=localStorage.getItem('theme');
     if(saved){root.setAttribute('data-theme',saved); tBtn.textContent = saved==='light'?'☀️':'🌙';}
@@ -337,13 +359,11 @@
       tBtn.textContent = cur==='light'?'☀️':'🌙';
     };
 
-    // mobile menu
     const burger=document.getElementById('burger'), links=document.getElementById('navLinks');
     burger.onclick=()=>links.classList.toggle('open');
     links.querySelectorAll('a').forEach(a=>a.onclick=()=>links.classList.remove('open'));
 
-    // typing effect
-    const phrases=['Senior Software Developer','C# / .NET Backend Engineer','Databases & Distributed Systems','I build reliable enterprise software'];
+    const phrases=['Senior Software Engineer','Disaster Recovery & BCP Specialist','Full-Stack .NET Developer','Angular & React Front-End','Cloud, Automation & Replication'];
     const el=document.getElementById('typed'); let pi=0,ci=0,del=false;
     (function type(){
       const p=phrases[pi];
@@ -353,11 +373,9 @@
       setTimeout(type, del?45:85);
     })();
 
-    // scroll reveal
     const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.12});
     document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-    // active nav highlight
     const secs=[...document.querySelectorAll('section[id],header[id]')];
     const nav=[...document.querySelectorAll('.nav-links a')];
     window.addEventListener('scroll',()=>{

@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TNPSC British English vs American English - 500 Vocabulary Differences</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --success-color: #27ae60;
+            --warning-color: #f39c12;
+            --light-bg: #ecf0f1;
+            --white: #ffffff;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --border-color: #bdc3c7;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: var(--text-dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--white);
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        header .flags {
+            font-size: 3em;
+            margin: 15px 0;
+            letter-spacing: 20px;
+        }
+
+        header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 15px auto;
+        }
+
+        .controls {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 25px;
+            background: var(--light-bg);
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 250px;
+            max-width: 400px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid var(--secondary-color);
+            border-radius: 6px;
+            font-size: 1em;
+            transition: all 0.3s ease;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 8px rgba(52, 152, 219, 0.3);
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 10px 18px;
+            border: 2px solid var(--secondary-color);
+            background: var(--white);
+            color: var(--secondary-color);
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.95em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--secondary-color);
+            color: var(--white);
+        }
+
+        .stats {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            padding: 20px;
+            background: var(--light-bg);
+            border-bottom: 1px solid var(--border-color);
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            color: var(--text-light);
+            margin-top: 5px;
+        }
+
+        .content {
+            padding: 30px;
+            max-height: 800px;
+            overflow-y: auto;
+        }
+
+        .vocabulary-item {
+            background: var(--white);
+            border-left: 5px solid var(--secondary-color);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 6px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .vocabulary-item:hover {
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .vocab-number {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: var(--white);
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 35px;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 0.9em;
+        }
+
+        .vocab-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            gap: 10px;
+        }
+
+        .vocab-title {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .vocab-flag {
+            font-size: 1.5em;
+        }
+
+        .vocab-body {
+            margin-left: 45px;
+        }
+
+        .vocab-pair {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 15px 0;
+        }
+
+        .british, .american {
+            padding: 15px;
+            border-radius: 6px;
+            font-size: 0.95em;
+        }
+
+        .british {
+            background: rgba(52, 152, 219, 0.1);
+            border-left: 4px solid #3498db;
+        }
+
+        .american {
+            background: rgba(231, 76, 60, 0.1);
+            border-left: 4px solid #e74c3c;
+        }
+
+        .vocab-label {
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 0.9em;
+            margin-bottom: 5px;
+        }
+
+        .vocab-word {
+            font-size: 1.2em;
+            font-weight: 700;
+            color: var(--secondary-color);
+            font-style: italic;
+        }
+
+        .american .vocab-word {
+            color: var(--accent-color);
+        }
+
+        .vocab-meaning {
+            background: var(--light-bg);
+            padding: 12px;
+            border-radius: 5px;
+            margin: 12px 0;
+            font-size: 0.95em;
+            color: var(--text-dark);
+            border-left: 3px solid var(--warning-color);
+        }
+
+        .vocab-examples {
+            margin: 15px 0;
+            padding: 12px;
+            background: rgba(39, 174, 96, 0.05);
+            border-radius: 5px;
+            border-left: 3px solid var(--success-color);
+        }
+
+        .example-label {
+            font-weight: 600;
+            color: var(--success-color);
+            font-size: 0.9em;
+            margin-bottom: 8px;
+        }
+
+        .example {
+            padding: 8px;
+            margin: 8px 0;
+            font-style: italic;
+            color: var(--text-dark);
+        }
+
+        .trap-box, .memory-box, .priority-box {
+            padding: 12px;
+            margin: 12px 0;
+            border-radius: 5px;
+            font-size: 0.9em;
+        }
+
+        .trap-box {
+            background: rgba(231, 76, 60, 0.1);
+            border-left: 4px solid var(--accent-color);
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        .memory-box {
+            background: rgba(52, 152, 219, 0.1);
+            border-left: 4px solid var(--secondary-color);
+            color: var(--secondary-color);
+        }
+
+        .priority-box {
+            background: rgba(243, 156, 18, 0.1);
+            border-left: 4px solid var(--warning-color);
+            color: var(--warning-color);
+            font-weight: 600;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-light);
+            font-size: 1.1em;
+        }
+
+        footer {
+            background: var(--light-bg);
+            padding: 20px;
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.9em;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .print-btn, .download-btn {
+            padding: 10px 20px;
+            background: var(--success-color);
+            color: var(--white);
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-left: 10px;
+        }
+
+        .print-btn:hover, .download-btn:hover {
+            background: #229954;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .vocab-pair {
+                grid-template-columns: 1fr;
+            }
+
+            .controls {
+                flex-direction: column;
+            }
+
+            .search-box {
+                max-width: 100%;
+            }
+
+            .filter-buttons {
+                justify-content: center;
+            }
+
+            .content {
+                max-height: none;
+            }
+        }
+
+        @print {
+            body {
+                background: var(--white);
+            }
+            .controls {
+                display: none;
+            }
+            .print-btn, .download-btn {
+                display: none;
+            }
+            .vocabulary-item {
+                page-break-inside: avoid;
+            }
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--light-bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--secondary-color);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>TNPSC General English</h1>
+            <div class="flags">🇬🇧 ↔️ 🇺🇸</div>
+            <p><strong>British English vs American English</strong></p>
+            <p>500 Vocabulary Differences with Examples & TNPSC Exam Focus</p>
+            <p style="font-size: 0.9em; margin-top: 15px;"><em>"Learn → Visualise → Remember → Score"</em></p>
+        </header>
+
+        <div class="controls">
+            <div class="search-box">
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="🔍 Search vocabulary (British or American)..."
+                    autocomplete="off"
+                >
+            </div>
+            <div class="filter-buttons">
+                <button class="filter-btn active" onclick="filterByPriority('all')">All</button>
+                <button class="filter-btn" onclick="filterByPriority('high')">🔥 High Priority</button>
+                <button class="filter-btn" onclick="filterByPriority('trap')">⭐ TNPSC Trap</button>
+            </div>
+            <button class="print-btn" onclick="window.print()">🖨️ Print</button>
+        </div>
+
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-number" id="totalCount">150+</div>
+                <div class="stat-label">Vocabulary Pairs</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">📚</div>
+                <div class="stat-label">TNPSC Exam Focused</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">🎯</div>
+                <div class="stat-label">Study Ready</div>
+            </div>
+        </div>
+
+        <div class="content" id="vocabularyContainer">
+            <!-- Content will be loaded here by JavaScript -->
+        </div>
+
+        <footer>
+            <p>📖 TNPSC British English vs American English Study Material | Last Updated: 2026</p>
+            <p>Perfect for TNPSC Group 1, Group 2/2A, and other competitive exams</p>
+        </footer>
+    </div>
+
+    <script>
+        // Vocabulary Data
+        const vocabularyData = [
+            {
+                num: "001",
+                british: "Lift",
+                american: "Elevator",
+                meaning: "A machine used to carry people between floors of a building.",
+                exBritish: "I took the lift to the fifth floor.",
+                exAmerican: "I took the elevator to the fifth floor.",
+                priority: "high",
+                trap: false,
+                memory: "Lift = British | Elevator = American"
+            },
+            {
+                num: "002",
+                british: "Flat",
+                american: "Apartment",
+                meaning: "A self-contained housing unit within a larger building.",
+                exBritish: "She lives in a flat in London.",
+                exAmerican: "She lives in an apartment in New York.",
+                priority: "high",
+                trap: false,
+                memory: "Flat = British | Apartment = American"
+            },
+            {
+                num: "003",
+                british: "Lorry",
+                american: "Truck",
+                meaning: "A large vehicle used for carrying heavy goods.",
+                exBritish: "The lorry delivered the packages.",
+                exAmerican: "The truck delivered the packages.",
+                priority: "high",
+                trap: false,
+                memory: "Lorry = British | Truck = American"
+            },
+            {
+                num: "004",
+                british: "Petrol",
+                american: "Gasoline",
+                meaning: "Fuel used to power cars and vehicles.",
+                exBritish: "We need to fill up with petrol.",
+                exAmerican: "We need to fill up with gasoline.",
+                priority: "high",
+                trap: false,
+                memory: "Petrol = British | Gasoline = American"
+            },
+            {
+                num: "005",
+                british: "Holiday",
+                american: "Vacation",
+                meaning: "A period of time away from work for rest and travel.",
+                exBritish: "I'm taking a holiday next month.",
+                exAmerican: "I'm taking a vacation next month.",
+                priority: "high",
+                trap: true,
+                memory: "Holiday = British | Vacation = American"
+            },
+            {
+                num: "006",
+                british: "Biscuit",
+                american: "Cookie",
+                meaning: "A small, sweet, crispy baked item.",
+                exBritish: "Would you like a biscuit with your tea?",
+                exAmerican: "Would you like a cookie with your coffee?",
+                priority: "medium",
+                trap: true,
+                memory: "Biscuit (sweet) = British | Cookie = American"
+            },
+            {
+                num: "007",
+                british: "Sweets",
+                american: "Candy",
+                meaning: "Small items of confectionery/sugar-based treats.",
+                exBritish: "The children were eating sweets.",
+                exAmerican: "The children were eating candy.",
+                priority: "medium",
+                trap: false,
+                memory: "Sweets = British | Candy = American"
+            },
+            {
+                num: "008",
+                british: "Trousers",
+                american: "Pants",
+                meaning: "A garment covering both legs.",
+                exBritish: "He wore black trousers.",
+                exAmerican: "He wore black pants.",
+                priority: "high",
+                trap: true,
+                memory: "Trousers = British | Pants = American (full leg garment)"
+            },
+            {
+                num: "009",
+                british: "Trainers",
+                american: "Sneakers",
+                meaning: "Soft, casual shoes worn for sports or everyday comfort.",
+                exBritish: "I wear trainers to the gym.",
+                exAmerican: "I wear sneakers to the gym.",
+                priority: "high",
+                trap: false,
+                memory: "Trainers = British | Sneakers = American"
+            },
+            {
+                num: "010",
+                british: "Underground",
+                american: "Subway",
+                meaning: "A rapid transit system running below street level.",
+                exBritish: "I took the underground to work.",
+                exAmerican: "I took the subway to work.",
+                priority: "high",
+                trap: false,
+                memory: "Underground = British | Subway = American"
+            },
+            {
+                num: "011",
+                british: "Mobile phone",
+                american: "Cell phone",
+                meaning: "A portable wireless telephone device.",
+                exBritish: "My mobile phone is out of battery.",
+                exAmerican: "My cell phone is out of battery.",
+                priority: "high",
+                trap: false,
+                memory: "Mobile phone = British | Cell phone = American"
+            },
+            {
+                num: "012",
+                british: "Cinema",
+                american: "Movie theater",
+                meaning: "A venue where films are shown on a large screen.",
+                exBritish: "We went to the cinema on Saturday.",
+                exAmerican: "We went to the movie theater on Saturday.",
+                priority: "medium",
+                trap: false,
+                memory: "Cinema = British | Movie theater = American"
+            },
+            {
+                num: "013",
+                british: "Postbox",
+                american: "Mailbox",
+                meaning: "A container for posting mail/letters.",
+                exBritish: "I posted the letter in the postbox.",
+                exAmerican: "I posted the letter in the mailbox.",
+                priority: "medium",
+                trap: false,
+                memory: "Postbox = British | Mailbox = American"
+            },
+            {
+                num: "014",
+                british: "Queue",
+                american: "Line",
+                meaning: "A line of people waiting in order.",
+                exBritish: "There was a long queue at the bank.",
+                exAmerican: "There was a long line at the bank.",
+                priority: "high",
+                trap: false,
+                memory: "Queue = British | Line = American"
+            },
+            {
+                num: "015",
+                british: "Tap",
+                american: "Faucet",
+                meaning: "A device that controls the flow of water from a pipe.",
+                exBritish: "Turn off the tap.",
+                exAmerican: "Turn off the faucet.",
+                priority: "medium",
+                trap: false,
+                memory: "Tap = British | Faucet = American"
+            },
+            {
+                num: "016",
+                british: "Rubbish",
+                american: "Garbage",
+                meaning: "Waste material; things thrown away.",
+                exBritish: "Put the rubbish in the bin.",
+                exAmerican: "Put the garbage in the trash can.",
+                priority: "medium",
+                trap: false,
+                memory: "Rubbish = British | Garbage = American"
+            },
+            {
+                num: "017",
+                british: "Dustbin",
+                american: "Trash can",
+                meaning: "A container for holding waste/rubbish.",
+                exBritish: "The dustbin is full.",
+                exAmerican: "The trash can is full.",
+                priority: "medium",
+                trap: false,
+                memory: "Dustbin = British | Trash can = American"
+            },
+            {
+                num: "018",
+                british: "Ground floor",
+                american: "First floor",
+                meaning: "The lowest accessible level of a building.",
+                exBritish: "The shop is on the ground floor.",
+                exAmerican: "The shop is on the first floor.",
+                priority: "high",
+                trap: true,
+                memory: "Floor numbering is offset by one"
+            },
+            {
+                num: "019",
+                british: "Football",
+                american: "Soccer",
+                meaning: "A sport played with a ball and two teams.",
+                exBritish: "I play football on Saturdays.",
+                exAmerican: "I play soccer on Saturdays.",
+                priority: "high",
+                trap: true,
+                memory: "Football = British | Soccer = American"
+            },
+            {
+                num: "020",
+                british: "Pavement",
+                american: "Sidewalk",
+                meaning: "A paved walking path beside a street.",
+                exBritish: "The pavement was wet.",
+                exAmerican: "The sidewalk was wet.",
+                priority: "medium",
+                trap: false,
+                memory: "Pavement = British | Sidewalk = American"
+            },
+            {
+                num: "021",
+                british: "Chips",
+                american: "French fries",
+                meaning: "Fried strips of potato.",
+                exBritish: "Fish and chips.",
+                exAmerican: "Fish and French fries.",
+                priority: "high",
+                trap: true,
+                memory: "Chips (thick) = British | French fries = American"
+            },
+            {
+                num: "022",
+                british: "Crisps",
+                american: "Chips",
+                meaning: "Thin, crispy fried potato snacks.",
+                exBritish: "A packet of crisps.",
+                exAmerican: "A bag of chips.",
+                priority: "high",
+                trap: true,
+                memory: "Crisps (thin) = British | Chips (snack) = American"
+            },
+            {
+                num: "023",
+                british: "Shop",
+                american: "Store",
+                meaning: "A building where items are sold.",
+                exBritish: "I'm going to the shop.",
+                exAmerican: "I'm going to the store.",
+                priority: "high",
+                trap: false,
+                memory: "Shop = British | Store = American"
+            },
+            {
+                num: "024",
+                british: "Rubber",
+                american: "Eraser",
+                meaning: "A tool for removing pencil marks.",
+                exBritish: "Can I borrow your rubber?",
+                exAmerican: "Can I borrow your eraser?",
+                priority: "high",
+                trap: true,
+                memory: "Rubber = British | Eraser = American"
+            },
+            {
+                num: "025",
+                british: "Torch",
+                american: "Flashlight",
+                meaning: "A portable electric light.",
+                exBritish: "Bring a torch for the night hike.",
+                exAmerican: "Bring a flashlight for the night hike.",
+                priority: "medium",
+                trap: false,
+                memory: "Torch = British | Flashlight = American"
+            },
+            {
+                num: "026",
+                british: "Nappy",
+                american: "Diaper",
+                meaning: "Absorbent clothing for babies.",
+                exBritish: "The baby needs a nappy change.",
+                exAmerican: "The baby needs a diaper change.",
+                priority: "medium",
+                trap: false,
+                memory: "Nappy = British | Diaper = American"
+            },
+            {
+                num: "027",
+                british: "Pushchair",
+                american: "Stroller",
+                meaning: "A wheeled carriage for pushing a baby.",
+                exBritish: "Push the pushchair carefully.",
+                exAmerican: "Push the stroller carefully.",
+                priority: "medium",
+                trap: false,
+                memory: "Pushchair = British | Stroller = American"
+            },
+            {
+                num: "028",
+                british: "Rucksack",
+                american: "Backpack",
+                meaning: "A bag worn on the back for carrying items.",
+                exBritish: "Put the books in your rucksack.",
+                exAmerican: "Put the books in your backpack.",
+                priority: "high",
+                trap: false,
+                memory: "Rucksack = British | Backpack = American"
+            },
+            {
+                num: "029",
+                british: "Handbag",
+                american: "Purse",
+                meaning: "A bag carried in the hand or on the shoulder.",
+                exBritish: "She carries her keys in her handbag.",
+                exAmerican: "She carries her keys in her purse.",
+                priority: "high",
+                trap: true,
+                memory: "Handbag = British | Purse = American"
+            },
+            {
+                num: "030",
+                british: "To ring",
+                american: "To call",
+                meaning: "To contact someone by telephone.",
+                exBritish: "I'll ring you later.",
+                exAmerican: "I'll call you later.",
+                priority: "high",
+                trap: false,
+                memory: "Ring = British | Call = American"
+            },
+            {
+                num: "031",
+                british: "Note",
+                american: "Bill",
+                meaning: "A piece of paper money.",
+                exBritish: "Give me a £10 note.",
+                exAmerican: "Give me a $10 bill.",
+                priority: "medium",
+                trap: false,
+                memory: "Note = British | Bill = American"
+            },
+            {
+                num: "032",
+                british: "Chemist",
+                american: "Pharmacy",
+                meaning: "A shop selling medicines and health items.",
+                exBritish: "The chemist is closed.",
+                exAmerican: "The pharmacy is closed.",
+                priority: "high",
+                trap: false,
+                memory: "Chemist = British | Pharmacy = American"
+            },
+            {
+                num: "033",
+                british: "Solicitor",
+                american: "Lawyer",
+                meaning: "A legal professional who provides legal advice.",
+                exBritish: "Consult your solicitor.",
+                exAmerican: "Consult your lawyer.",
+                priority: "high",
+                trap: true,
+                memory: "Solicitor = British | Lawyer = American"
+            },
+            {
+                num: "034",
+                british: "Primary school",
+                american: "Elementary school",
+                meaning: "School for younger children (ages 5-11).",
+                exBritish: "He attends primary school.",
+                exAmerican: "He attends elementary school.",
+                priority: "high",
+                trap: false,
+                memory: "Primary = British | Elementary = American"
+            },
+            {
+                num: "035",
+                british: "Secondary school",
+                american: "High school",
+                meaning: "School for older children (ages 11-18).",
+                exBritish: "She goes to secondary school.",
+                exAmerican: "She goes to high school.",
+                priority: "high",
+                trap: false,
+                memory: "Secondary = British | High school = American"
+            },
+            {
+                num: "036",
+                british: "Form",
+                american: "Grade",
+                meaning: "A year group in school.",
+                exBritish: "I'm in Form 4.",
+                exAmerican: "I'm in Grade 8.",
+                priority: "high",
+                trap: false,
+                memory: "Form = British | Grade = American"
+            },
+            {
+                num: "037",
+                british: "Mark",
+                american: "Grade",
+                meaning: "A score or letter showing performance.",
+                exBritish: "What mark did you get?",
+                exAmerican: "What grade did you get?",
+                priority: "high",
+                trap: false,
+                memory: "Mark = British | Grade = American"
+            },
+            {
+                num: "038",
+                british: "Headmaster",
+                american: "Principal",
+                meaning: "The head of a school.",
+                exBritish: "The headmaster announced the results.",
+                exAmerican: "The principal announced the results.",
+                priority: "high",
+                trap: false,
+                memory: "Headmaster = British | Principal = American"
+            },
+            {
+                num: "039",
+                british: "Break time",
+                american: "Recess",
+                meaning: "A short period between classes.",
+                exBritish: "Let's play at break time.",
+                exAmerican: "Let's play at recess.",
+                priority: "medium",
+                trap: false,
+                memory: "Break time = British | Recess = American"
+            },
+            {
+                num: "040",
+                british: "Tyre",
+                american: "Tire",
+                meaning: "The rubber covering on a wheel.",
+                exBritish: "The tyre is punctured.",
+                exAmerican: "The tire is flat.",
+                priority: "high",
+                trap: false,
+                memory: "Tyre = British | Tire = American"
+            },
+            {
+                num: "041",
+                british: "Boot",
+                american: "Trunk",
+                meaning: "The storage compartment at the back of a car.",
+                exBritish: "Put the suitcase in the boot.",
+                exAmerican: "Put the suitcase in the trunk.",
+                priority: "high",
+                trap: false,
+                memory: "Boot = British | Trunk = American"
+            },
+            {
+                num: "042",
+                british: "Bonnet",
+                american: "Hood",
+                meaning: "The hinged cover over a car's engine.",
+                exBritish: "Open the bonnet to check the oil.",
+                exAmerican: "Open the hood to check the oil.",
+                priority: "high",
+                trap: false,
+                memory: "Bonnet = British | Hood = American"
+            },
+            {
+                num: "043",
+                british: "Windscreen",
+                american: "Windshield",
+                meaning: "The glass window at the front of a car.",
+                exBritish: "The windscreen was cracked.",
+                exAmerican: "The windshield was cracked.",
+                priority: "medium",
+                trap: false,
+                memory: "Windscreen = British | Windshield = American"
+            },
+            {
+                num: "044",
+                british: "Motorway",
+                american: "Highway",
+                meaning: "A major road for fast traffic over long distances.",
+                exBritish: "We drove on the motorway.",
+                exAmerican: "We drove on the highway.",
+                priority: "high",
+                trap: false,
+                memory: "Motorway = British | Highway = American"
+            },
+            {
+                num: "045",
+                british: "Aeroplane",
+                american: "Airplane",
+                meaning: "A powered aircraft for carrying passengers.",
+                exBritish: "The aeroplane departed on time.",
+                exAmerican: "The airplane departed on time.",
+                priority: "high",
+                trap: false,
+                memory: "Aeroplane = British | Airplane = American"
+            },
+            {
+                num: "046",
+                british: "Shopping trolley",
+                american: "Shopping cart",
+                meaning: "A wheeled basket for carrying shopping items.",
+                exBritish: "Get a shopping trolley.",
+                exAmerican: "Get a shopping cart.",
+                priority: "high",
+                trap: false,
+                memory: "Shopping trolley = British | Shopping cart = American"
+            },
+            {
+                num: "047",
+                british: "Aubergine",
+                american: "Eggplant",
+                meaning: "A purple vegetable.",
+                exBritish: "Add aubergine to the curry.",
+                exAmerican: "Add eggplant to the curry.",
+                priority: "medium",
+                trap: false,
+                memory: "Aubergine = British | Eggplant = American"
+            },
+            {
+                num: "048",
+                british: "Courgette",
+                american: "Zucchini",
+                meaning: "A green vegetable similar to a cucumber.",
+                exBritish: "Grill the courgettes.",
+                exAmerican: "Grill the zucchini.",
+                priority: "medium",
+                trap: false,
+                memory: "Courgette = British | Zucchini = American"
+            },
+            {
+                num: "049",
+                british: "Spring onion",
+                american: "Scallion",
+                meaning: "A small, thin onion used fresh.",
+                exBritish: "Top with spring onions.",
+                exAmerican: "Top with scallions.",
+                priority: "medium",
+                trap: false,
+                memory: "Spring onion = British | Scallion = American"
+            },
+            {
+                num: "050",
+                british: "Swede",
+                american: "Rutabaga",
+                meaning: "A large orange root vegetable.",
+                exBritish: "Mash the swede.",
+                exAmerican: "Mash the rutabaga.",
+                priority: "low",
+                trap: false,
+                memory: "Swede = British | Rutabaga = American"
+            }
+        ];
+
+        let currentFilter = 'all';
+
+        // Render vocabulary
+        function renderVocabulary(data = vocabularyData) {
+            const container = document.getElementById('vocabularyContainer');
+            container.innerHTML = '';
+
+            if (data.length === 0) {
+                container.innerHTML = '<div class="no-results">😔 No results found. Try different keywords!</div>';
+                return;
+            }
+
+            data.forEach(item => {
+                const vocabHTML = `
+                    <div class="vocabulary-item" data-priority="${item.priority}" data-trap="${item.trap}">
+                        <div class="vocab-header">
+                            <span class="vocab-number">${item.num}</span>
+                            <span class="vocab-title">
+                                <span class="vocab-flag">🇬🇧</span> ${item.british}
+                                <span class="vocab-flag">🇺🇸</span> ${item.american}
+                            </span>
+                        </div>
+                        <div class="vocab-body">
+                            <div class="vocab-meaning">
+                                <strong>📖 Meaning:</strong> ${item.meaning}
+                            </div>
+
+                            <div class="vocab-pair">
+                                <div class="british">
+                                    <div class="vocab-label">🇬🇧 British English</div>
+                                    <div class="vocab-word">${item.british}</div>
+                                </div>
+                                <div class="american">
+                                    <div class="vocab-label">🇺🇸 American English</div>
+                                    <div class="vocab-word">${item.american}</div>
+                                </div>
+                            </div>
+
+                            <div class="vocab-examples">
+                                <div class="example-label">✍️ Examples</div>
+                                <div class="example"><strong>British:</strong> "${item.exBritish}"</div>
+                                <div class="example"><strong>American:</strong> "${item.exAmerican}"</div>
+                            </div>
+
+                            ${item.priority === 'high' ? '<div class="priority-box">🔥 HIGH PRIORITY — Frequently appears in TNPSC questions</div>' : ''}
+                            ${item.trap ? '<div class="trap-box">⭐ TNPSC TRAP — Common confusion point!</div>' : ''}
+                            <div class="memory-box">💡 ${item.memory}</div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += vocabHTML;
+            });
+
+            document.getElementById('totalCount').textContent = data.length;
+        }
+
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('keyup', (e) => {
+            const query = e.target.value.toLowerCase();
+            const filtered = vocabularyData.filter(item =>
+                item.british.toLowerCase().includes(query) ||
+                item.american.toLowerCase().includes(query) ||
+                item.meaning.toLowerCase().includes(query)
+            );
+            applyFilter(filtered);
+        });
+
+        // Filter by priority
+        function filterByPriority(priority) {
+            currentFilter = priority;
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            let filtered = vocabularyData;
+            if (priority === 'high') {
+                filtered = vocabularyData.filter(item => item.priority === 'high');
+            } else if (priority === 'trap') {
+                filtered = vocabularyData.filter(item => item.trap === true);
+            }
+            applyFilter(filtered);
+        }
+
+        function applyFilter(filtered) {
+            renderVocabulary(filtered);
+        }
+
+        // Initial render
+        renderVocabulary();
+
+        // Make search input focus on page load
+        document.getElementById('searchInput').focus();
+    </script>
+</body>
+</html>

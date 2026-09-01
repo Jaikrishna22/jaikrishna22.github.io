@@ -1,0 +1,370 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TNPSC English Portal - Professional Dashboard</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --primary: #1e3c72; --secondary: #2a5298; --accent: #e74c3c; --success: #27ae60; --warning: #f39c12; --light: #ecf0f1; --white: #ffffff; --text: #34495e; --dark: #2c3e50; }
+        
+        body { font-family: 'Segoe UI'; background: #f0f2f5; color: var(--text); }
+        
+        /* TOP NAVBAR */
+        .top-navbar { background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: var(--white); padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 12px rgba(0,0,0,0.15); position: sticky; top: 0; z-index: 1000; }
+        .navbar-brand { font-size: 1.5em; font-weight: bold; }
+        .navbar-center { display: flex; gap: 30px; flex: 1; margin-left: 50px; }
+        .nav-feature { color: var(--white); text-decoration: none; padding: 8px 15px; border-radius: 5px; transition: all 0.3s; }
+        .nav-feature:hover { background: rgba(255,255,255,0.2); }
+        .navbar-right { display: flex; gap: 15px; align-items: center; }
+        .user-info { display: flex; align-items: center; gap: 10px; }
+        .user-avatar { width: 35px; height: 35px; border-radius: 50%; background: rgba(255,255,255,0.3); display: flex; align-items: center; justify-content: center; font-size: 1.2em; }
+        .btn-logout { background: var(--accent); color: var(--white); border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; transition: all 0.3s; }
+        .btn-logout:hover { background: #c0392b; }
+        
+        /* LOGIN MODAL */
+        .login-modal { display: flex; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 2000; align-items: center; justify-content: center; }
+        .login-modal.hidden { display: none; }
+        .login-box { background: var(--white); padding: 40px; border-radius: 10px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); width: 90%; max-width: 400px; }
+        .login-box h2 { color: var(--primary); margin-bottom: 25px; text-align: center; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: var(--text); }
+        .form-group input { width: 100%; padding: 12px; border: 2px solid var(--light); border-radius: 6px; font-size: 1em; }
+        .form-group input:focus { outline: none; border-color: var(--secondary); box-shadow: 0 0 8px rgba(42,82,152,0.2); }
+        .btn-login { width: 100%; background: var(--secondary); color: var(--white); padding: 12px; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; margin-top: 20px; }
+        .btn-login:hover { background: var(--primary); }
+        
+        /* MAIN CONTAINER */
+        .container { display: flex; min-height: calc(100vh - 70px); }
+        
+        /* LEFT SIDEBAR */
+        .sidebar { width: 250px; background: var(--white); box-shadow: 2px 0 8px rgba(0,0,0,0.1); overflow-y: auto; padding: 20px 0; }
+        .sidebar-section { margin-bottom: 20px; }
+        .sidebar-title { padding: 0 20px; font-weight: 600; color: var(--primary); font-size: 0.9em; margin-bottom: 10px; text-transform: uppercase; }
+        .sidebar-link { display: block; padding: 12px 20px; color: var(--text); text-decoration: none; border-left: 3px solid transparent; transition: all 0.3s; }
+        .sidebar-link:hover, .sidebar-link.active { background: rgba(42,82,152,0.1); border-left-color: var(--secondary); color: var(--secondary); }
+        
+        /* MAIN CONTENT */
+        .main-content { flex: 1; padding: 30px; overflow-y: auto; }
+        
+        /* CARDS */
+        .card { background: var(--white); padding: 25px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); margin-bottom: 25px; }
+        .card h2 { color: var(--primary); margin-bottom: 20px; border-bottom: 3px solid var(--secondary); padding-bottom: 10px; }
+        .card h3 { color: var(--secondary); margin: 20px 0 15px 0; }
+        
+        /* STUDY GRID */
+        .study-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 20px 0; }
+        .study-card { background: linear-gradient(135deg, rgba(42,82,152,0.1), rgba(52,152,219,0.1)); border: 2px solid var(--secondary); border-radius: 10px; padding: 20px; text-align: center; cursor: pointer; transition: all 0.3s; }
+        .study-card:hover { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(42,82,152,0.25); border-color: var(--accent); }
+        .study-card .icon { font-size: 2.5em; margin-bottom: 10px; }
+        .study-card h4 { color: var(--primary); margin-bottom: 8px; }
+        .study-card .btn { display: inline-block; background: var(--secondary); color: var(--white); padding: 8px 15px; border-radius: 5px; text-decoration: none; margin-top: 10px; }
+        
+        /* FEATURE REQUEST */
+        .feature-form { background: linear-gradient(135deg, rgba(39,174,96,0.1), rgba(52,152,219,0.1)); padding: 25px; border-radius: 10px; border-left: 5px solid var(--success); }
+        .feature-form input, .feature-form textarea { width: 100%; padding: 12px; margin: 10px 0; border: 2px solid var(--light); border-radius: 6px; font-family: 'Segoe UI'; }
+        .feature-form textarea { resize: vertical; min-height: 100px; }
+        .feature-form input:focus, .feature-form textarea:focus { outline: none; border-color: var(--success); }
+        .btn-submit { background: var(--success); color: var(--white); padding: 12px 25px; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; }
+        .btn-submit:hover { background: #229954; }
+        
+        /* STATS */
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0; }
+        .stat-box { background: linear-gradient(135deg, var(--secondary), var(--primary)); color: var(--white); padding: 20px; border-radius: 10px; text-align: center; }
+        .stat-number { font-size: 2em; font-weight: bold; }
+        
+        /* FEATURES LIST */
+        .features-list { list-style: none; }
+        .features-list li { padding: 12px; background: var(--light); margin: 8px 0; border-radius: 6px; border-left: 4px solid var(--secondary); }
+        .features-list li:before { content: "✓ "; color: var(--success); font-weight: bold; }
+        
+        @media (max-width: 768px) {
+            .container { flex-direction: column; }
+            .sidebar { width: 100%; max-height: 200px; border-bottom: 2px solid var(--light); }
+            .navbar-center { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <!-- LOGIN MODAL -->
+    <div id="loginModal" class="login-modal">
+        <div class="login-box">
+            <h2>📚 TNPSC Portal</h2>
+            <form onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" id="username" placeholder="Enter username" required>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="password" placeholder="Enter password" required>
+                </div>
+                <button type="submit" class="btn-login">Login</button>
+                <p style="text-align: center; margin-top: 15px; color: #7f8c8d; font-size: 0.9em;">Demo: Use any username/password</p>
+            </form>
+        </div>
+    </div>
+
+    <!-- TOP NAVBAR -->
+    <div class="top-navbar">
+        <div class="navbar-brand">📚 TNPSC English Portal</div>
+        <div class="navbar-center">
+            <a href="#" class="nav-feature">🏠 Dashboard</a>
+            <a href="#" class="nav-feature">📖 Study</a>
+            <a href="#" class="nav-feature">📊 Quiz</a>
+            <a href="#" class="nav-feature">📰 News</a>
+            <a href="#" class="nav-feature">💡 Tips</a>
+            <a href="#" class="nav-feature">🎯 Features</a>
+        </div>
+        <div class="navbar-right">
+            <div class="user-info">
+                <div class="user-avatar">👤</div>
+                <span id="userName">User</span>
+            </div>
+            <button class="btn-logout" onclick="handleLogout()">Logout</button>
+        </div>
+    </div>
+
+    <!-- MAIN CONTAINER -->
+    <div class="container">
+        <!-- LEFT SIDEBAR -->
+        <div class="sidebar">
+            <div class="sidebar-section">
+                <div class="sidebar-title">📚 Study Materials</div>
+                <a href="#materials" class="sidebar-link active" onclick="showSection('materials')">🇬🇧 Vocabulary</a>
+                <a href="#plurals" class="sidebar-link" onclick="showSection('plurals')">📘 Plurals</a>
+                <a href="#quizzes" class="sidebar-link" onclick="showSection('quizzes')">🎯 Quizzes</a>
+            </div>
+            <div class="sidebar-section">
+                <div class="sidebar-title">📰 Information</div>
+                <a href="#news" class="sidebar-link" onclick="showSection('news')">📰 Latest News</a>
+                <a href="#updates" class="sidebar-link" onclick="showSection('updates')">⚡ Daily Updates</a>
+                <a href="#affairs" class="sidebar-link" onclick="showSection('affairs')">🌍 Current Affairs</a>
+            </div>
+            <div class="sidebar-section">
+                <div class="sidebar-title">⚙️ Settings</div>
+                <a href="#features" class="sidebar-link" onclick="showSection('features')">✨ Suggest Features</a>
+                <a href="#help" class="sidebar-link" onclick="showSection('help')">❓ Help & FAQ</a>
+            </div>
+        </div>
+
+        <!-- MAIN CONTENT -->
+        <div class="main-content">
+            <!-- DASHBOARD SECTION -->
+            <div id="dashboard" class="section">
+                <div class="card">
+                    <h2>🎯 Welcome to TNPSC English Study Portal</h2>
+                    <p style="margin-bottom: 20px;">Master English vocabulary, grammar, and advanced concepts for TNPSC exams.</p>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-box">
+                            <div class="stat-number">500+</div>
+                            <div>Vocabulary Pairs</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">100+</div>
+                            <div>Quiz Questions</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">4</div>
+                            <div>Study Resources</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">∞</div>
+                            <div>Always Free</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>📚 Quick Access to Study Materials</h3>
+                    <div class="study-grid">
+                        <div class="study-card">
+                            <div class="icon">🇬🇧 ↔️ 🇺🇸</div>
+                            <h4>British vs American</h4>
+                            <p>500 vocabulary differences</p>
+                            <a href="tnpsc-english.html" class="btn">Start →</a>
+                        </div>
+                        <div class="study-card">
+                            <div class="icon">📘</div>
+                            <h4>English Plurals</h4>
+                            <p>Master guide + 30 MCQs</p>
+                            <a href="tnpsc-plurals.html" class="btn">Start →</a>
+                        </div>
+                        <div class="study-card">
+                            <div class="icon">🎯</div>
+                            <h4>Advanced Quizzes</h4>
+                            <p>4 types with scoring</p>
+                            <a href="tnpsc-quizzes.html" class="btn">Start →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FEATURES SECTION -->
+            <div id="features" class="section" style="display: none;">
+                <div class="card">
+                    <h2>✨ Suggest New Features</h2>
+                    <p style="margin-bottom: 20px;">Help us improve! Suggest features you'd like to see on this portal.</p>
+                    
+                    <div class="feature-form">
+                        <form onsubmit="submitFeature(event)">
+                            <input type="text" id="featureName" placeholder="Feature Name (e.g., Idioms Quiz)" required>
+                            <textarea id="featureDesc" placeholder="Describe the feature in detail..." required></textarea>
+                            <input type="text" id="featureCategory" placeholder="Category (e.g., Quiz, Study Material, News)">
+                            <input type="text" id="featureEmail" placeholder="Your Email (optional)">
+                            <button type="submit" class="btn-submit">💡 Submit Feature Request</button>
+                        </form>
+                    </div>
+
+                    <h3 style="margin-top: 30px;">📋 Requested Features by Community</h3>
+                    <ul class="features-list" id="featuresList">
+                        <li>Idioms & Phrases Quiz</li>
+                        <li>Reading Comprehension Practice</li>
+                        <li>Essay Writing Tips</li>
+                        <li>Verbal Ability Tests</li>
+                        <li>Mock Tests (Full Length)</li>
+                        <li>Grammar Rules Interactive</li>
+                        <li>TNPSC Previous Year Questions</li>
+                        <li>Voice Pronunciation Guide</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- NEWS SECTION -->
+            <div id="news" class="section" style="display: none;">
+                <div class="card">
+                    <h2>📰 Latest TNPSC News</h2>
+                    <div style="border-left: 4px solid var(--secondary); padding-left: 20px; margin: 20px 0;">
+                        <h3>🎯 TNPSC Group 1 Notification 2024</h3>
+                        <p style="color: var(--secondary); font-size: 0.9em;">Today • Sep 1</p>
+                        <p>Registration open till September 30. 450+ vacancies announced across various departments.</p>
+                    </div>
+                    <div style="border-left: 4px solid var(--success); padding-left: 20px; margin: 20px 0;">
+                        <h3>✅ New Exam Pattern Released</h3>
+                        <p style="color: var(--success); font-size: 0.9em;">Yesterday • Aug 31</p>
+                        <p>English section now focuses on vocabulary mastery and grammar understanding.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- UPDATES SECTION -->
+            <div id="updates" class="section" style="display: none;">
+                <div class="card">
+                    <h2>⚡ Daily Updates</h2>
+                    <div style="border-left: 4px solid var(--warning); padding-left: 20px; margin: 15px 0;">
+                        <p style="color: var(--warning); font-weight: 600; font-size: 0.9em;">🔔 Just Now</p>
+                        <p>50+ travel & transport vocabulary words added to database</p>
+                    </div>
+                    <div style="border-left: 4px solid var(--warning); padding-left: 20px; margin: 15px 0;">
+                        <p style="color: var(--warning); font-weight: 600; font-size: 0.9em;">2 hours ago</p>
+                        <p>25 new Sentence Correction questions added to quiz section</p>
+                    </div>
+                    <div style="border-left: 4px solid var(--warning); padding-left: 20px; margin: 15px 0;">
+                        <p style="color: var(--warning); font-weight: 600; font-size: 0.9em;">Today</p>
+                        <p>💡 Tip: Master plural rules with mnemonic memory tricks</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CURRENT AFFAIRS SECTION -->
+            <div id="affairs" class="section" style="display: none;">
+                <div class="card">
+                    <h2>🌍 Current Affairs</h2>
+                    <div style="border-left: 4px solid #8e44ad; padding-left: 20px; margin: 15px 0;">
+                        <h3>G20 Summit Concludes in India</h3>
+                        <p style="color: #8e44ad; font-size: 0.9em;">Today • Sep 1</p>
+                        <p>Focus on sustainable development and digital transformation in emerging economies.</p>
+                    </div>
+                    <div style="border-left: 4px solid #8e44ad; padding-left: 20px; margin: 15px 0;">
+                        <h3>National Education Policy Updates</h3>
+                        <p style="color: #8e44ad; font-size: 0.9em;">Aug 31</p>
+                        <p>New vocational training programs launched to enhance skill development nationwide.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HELP SECTION -->
+            <div id="help" class="section" style="display: none;">
+                <div class="card">
+                    <h2>❓ Help & FAQ</h2>
+                    <h3>How do I use this portal?</h3>
+                    <p>Navigate using the left sidebar to access study materials, news, and other resources.</p>
+                    
+                    <h3 style="margin-top: 20px;">Are the materials really free?</h3>
+                    <p>Yes! All materials are 100% free. No registration or payment required.</p>
+                    
+                    <h3 style="margin-top: 20px;">Can I download the content?</h3>
+                    <p>Yes! Most materials are print-friendly. Use your browser's print function to save as PDF.</p>
+                    
+                    <h3 style="margin-top: 20px;">How often is content updated?</h3>
+                    <p>We add new materials and update existing content daily based on latest exam patterns.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Check if user is logged in
+        window.addEventListener('load', function() {
+            const user = localStorage.getItem('tnpscUser');
+            if (!user) {
+                document.getElementById('loginModal').classList.remove('hidden');
+            } else {
+                document.getElementById('userName').textContent = user;
+            }
+        });
+
+        function handleLogin(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            localStorage.setItem('tnpscUser', username);
+            document.getElementById('loginModal').classList.add('hidden');
+            document.getElementById('userName').textContent = username;
+        }
+
+        function handleLogout() {
+            localStorage.removeItem('tnpscUser');
+            document.getElementById('loginModal').classList.remove('hidden');
+            document.getElementById('username').value = '';
+            document.getElementById('password').value = '';
+        }
+
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(s => s.style.display = 'none');
+            
+            // Show selected section
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.style.display = 'block';
+            } else if (sectionId === 'materials') {
+                document.getElementById('dashboard').style.display = 'block';
+            }
+            
+            // Update active sidebar link
+            document.querySelectorAll('.sidebar-link').forEach(link => link.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+
+        function submitFeature(event) {
+            event.preventDefault();
+            const name = document.getElementById('featureName').value;
+            const desc = document.getElementById('featureDesc').value;
+            
+            // Add to list
+            const li = document.createElement('li');
+            li.textContent = name + ' - ' + desc;
+            document.getElementById('featuresList').appendChild(li);
+            
+            // Reset form
+            document.getElementById('featureName').value = '';
+            document.getElementById('featureDesc').value = '';
+            document.getElementById('featureCategory').value = '';
+            document.getElementById('featureEmail').value = '';
+            
+            alert('✅ Feature request submitted! Thank you for the suggestion.');
+        }
+    </script>
+</body>
+</html>

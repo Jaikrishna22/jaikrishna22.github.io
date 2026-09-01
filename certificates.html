@@ -18,9 +18,75 @@
         .cert-icon { font-size: 2.5em; margin-bottom: 10px; }
         .cert-name { color: var(--primary); font-weight: 600; font-size: 1.1em; margin-bottom: 8px; }
         .btn { display: inline-block; background: var(--secondary); color: var(--white); padding: 10px 20px; border-radius: 5px; text-decoration: none; margin-top: 10px; }
-    </style>
+    
+        /* Navigation Bar */
+        .navbar {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .navbar-container { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 20px; height: 70px; }
+        .navbar-brand { font-size: 1.8em; font-weight: bold; display: flex; align-items: center; gap: 10px; text-decoration: none; color: white; }
+        .navbar-menu { display: flex; gap: 0; list-style: none; align-items: center; }
+        .navbar-item { position: relative; }
+        .navbar-link { display: flex; align-items: center; gap: 5px; padding: 25px 18px; color: white; text-decoration: none; font-weight: 500; transition: all 0.3s ease; border-bottom: 3px solid transparent; }
+        .navbar-link:hover { background: rgba(255,255,255,0.1); border-bottom-color: #f39c12; }
+        .dropdown-menu { position: absolute; top: 100%; left: 0; background: white; color: #333; min-width: 250px; border-radius: 0 0 8px 8px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); opacity: 0; visibility: hidden; transform: translateY(-10px); transition: all 0.3s ease; margin-top: -3px; }
+        .navbar-item:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+        .dropdown-item { display: flex; align-items: center; gap: 10px; padding: 12px 20px; color: #333; text-decoration: none; transition: all 0.3s ease; border-left: 3px solid transparent; }
+        .dropdown-item:hover { background: #f5f5f5; border-left-color: #2a5298; padding-left: 25px; }
+        .navbar-cta { background: #e74c3c; color: white; padding: 10px 25px; border-radius: 25px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; }
+        .navbar-cta:hover { background: #c0392b; transform: scale(1.05); }
+        @media (max-width: 768px) { .navbar-menu { display: none; } .navbar-container { height: auto; padding: 15px 20px; } body { padding-top: 70px; } }
+</style>
 </head>
 <body>
+    <!-- NAVIGATION BAR -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-brand">📚 TNPSC Portal</a>
+            <ul class="navbar-menu">
+                <li class="navbar-item">
+                    <a href="index.html" class="navbar-link">🏠 Home</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="#" class="navbar-link">📖 Study Materials ▼</a>
+                    <div class="dropdown-menu">
+                        <a href="tnpsc-english.html" class="dropdown-item">🇬🇧↔️🇺🇸 Vocabulary (500+)</a>
+                        <a href="tnpsc-plurals.html" class="dropdown-item">📘 Plurals Guide</a>
+                        <a href="tnpsc-quizzes.html" class="dropdown-item">🎯 Practice Quizzes</a>
+                        <a href="question-papers.html" class="dropdown-item">📄 Question Papers</a>
+                    </div>
+                </li>
+                <li class="navbar-item">
+                    <a href="#" class="navbar-link">📊 My Dashboard ▼</a>
+                    <div class="dropdown-menu">
+                        <a href="dashboard.html" class="dropdown-item">📊 Control Panel</a>
+                        <a href="progress-tracker.html" class="dropdown-item">📈 Progress Tracker</a>
+                        <a href="leaderboard.html" class="dropdown-item">🏆 Leaderboard</a>
+                        <a href="certificates.html" class="dropdown-item">🎓 Certificates</a>
+                    </div>
+                </li>
+                <li class="navbar-item">
+                    <a href="#" class="navbar-link">📚 Resources ▼</a>
+                    <div class="dropdown-menu">
+                        <a href="answer-keys.html" class="dropdown-item">🔑 Answer Keys</a>
+                        <a href="video-solutions.html" class="dropdown-item">🎥 Video Solutions</a>
+                        <a href="current-affairs.html" class="dropdown-item">🌍 Current Affairs</a>
+                        <a href="pro-platform.html" class="dropdown-item">⭐ Premium Features</a>
+                    </div>
+                </li>
+                <li class="navbar-item">
+                    <a href="login.html" class="navbar-cta">🔐 Login / Sign Up</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">🎓 My Certificates</a>
@@ -56,3 +122,4 @@
     </div>
 </body>
 </html>
+

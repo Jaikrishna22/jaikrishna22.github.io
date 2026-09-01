@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Solutions - TNPSC Study Portal</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --primary: #1e3c72; --secondary: #2a5298; --accent: #e74c3c; --success: #27ae60; --light: #ecf0f1; --white: #ffffff; --text: #34495e; }
+        body { font-family: 'Segoe UI'; background: #f5f7fa; color: var(--text); }
+        .navbar { background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: var(--white); padding: 0; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+        .nav-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
+        .logo { font-size: 1.5em; font-weight: bold; padding: 15px 0; text-decoration: none; color: var(--white); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 30px 20px; }
+        .hero { background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: var(--white); padding: 40px 30px; text-align: center; border-radius: 12px; margin-bottom: 30px; }
+        .videos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .video-card { background: var(--white); border-radius: 10px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
+        .video-thumb { background: linear-gradient(135deg, var(--secondary), var(--primary)); height: 180px; display: flex; align-items: center; justify-content: center; color: var(--white); font-size: 3em; }
+        .video-info { padding: 20px; }
+        .video-title { color: var(--primary); font-weight: 600; font-size: 1.1em; margin-bottom: 8px; }
+        .btn { display: inline-block; background: var(--success); color: var(--white); padding: 10px 20px; border-radius: 5px; text-decoration: none; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">🎥 Video Solutions</a>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="hero">
+            <h1>🎥 Expert Video Tutorials</h1>
+            <p>Learn from detailed video explanations by expert educators</p>
+        </div>
+        
+        <div class="videos-grid">
+            <div class="video-card">
+                <div class="video-thumb">🎥</div>
+                <div class="video-info">
+                    <div class="video-title">British vs American English</div>
+                    <p>45 min comprehensive guide</p>
+                    <a href="#" class="btn">▶️ Watch</a>
+                </div>
+            </div>
+            <div class="video-card">
+                <div class="video-thumb">🎥</div>
+                <div class="video-info">
+                    <div class="video-title">English Plurals Mastery</div>
+                    <p>30 min interactive lesson</p>
+                    <a href="#" class="btn">▶️ Watch</a>
+                </div>
+            </div>
+            <div class="video-card">
+                <div class="video-thumb">🎥</div>
+                <div class="video-info">
+                    <div class="video-title">Sentence Correction Tricks</div>
+                    <p>25 min problem-solving</p>
+                    <a href="#" class="btn">▶️ Watch</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

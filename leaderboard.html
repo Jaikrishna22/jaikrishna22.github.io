@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard - TNPSC Study Portal</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --primary: #1e3c72; --secondary: #2a5298; --accent: #e74c3c; --success: #27ae60; --warning: #f39c12; --light: #ecf0f1; --white: #ffffff; --text: #34495e; }
+        body { font-family: 'Segoe UI'; background: #f5f7fa; color: var(--text); }
+        .navbar { background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: var(--white); padding: 0; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+        .nav-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
+        .logo { font-size: 1.5em; font-weight: bold; padding: 15px 0; text-decoration: none; color: var(--white); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 30px 20px; }
+        .hero { background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: var(--white); padding: 40px 30px; text-align: center; border-radius: 12px; margin-bottom: 30px; }
+        .hero h1 { font-size: 2.2em; margin-bottom: 10px; }
+        table { width: 100%; border-collapse: collapse; background: var(--white); box-shadow: 0 4px 15px rgba(0,0,0,0.08); border-radius: 10px; overflow: hidden; }
+        th { background: linear-gradient(135deg, var(--secondary), var(--primary)); color: var(--white); padding: 20px; text-align: left; }
+        td { padding: 15px 20px; border-bottom: 1px solid var(--light); }
+        tr:hover { background: var(--light); }
+        .rank { font-weight: 600; color: var(--secondary); }
+        .gold { color: #ffd700; }
+        .silver { color: #c0c0c0; }
+        .bronze { color: #cd7f32; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">🏆 TNPSC Leaderboard</a>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="hero">
+            <h1>🏆 Top Performers</h1>
+            <p>Compete with thousands of TNPSC aspirants</p>
+        </div>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>🥇 Rank</th>
+                    <th>👤 Name</th>
+                    <th>📊 Score</th>
+                    <th>✅ Quizzes</th>
+                    <th>⏳ Hours</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="rank gold">🥇 #1</td>
+                    <td>Rani Kumar</td>
+                    <td><strong>9850</strong></td>
+                    <td>245</td>
+                    <td>156 hrs</td>
+                </tr>
+                <tr>
+                    <td class="rank silver">🥈 #2</td>
+                    <td>Arjun Patel</td>
+                    <td><strong>9720</strong></td>
+                    <td>238</td>
+                    <td>152 hrs</td>
+                </tr>
+                <tr>
+                    <td class="rank bronze">🥉 #3</td>
+                    <td>Priya Singh</td>
+                    <td><strong>9580</strong></td>
+                    <td>225</td>
+                    <td>148 hrs</td>
+                </tr>
+                <tr>
+                    <td class="rank">#4</td>
+                    <td>Vikram Sharma</td>
+                    <td><strong>9420</strong></td>
+                    <td>215</td>
+                    <td>145 hrs</td>
+                </tr>
+                <tr>
+                    <td class="rank">#5</td>
+                    <td>Anjali Verma</td>
+                    <td><strong>9310</strong></td>
+                    <td>208</td>
+                    <td>140 hrs</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

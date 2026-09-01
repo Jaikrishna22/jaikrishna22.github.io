@@ -1,409 +1,207 @@
-<!DOCTYPE html>
-<!--
-  ══════════════════════════════════════════════════════════════════
-   PORTFOLIO WEBSITE  ·  Jaikrishna P S
-   Hosts free at:  https://jaikrishna22.github.io
-   (repo must be named  jaikrishna22.github.io )
-  ══════════════════════════════════════════════════════════════════
--->
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jaikrishna P S · Disaster Recovery Specialist & Full-Stack Developer</title>
-  <meta name="description" content="Jaikrishna P S — Senior Software Engineer with 8+ years in Disaster Recovery, BCP/ITDR and full-stack .NET / Angular / React development." />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍💻</text></svg>" />
-  <style>
-    :root{
-      /* Blue & white — light is the default look */
-      --accent:#2563EB; --accent-2:#60A5FA;
-      --bg:#f5f8fc; --bg-soft:#ffffff; --card:#ffffff; --border:#e2eaf4;
-      --text:#0f1c33; --muted:#5a6b85; --shadow:0 12px 34px rgba(37,99,235,.10);
-    }
-    :root[data-theme="dark"]{
-      --bg:#0a1226; --bg-soft:#10192e; --card:#142138; --border:#24334f;
-      --text:#e8eefb; --muted:#9daac4; --shadow:0 12px 34px rgba(0,0,0,.45);
-    }
-    *{margin:0;padding:0;box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      font-family:'Segoe UI',system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;
-      background:var(--bg); color:var(--text); line-height:1.65;
-      -webkit-font-smoothing:antialiased; overflow-x:hidden;
-    }
-    a{color:inherit;text-decoration:none}
-    section{padding:96px 24px; max-width:1080px; margin:0 auto}
-    h2.title{font-size:clamp(1.6rem,4vw,2.4rem); font-weight:800; margin-bottom:8px}
-    h2.title span{color:var(--accent)}
-    .subtitle{color:var(--muted); margin-bottom:48px; font-size:1.02rem}
-
-    /* NAV */
-    nav{position:sticky; top:0; z-index:50; backdrop-filter:blur(12px);
-      background:color-mix(in srgb, var(--bg) 78%, transparent); border-bottom:1px solid var(--border)}
-    .nav-inner{max-width:1080px; margin:0 auto; display:flex; align-items:center;
-      justify-content:space-between; padding:16px 24px}
-    .logo{font-weight:800; font-size:1.15rem; letter-spacing:.5px}
-    .logo span{color:var(--accent)}
-    .nav-links{display:flex; gap:28px; align-items:center}
-    .nav-links a{color:var(--muted); font-weight:500; font-size:.95rem; transition:.2s}
-    .nav-links a:hover,.nav-links a.active{color:var(--text)}
-    .theme-btn{background:var(--card); border:1px solid var(--border); color:var(--text);
-      width:40px;height:40px;border-radius:12px;cursor:pointer;font-size:1.1rem;
-      display:grid;place-items:center;transition:.2s}
-    .theme-btn:hover{border-color:var(--accent);transform:translateY(-2px)}
-    .burger{display:none;background:none;border:none;color:var(--text);font-size:1.5rem;cursor:pointer}
-
-    /* HERO */
-    .hero{min-height:92vh; display:flex; flex-direction:column; justify-content:center;
-      max-width:1080px; margin:0 auto; padding:24px; position:relative}
-    .hero-inner{display:grid; grid-template-columns:1.25fr .75fr; gap:40px; align-items:center; width:100%}
-    .hero-photo{justify-self:center}
-    .avatar-ring{width:300px; height:300px; border-radius:50%; padding:6px;
-      background:linear-gradient(135deg,var(--accent),var(--accent-2));
-      box-shadow:0 20px 50px rgba(108,99,255,.35); display:grid; place-items:center}
-    .avatar-ring img{width:100%; height:100%; border-radius:50%; object-fit:cover; object-position:center top; display:block; background:var(--bg-soft)}
-    .avatar-ring span{width:100%; height:100%; border-radius:50%; display:grid; place-items:center;
-      background:var(--bg-soft); font-size:5.5rem; font-weight:800; color:var(--accent); letter-spacing:2px}
-    .hero .eyebrow{color:var(--accent); font-weight:700; letter-spacing:2px;
-      text-transform:uppercase; font-size:.85rem; margin-bottom:16px}
-    .hero h1{font-size:clamp(2.4rem,7vw,4.6rem); font-weight:900; line-height:1.05;
-      letter-spacing:-1px; margin-bottom:14px}
-    .hero h1 .grad{background:linear-gradient(120deg,var(--accent),var(--accent-2));
-      -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-    .hero .role{font-size:clamp(1.1rem,3vw,1.6rem); color:var(--muted); font-weight:600;
-      min-height:2em; margin-bottom:22px}
-    .hero .role .type{color:var(--text); border-right:2px solid var(--accent); padding-right:4px}
-    .hero p.lead{max-width:640px; color:var(--muted); font-size:1.08rem; margin-bottom:36px}
-    .cta{display:flex; gap:14px; flex-wrap:wrap}
-    .btn{padding:13px 26px; border-radius:12px; font-weight:600; font-size:.98rem;
-      display:inline-flex; align-items:center; gap:9px; transition:.25s; border:1px solid transparent}
-    .btn-primary{background:var(--accent); color:#fff; box-shadow:0 8px 24px rgba(108,99,255,.35)}
-    .btn-primary:hover{transform:translateY(-3px); box-shadow:0 12px 30px rgba(108,99,255,.5)}
-    .btn-ghost{background:transparent; border-color:var(--border); color:var(--text)}
-    .btn-ghost:hover{border-color:var(--accent); transform:translateY(-3px)}
-    .scroll-hint{position:absolute; bottom:28px; left:50%; transform:translateX(-50%);
-      color:var(--muted); font-size:.8rem; letter-spacing:1px; animation:bob 2s infinite}
-    @keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,8px)}}
-
-    /* ABOUT */
-    .about-grid{display:grid; grid-template-columns:1.4fr 1fr; gap:48px; align-items:start}
-    .about-text p{color:var(--muted); margin-bottom:18px}
-    .about-text strong{color:var(--text)}
-    .facts{display:grid; gap:14px}
-    .fact{background:var(--card); border:1px solid var(--border); border-radius:14px;
-      padding:18px 20px; display:flex; gap:14px; align-items:center; box-shadow:var(--shadow)}
-    .fact .n{font-size:1.7rem; font-weight:800; color:var(--accent); line-height:1; white-space:nowrap}
-    .fact .l{color:var(--muted); font-size:.9rem}
-
-    /* SKILLS */
-    .skill-groups{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:22px}
-    .skill-card{background:var(--card); border:1px solid var(--border); border-radius:16px;
-      padding:26px; box-shadow:var(--shadow); transition:.25s}
-    .skill-card:hover{transform:translateY(-5px); border-color:var(--accent)}
-    .skill-card h3{font-size:1.05rem; margin-bottom:16px; display:flex; gap:10px; align-items:center}
-    .skill-card h3 .dot{width:9px;height:9px;border-radius:50%;background:var(--accent)}
-    .chips{display:flex; flex-wrap:wrap; gap:9px}
-    .chip{background:var(--bg-soft); border:1px solid var(--border); color:var(--text);
-      padding:6px 13px; border-radius:20px; font-size:.85rem; font-weight:500; transition:.2s}
-    .chip:hover{background:var(--accent); color:#fff; border-color:var(--accent)}
-
-    /* PROJECTS */
-    .projects{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:24px}
-    .proj{background:var(--card); border:1px solid var(--border); border-radius:18px;
-      padding:28px; box-shadow:var(--shadow); transition:.28s; display:flex; flex-direction:column}
-    .proj:hover{transform:translateY(-6px); border-color:var(--accent)}
-    .proj .ico{width:52px;height:52px;border-radius:13px;
-      background:linear-gradient(135deg,var(--accent),var(--accent-2));
-      display:grid;place-items:center;font-size:1.5rem;margin-bottom:18px}
-    .proj h3{font-size:1.2rem; margin-bottom:4px}
-    .proj .meta{color:var(--accent); font-size:.82rem; font-weight:600; margin-bottom:12px}
-    .proj p{color:var(--muted); font-size:.95rem; margin-bottom:18px; flex:1}
-    .proj .tags{display:flex; flex-wrap:wrap; gap:7px}
-    .proj .tags span{font-size:.78rem; color:var(--accent); background:color-mix(in srgb,var(--accent) 14%,transparent);
-      padding:4px 10px; border-radius:6px; font-weight:600}
-
-    /* EXPERIENCE */
-    .timeline{position:relative; max-width:760px; margin:0 auto; padding-left:32px}
-    .timeline::before{content:""; position:absolute; left:7px; top:6px; bottom:6px; width:2px; background:var(--border)}
-    .tl-item{position:relative; padding-bottom:36px}
-    .tl-item::before{content:""; position:absolute; left:-32px; top:5px; width:16px; height:16px;
-      border-radius:50%; background:var(--accent); border:3px solid var(--bg)}
-    .tl-item:last-child{padding-bottom:0}
-    .tl-item .role{font-weight:700; font-size:1.1rem}
-    .tl-item .co{color:var(--accent); font-weight:600; font-size:.95rem}
-    .tl-item .date{color:var(--muted); font-size:.85rem; margin:4px 0 10px}
-    .tl-item p{color:var(--muted); font-size:.95rem}
-
-    /* CONTACT */
-    .contact{text-align:center}
-    .contact .box{background:var(--card); border:1px solid var(--border); border-radius:24px;
-      padding:56px 32px; box-shadow:var(--shadow)}
-    .contact h2{font-size:clamp(1.8rem,5vw,2.8rem); font-weight:800; margin-bottom:14px}
-    .contact p{color:var(--muted); max-width:520px; margin:0 auto 30px}
-    .socials{display:flex; gap:16px; justify-content:center; flex-wrap:wrap}
-    .soc{width:52px;height:52px;border-radius:14px;background:var(--bg-soft);
-      border:1px solid var(--border);display:grid;place-items:center;transition:.25s}
-    .soc:hover{background:var(--accent);border-color:var(--accent);transform:translateY(-4px)}
-    .soc svg{width:22px;height:22px;fill:var(--text)}
-    .soc:hover svg{fill:#fff}
-
-    footer{text-align:center; padding:36px 24px; color:var(--muted); font-size:.9rem; border-top:1px solid var(--border)}
-
-    .reveal{opacity:0; transform:translateY(30px); transition:.7s cubic-bezier(.2,.7,.3,1)}
-    .reveal.show{opacity:1; transform:none}
-
-    @media(max-width:760px){
-      .nav-links{position:fixed;inset:0 0 0 auto;width:70%;max-width:300px;flex-direction:column;
-        background:var(--bg-soft);border-left:1px solid var(--border);padding:88px 32px;gap:22px;
-        transform:translateX(100%);transition:.3s}
-      .nav-links.open{transform:none}
-      .burger{display:block;z-index:60}
-      .about-grid{grid-template-columns:1fr}
-      .hero-inner{grid-template-columns:1fr; text-align:center; gap:28px}
-      .hero-photo{order:-1}
-      .avatar-ring{width:190px; height:190px}
-      .avatar-ring span{font-size:3.4rem}
-      .cta{justify-content:center}
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TNPSC English Portal - News, Daily Updates & Current Affairs</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --primary: #1e3c72; --secondary: #2a5298; --accent: #e74c3c; --success: #27ae60; --warning: #f39c12; --light: #ecf0f1; --white: #ffffff; --text: #34495e; }
+        body { font-family: 'Segoe UI'; background: #f5f7fa; color: var(--text); line-height: 1.7; }
+        .navbar { background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: var(--white); padding: 0; box-shadow: 0 4px 12px rgba(0,0,0,0.15); position: sticky; top: 0; z-index: 1000; }
+        .nav-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
+        .logo { font-size: 1.5em; font-weight: bold; padding: 15px 0; text-decoration: none; color: var(--white); }
+        .nav-menu { display: flex; gap: 0; list-style: none; }
+        .nav-link { display: block; padding: 20px 18px; color: var(--white); text-decoration: none; transition: all 0.3s; font-weight: 500; }
+        .nav-link:hover { background: rgba(255,255,255,0.2); border-bottom: 3px solid var(--accent); }
+        .dropdown-menu { display: none; position: absolute; top: 100%; left: 0; background: var(--white); min-width: 200px; box-shadow: 0 8px 16px rgba(0,0,0,0.2); }
+        .nav-item:hover .dropdown-menu { display: block; }
+        .dropdown-menu li a { display: block; padding: 12px 20px; color: var(--text); text-decoration: none; }
+        .dropdown-menu li a:hover { background: var(--light); color: var(--secondary); padding-left: 25px; }
+        .hero { background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: var(--white); padding: 60px 30px; text-align: center; margin: 0; }
+        .hero h1 { font-size: 3em; margin-bottom: 15px; }
+        .hero .emoji { font-size: 2.5em; margin: 20px 0; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 20px; }
+        .main-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 30px; margin: 40px 0; }
+        .materials { background: var(--white); padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
+        .materials h2, .sidebar h3 { color: var(--primary); font-size: 1.3em; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 3px solid var(--secondary); }
+        .materials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .material-card { background: linear-gradient(135deg, rgba(42,82,152,0.1), rgba(52,152,219,0.1)); border: 2px solid var(--secondary); border-radius: 10px; padding: 25px; text-align: center; transition: all 0.3s; }
+        .material-card:hover { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(42,82,152,0.25); border-color: var(--accent); }
+        .material-card .icon { font-size: 3em; margin-bottom: 15px; }
+        .material-card h3 { color: var(--primary); margin-bottom: 10px; }
+        .material-card .btn { display: inline-block; background: var(--secondary); color: var(--white); padding: 10px 20px; border-radius: 20px; text-decoration: none; font-weight: 600; margin-top: 10px; }
+        .material-card .btn:hover { background: var(--accent); }
+        .sidebar { display: flex; flex-direction: column; gap: 20px; }
+        .news-box, .updates-box, .affairs-box { background: var(--white); padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
+        .news-item, .update-item, .affair-item { padding: 15px; border-bottom: 1px solid var(--light); transition: all 0.3s; }
+        .news-item:last-child, .update-item:last-child, .affair-item:last-child { border-bottom: none; }
+        .news-item:hover, .update-item:hover, .affair-item:hover { background: var(--light); padding-left: 20px; }
+        .news-date, .update-time, .affair-time { color: var(--secondary); font-size: 0.85em; font-weight: 600; }
+        .news-title, .affair-title { color: var(--primary); font-weight: 600; margin: 5px 0; }
+        .news-desc, .update-text, .affair-desc { color: var(--text); font-size: 0.9em; margin-top: 5px; }
+        .update-item { background: linear-gradient(135deg, rgba(243,156,18,0.1), rgba(241,196,15,0.1)); border-left: 4px solid var(--warning); }
+        .affair-item { background: linear-gradient(135deg, rgba(52,152,219,0.1), rgba(155,89,182,0.1)); border-left: 4px solid #8e44ad; }
+        .affair-time { color: #8e44ad; }
+        .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; margin-bottom: 40px; }
+        .stat-card { background: linear-gradient(135deg, var(--secondary), var(--primary)); color: var(--white); padding: 20px; border-radius: 10px; text-align: center; }
+        .stat-number { font-size: 2.2em; font-weight: bold; }
+        footer { background: #2c3e50; color: var(--white); padding: 40px 20px; text-align: center; margin-top: 60px; }
+        @media (max-width: 768px) { .main-grid { grid-template-columns: 1fr; } .materials-grid { grid-template-columns: 1fr; } }
+    </style>
 </head>
 <body>
-
-  <!-- ══════════ NAV ══════════ -->
-  <nav>
-    <div class="nav-inner">
-      <a href="#home" class="logo">Jai<span>krishna</span></a>
-      <div class="nav-links" id="navLinks">
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#experience">Experience</a>
-        <a href="#contact">Contact</a>
-        <button class="theme-btn" id="themeBtn" title="Toggle theme">🌙</button>
-      </div>
-      <button class="burger" id="burger">☰</button>
-    </div>
-  </nav>
-
-  <!-- ══════════ HERO ══════════ -->
-  <header class="hero" id="home">
-    <div class="hero-inner">
-      <div class="hero-text reveal show">
-        <p class="eyebrow">👋 Hello, I'm</p>
-        <h1>Jaikrishna <span class="grad">P S</span></h1>
-        <p class="role"><span class="type" id="typed"></span></p>
-        <p class="lead">Senior Software Engineer with <strong style="color:var(--text)">8+ years</strong> building enterprise software — specialising in <strong style="color:var(--text)">Disaster Recovery &amp; Business Continuity</strong> automation and full-stack <strong style="color:var(--text)">.NET, Angular &amp; React</strong> development. I turn complex requirements into reliable systems with minimal downtime.</p>
-        <div class="cta">
-          <a href="#projects" class="btn btn-primary">View My Work →</a>
-          <a href="mailto:jaikrishnabe95@gmail.com" class="btn btn-ghost">✉️ Get in Touch</a>
-          <a href="https://www.linkedin.com/in/jaikrishna-p-s-27a49b19a/" target="_blank" rel="noopener" class="btn btn-ghost">in&nbsp; LinkedIn</a>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">📚 TNPSC English Portal</a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#" class="nav-link">🏠 Home</a></li>
+                <li class="nav-item"><a href="#materials" class="nav-link">📖 Materials</a></li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">📚 Resources ▼</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="tnpsc-english.html">🇬🇧 British vs American</a></li>
+                        <li><a href="tnpsc-plurals.html">📘 Plurals</a></li>
+                        <li><a href="tnpsc-quizzes.html">🎯 Quizzes</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">🎓 News & Updates ▼</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#news">📰 Latest News</a></li>
+                        <li><a href="#updates">⚡ Daily Updates</a></li>
+                        <li><a href="#affairs">🌍 Current Affairs</a></li>
+                    </ul>
+                </li>
+            </ul>
         </div>
-      </div>
-      <div class="hero-photo reveal show">
-        <div class="avatar-ring">
-          <img src="assets/profile.png" alt="Jaikrishna P S" />
+    </nav>
+
+    <div class="hero">
+        <h1>🎯 TNPSC General English</h1>
+        <div class="emoji">🇬🇧 ↔️ 🇺🇸 | 📖 | ⚡ | 🌍</div>
+        <p><strong>Complete Study Portal with News, Updates & Current Affairs</strong></p>
+    </div>
+
+    <div class="container">
+        <div class="stats">
+            <div class="stat-card"><div class="stat-number">500+</div><div>Vocabulary</div></div>
+            <div class="stat-card"><div class="stat-number">100+</div><div>Quiz Questions</div></div>
+            <div class="stat-card"><div class="stat-number">4</div><div>Resources</div></div>
+            <div class="stat-card"><div class="stat-number">📱</div><div>Mobile Ready</div></div>
         </div>
-      </div>
+
+        <div class="main-grid">
+            <div id="materials" class="materials">
+                <h2>📖 Study Materials</h2>
+                <div class="materials-grid">
+                    <div class="material-card">
+                        <div class="icon">🇬🇧 ↔️ 🇺🇸</div>
+                        <h3>British vs American</h3>
+                        <p>500 Vocabulary Pairs</p>
+                        <a href="tnpsc-english.html" class="btn">Start →</a>
+                    </div>
+                    <div class="material-card">
+                        <div class="icon">📘</div>
+                        <h3>English Plurals</h3>
+                        <p>Master Guide + 30 MCQs</p>
+                        <a href="tnpsc-plurals.html" class="btn">Start →</a>
+                    </div>
+                    <div class="material-card">
+                        <div class="icon">🎯</div>
+                        <h3>Advanced Quizzes</h3>
+                        <p>4 Quiz Types with Scoring</p>
+                        <a href="tnpsc-quizzes.html" class="btn">Start →</a>
+                    </div>
+                    <div class="material-card">
+                        <div class="icon">💡</div>
+                        <h3>Word Substitution</h3>
+                        <p>Synonyms & Antonyms</p>
+                        <a href="tnpsc-quizzes.html" class="btn">Start →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <div id="news" class="news-box">
+                    <h3>📰 Latest News</h3>
+                    <div class="news-item">
+                        <div class="news-date">Today • Sep 1</div>
+                        <div class="news-title">🎯 TNPSC Group 1 Notification 2024</div>
+                        <div class="news-desc">Registration open till Sep 30. 450+ vacancies announced.</div>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-date">Yesterday • Aug 31</div>
+                        <div class="news-title">✅ New Exam Pattern Released</div>
+                        <div class="news-desc">English section focuses on vocabulary & grammar mastery.</div>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-date">Aug 29</div>
+                        <div class="news-title">📊 Group 2A Results Declared</div>
+                        <div class="news-desc">Cutoff marks increased by 5%. Merit list published.</div>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-date">Aug 27</div>
+                        <div class="news-title">🎁 Advanced Quizzes Launched</div>
+                        <div class="news-desc">100+ new practice questions added to platform.</div>
+                    </div>
+                </div>
+
+                <div id="updates" class="updates-box">
+                    <h3>⚡ Daily Updates</h3>
+                    <div class="update-item">
+                        <div class="update-time">🔔 Just Now</div>
+                        <div class="update-text">50+ travel & transport vocabulary added</div>
+                    </div>
+                    <div class="update-item">
+                        <div class="update-time">2 hours ago</div>
+                        <div class="update-text">Sentence Correction: 25 new TNPSC-style questions</div>
+                    </div>
+                    <div class="update-item">
+                        <div class="update-time">Today</div>
+                        <div class="update-text">💡 Tip: Master plural rules with memory tricks</div>
+                    </div>
+                    <div class="update-item">
+                        <div class="update-time">Yesterday</div>
+                        <div class="update-text">Error Spotting: 20 expert-level questions added</div>
+                    </div>
+                    <div class="update-item">
+                        <div class="update-time">2 days ago</div>
+                        <div class="update-text">📚 Guide: Score 40+ in General English section</div>
+                    </div>
+                </div>
+
+                <div id="affairs" class="affairs-box">
+                    <h3>🌍 Current Affairs</h3>
+                    <div class="affair-item">
+                        <div class="affair-time">Today • Sep 1</div>
+                        <div class="affair-title">G20 Summit Concludes in India</div>
+                        <div class="affair-desc">Focus on sustainable development and digital economy.</div>
+                    </div>
+                    <div class="affair-item">
+                        <div class="affair-time">Aug 31</div>
+                        <div class="affair-title">National Education Policy Updates</div>
+                        <div class="affair-desc">New vocational training programs launched nationwide.</div>
+                    </div>
+                    <div class="affair-item">
+                        <div class="affair-time">Aug 30</div>
+                        <div class="affair-title">TN Industrial Development Initiative</div>
+                        <div class="affair-desc">New policy for SMEs and startups announced by state government.</div>
+                    </div>
+                    <div class="affair-item">
+                        <div class="affair-time">Aug 28</div>
+                        <div class="affair-title">ISRO Mars Mission Success</div>
+                        <div class="affair-desc">India successfully launches space exploration project.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="scroll-hint">SCROLL ↓</div>
-  </header>
 
-  <!-- ══════════ ABOUT ══════════ -->
-  <section id="about">
-    <h2 class="title reveal">About <span>Me</span></h2>
-    <p class="subtitle reveal">Chennai, Tamil Nadu, India · Senior Software Engineer @ Perpetuuiti Technosoft</p>
-    <div class="about-grid">
-      <div class="about-text reveal">
-        <p>I'm a self-motivated IT professional with <strong>8+ years</strong> of proven experience across the <strong>.NET</strong> and <strong>Angular/React</strong> stacks, building secure, user-friendly web applications and enterprise tools.</p>
-        <p>My core specialisation is <strong>Disaster Recovery (DR), Business Continuity Planning (BCP) and IT Disaster Recovery (ITDR)</strong> — I design, implement and automate DR solutions for enterprise clients across <strong>Telecom, Banking, Financial Services, Insurance and Retail</strong>. That includes hands-on <strong>failover, switchover and switchback drills</strong> tuned to strict RTO/RPO targets, across operating systems, databases, virtualization, cloud, storage, networking and replication technologies.</p>
-        <p>I like breaking complex requirements into clean architectural components, practise <strong>test-driven development</strong>, and enjoy <strong>leading mixed teams</strong> of junior and senior engineers through end-to-end delivery, code reviews and architecture decisions.</p>
-      </div>
-      <div class="facts reveal">
-        <div class="fact"><span class="n">8+</span><span class="l">Years of<br>experience</span></div>
-        <div class="fact"><span class="n">DR·BCP</span><span class="l">ITDR &amp; automation<br>specialist</span></div>
-        <div class="fact"><span class="n">Full-Stack</span><span class="l">.NET · Angular · React<br>end to end</span></div>
-        <div class="fact"><span class="n">5+</span><span class="l">Database engines<br>worked with</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════ SKILLS ══════════ -->
-  <section id="skills">
-    <h2 class="title reveal">Tech <span>Stack</span></h2>
-    <p class="subtitle reveal">Technologies I work with day to day.</p>
-    <div class="skill-groups">
-      <div class="skill-card reveal">
-        <h3><span class="dot"></span>Languages</h3>
-        <div class="chips"><span class="chip">C#</span><span class="chip">TypeScript</span><span class="chip">JavaScript</span><span class="chip">SQL</span><span class="chip">PowerShell</span></div>
-      </div>
-      <div class="skill-card reveal">
-        <h3><span class="dot"></span>Frameworks &amp; Front-End</h3>
-        <div class="chips"><span class="chip">.NET</span><span class="chip">ASP.NET Core</span><span class="chip">ASP.NET MVC</span><span class="chip">Entity Framework</span><span class="chip">Angular</span><span class="chip">React.js</span></div>
-      </div>
-      <div class="skill-card reveal">
-        <h3><span class="dot"></span>Databases &amp; Cache</h3>
-        <div class="chips"><span class="chip">SQL Server</span><span class="chip">Oracle</span><span class="chip">PostgreSQL</span><span class="chip">MySQL</span><span class="chip">Redis</span></div>
-      </div>
-      <div class="skill-card reveal">
-        <h3><span class="dot"></span>Cloud &amp; DevOps</h3>
-        <div class="chips"><span class="chip">Azure</span><span class="chip">AWS</span><span class="chip">Azure DevOps</span><span class="chip">Docker</span><span class="chip">Git</span><span class="chip">SonarQube</span></div>
-      </div>
-      <div class="skill-card reveal">
-        <h3><span class="dot"></span>DR / Infrastructure</h3>
-        <div class="chips"><span class="chip">DR · BCP · ITDR</span><span class="chip">Replication</span><span class="chip">Virtualization</span><span class="chip">Storage</span><span class="chip">Networking</span><span class="chip">WMI / SSH</span></div>
-      </div>
-      <div class="skill-card reveal">
-        <h3><span class="dot"></span>Practices</h3>
-        <div class="chips"><span class="chip">TDD</span><span class="chip">Microservices</span><span class="chip">Code Review</span><span class="chip">Team Leadership</span><span class="chip">Agile Delivery</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════ PROJECTS ══════════ -->
-  <section id="projects">
-    <h2 class="title reveal">Featured <span>Projects</span></h2>
-    <p class="subtitle reveal">Enterprise systems I've designed and built.</p>
-    <div class="projects">
-      <article class="proj reveal">
-        <div class="ico">🛡️</div>
-        <h3>Continuity Patrol</h3>
-        <div class="meta">Perpetuuiti Technosoft · Design &amp; Development · Team 30+</div>
-        <p>Enterprise Disaster Recovery &amp; Business Continuity automation platform. Auto-discovers application infrastructure and interdependencies, enables single-click switchover/switchback, and drives failover drills with real-time RTO/RPO dashboards to minimise data loss and downtime.</p>
-        <div class="tags"><span>.NET</span><span>SQL</span><span>Oracle</span><span>PowerShell</span><span>WMI/SSH</span></div>
-      </article>
-      <article class="proj reveal">
-        <div class="ico">📄</div>
-        <h3>Contract Builder (CMT)</h3>
-        <div class="meta">Elevondata · Senior Software Engineer</div>
-        <p>A Content Management Tool for dynamically assembling contracts from boilerplates, parameters and validation rules. Full versioning with snapshots &amp; hotfixes, a release center for the latest ready version, cross-environment transport with data-consistency guarantees, and multi-language templates (EN/DE/DA/FR).</p>
-        <div class="tags"><span>.NET</span><span>Entity Framework</span><span>SQL</span><span>Background Jobs</span></div>
-      </article>
-      <article class="proj reveal">
-        <div class="ico">🏧</div>
-        <h3>ATM Service CRM + TSS</h3>
-        <div class="meta">Cogent Innovations · Software Engineer</div>
-        <p>An ATM uptime &amp; service-request management platform for banks — follow-ups, dispatch, re-allocation and image attachments. Integrated a Ticket Synchronization System (TSS) as middleware to relay complaint calls between the in-house and vendor CRMs, with a customer portal for live status.</p>
-        <div class="tags"><span>ASP.NET</span><span>MVC</span><span>SQL Server</span></div>
-      </article>
-      <article class="proj reveal">
-        <div class="ico">🧾</div>
-        <h3>Textile Billing System</h3>
-        <div class="meta">Kaizen Technosoft · Junior Software Developer</div>
-        <p>A billing &amp; inventory application for textile retailers — captures vendor and customer information, monitors stock availability, and generates weekly, monthly and yearly reports on purchases and sales.</p>
-        <div class="tags"><span>.NET</span><span>SQL</span><span>Reporting</span></div>
-      </article>
-    </div>
-  </section>
-
-  <!-- ══════════ EXPERIENCE ══════════ -->
-  <section id="experience">
-    <h2 class="title reveal">Work <span>Experience</span></h2>
-    <p class="subtitle reveal">8+ years across DR automation, full-stack product and enterprise development.</p>
-    <div class="timeline">
-      <div class="tl-item reveal">
-        <div class="role">Senior Software Engineer</div>
-        <div class="co">Perpetuuiti Technosoft PTE LTD · Chennai</div>
-        <div class="date">Feb 2025 — Present</div>
-        <p>Designing and developing <strong>Continuity Patrol</strong>, an enterprise DR/BCP automation platform (team 30+). DR/BCP/ITDR consulting across Telecom, Banking, Financial Services, Insurance &amp; Retail — auto-discovery, single-click switchover/switchback, and RTO/RPO-driven recovery drills.</p>
-      </div>
-      <div class="tl-item reveal">
-        <div class="role">Senior Software Engineer</div>
-        <div class="co">Elevondata · Gurgaon</div>
-        <div class="date">Dec 2022 — Aug 2024</div>
-        <p>Built <strong>Contract Builder / CMT</strong> — a dynamic contract-templating platform with versioning, snapshots, a release center, cross-environment transport and multi-language support, backed by background job services.</p>
-      </div>
-      <div class="tl-item reveal">
-        <div class="role">Software Engineer</div>
-        <div class="co">Schawk! · Chennai</div>
-        <div class="date">Aug 2022 — Nov 2022</div>
-        <p>Contributed to software development within a fast-paced production environment.</p>
-      </div>
-      <div class="tl-item reveal">
-        <div class="role">Software Developer</div>
-        <div class="co">Perpetuuiti Technosoft PTE LTD · Chennai</div>
-        <div class="date">Feb 2021 — Jul 2022</div>
-        <p>Developed on <strong>Continuity Patrol</strong>, the DR automation tool — configuring primary/DR sites, connecting client servers via WMI/SSH/PowerShell, and executing switchover/switchback drills within client RTO/RPO windows with dashboard monitoring.</p>
-      </div>
-      <div class="tl-item reveal">
-        <div class="role">Software Engineer</div>
-        <div class="co">Cogent Innovations Pvt Ltd · Chennai</div>
-        <div class="date">Sep 2019 — Nov 2020</div>
-        <p>Built an ATM uptime &amp; service-request CRM for banks with ticket synchronization (TSS) middleware between customer and vendor CRMs, plus field-activity and image-attachment workflows.</p>
-      </div>
-      <div class="tl-item reveal">
-        <div class="role">Junior Software Developer</div>
-        <div class="co">Kaizen Technosoft · Chennai</div>
-        <div class="date">Jun 2018 — Sep 2019</div>
-        <p>Developed a billing &amp; inventory application for textile shops with vendor/customer management and periodic purchase/sales reporting.</p>
-      </div>
-      <div class="tl-item reveal">
-        <div class="role">B.E. — Electrical, Electronics &amp; Communications Engineering</div>
-        <div class="co">King College of Technology</div>
-        <div class="date">2012 — 2016</div>
-        <p>Bachelor of Engineering.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════ CONTACT ══════════ -->
-  <section id="contact" class="contact">
-    <div class="box reveal">
-      <h2>Let's Work <span style="color:var(--accent)">Together</span></h2>
-      <p>Have a project in mind, a role to fill, or a DR/BCP challenge to solve? My inbox is always open.</p>
-      <div class="socials">
-        <a class="soc" href="mailto:jaikrishnabe95@gmail.com" title="Email">
-          <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5z"/></svg>
-        </a>
-        <a class="soc" href="https://www.linkedin.com/in/jaikrishna-p-s-27a49b19a/" target="_blank" rel="noopener" title="LinkedIn">
-          <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8.34 17V9.75H6V17h2.34zM7.17 8.7a1.36 1.36 0 1 0 0-2.72 1.36 1.36 0 0 0 0 2.72zM18 17v-4.17c0-2.23-1.19-3.27-2.78-3.27-1.28 0-1.86.7-2.18 1.2V9.75h-2.34V17h2.34v-3.86c0-.2.01-.41.07-.56.17-.41.54-.84 1.17-.84.83 0 1.16.63 1.16 1.55V17H18z"/></svg>
-        </a>
-        <a class="soc" href="https://github.com/Jaikrishna22" target="_blank" rel="noopener" title="GitHub">
-          <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.22.66-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.6 9.6 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85v2.74c0 .27.16.57.67.48A10 10 0 0 0 22 12 10 10 0 0 0 12 2z"/></svg>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    © <span id="year"></span> Jaikrishna P S · Chennai, India · Built with plain HTML &amp; CSS · Hosted on GitHub Pages
-  </footer>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    const root=document.documentElement, tBtn=document.getElementById('themeBtn');
-    const saved=localStorage.getItem('theme') || 'light';
-    root.setAttribute('data-theme',saved);
-    tBtn.textContent = saved==='dark'?'☀️':'🌙';
-    tBtn.onclick=()=>{
-      const cur=root.getAttribute('data-theme')==='dark'?'light':'dark';
-      root.setAttribute('data-theme',cur); localStorage.setItem('theme',cur);
-      tBtn.textContent = cur==='dark'?'☀️':'🌙';
-    };
-
-    const burger=document.getElementById('burger'), links=document.getElementById('navLinks');
-    burger.onclick=()=>links.classList.toggle('open');
-    links.querySelectorAll('a').forEach(a=>a.onclick=()=>links.classList.remove('open'));
-
-    const phrases=['Senior Software Engineer','Disaster Recovery & BCP Specialist','Full-Stack .NET Developer','Angular & React Front-End','Cloud, Automation & Replication'];
-    const el=document.getElementById('typed'); let pi=0,ci=0,del=false;
-    (function type(){
-      const p=phrases[pi];
-      el.textContent = del ? p.slice(0,ci--) : p.slice(0,ci++);
-      if(!del && ci===p.length+1){del=true; setTimeout(type,1400); return;}
-      if(del && ci<0){del=false; ci=0; pi=(pi+1)%phrases.length;}
-      setTimeout(type, del?45:85);
-    })();
-
-    const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.12});
-    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-
-    const secs=[...document.querySelectorAll('section[id],header[id]')];
-    const nav=[...document.querySelectorAll('.nav-links a')];
-    window.addEventListener('scroll',()=>{
-      let cur=''; secs.forEach(s=>{if(scrollY>=s.offsetTop-120)cur=s.id});
-      nav.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur));
-    });
-  </script>
+    <footer>
+        <p><strong>📚 TNPSC General English Study Portal</strong></p>
+        <p>✅ Complete Materials | ✅ Latest News | ✅ Daily Updates | ✅ Current Affairs</p>
+        <p style="margin-top: 15px; font-size: 0.9em;">Perfect for TNPSC Group 1 & Group 2 | Built for TNPSC Aspirants</p>
+    </footer>
 </body>
 </html>

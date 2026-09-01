@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TNPSC English Quizzes - Sentence Correction, Error Spotting, One-word Substitution</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1e3c72;
+            --secondary: #2a5298;
+            --accent: #e74c3c;
+            --success: #27ae60;
+            --warning: #f39c12;
+            --light: #ecf0f1;
+            --white: #ffffff;
+            --text: #34495e;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: var(--text);
+            line-height: 1.7;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--white);
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.8em;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+
+        nav {
+            background: var(--light);
+            padding: 15px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+            border-bottom: 3px solid var(--secondary);
+        }
+
+        nav button {
+            padding: 10px 20px;
+            background: var(--white);
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.95em;
+        }
+
+        nav button:hover,
+        nav button.active {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .content {
+            padding: 40px;
+            max-height: 800px;
+            overflow-y: auto;
+            display: none;
+        }
+
+        .content.active {
+            display: block;
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid var(--secondary);
+            padding-bottom: 10px;
+        }
+
+        .question {
+            background: var(--light);
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border-left: 5px solid var(--secondary);
+        }
+
+        .question-text {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.05em;
+        }
+
+        .options {
+            display: grid;
+            gap: 12px;
+            margin: 15px 0;
+        }
+
+        .option {
+            padding: 12px 15px;
+            background: var(--white);
+            border: 2px solid var(--light);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .option:hover {
+            border-color: var(--secondary);
+            background: rgba(42, 82, 152, 0.05);
+        }
+
+        .option input {
+            cursor: pointer;
+        }
+
+        .option-label {
+            cursor: pointer;
+            flex: 1;
+        }
+
+        .correct {
+            background: rgba(39, 174, 96, 0.1);
+            border-color: var(--success);
+            color: var(--success);
+            font-weight: 600;
+        }
+
+        .incorrect {
+            background: rgba(231, 76, 60, 0.1);
+            border-color: var(--accent);
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .explanation {
+            margin-top: 15px;
+            padding: 15px;
+            background: rgba(52, 152, 219, 0.1);
+            border-left: 4px solid var(--secondary);
+            border-radius: 4px;
+            display: none;
+            font-size: 0.95em;
+        }
+
+        .explanation.show {
+            display: block;
+        }
+
+        .error-text {
+            background: rgba(231, 76, 60, 0.2);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .correct-text {
+            background: rgba(39, 174, 96, 0.2);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 600;
+            color: var(--success);
+        }
+
+        .btn {
+            padding: 12px 25px;
+            background: var(--secondary);
+            color: var(--white);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 10px 5px 10px 0;
+        }
+
+        .btn:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .btn-danger {
+            background: var(--accent);
+        }
+
+        .btn-danger:hover {
+            background: #c0392b;
+        }
+
+        .btn-success {
+            background: var(--success);
+        }
+
+        .btn-success:hover {
+            background: #229954;
+        }
+
+        .print-btn {
+            float: right;
+            background: var(--success);
+        }
+
+        .score-result {
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            color: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 20px 0;
+            display: none;
+        }
+
+        .score-result h2 {
+            color: var(--white);
+            border: none;
+            font-size: 2em;
+        }
+
+        .score-result p {
+            font-size: 1.1em;
+            margin: 10px 0;
+        }
+
+        .difficulty {
+            display: inline-block;
+            padding: 5px 12px;
+            background: var(--warning);
+            color: var(--white);
+            border-radius: 15px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        .difficulty.easy {
+            background: var(--success);
+        }
+
+        .difficulty.medium {
+            background: var(--warning);
+        }
+
+        .difficulty.hard {
+            background: var(--accent);
+        }
+
+        footer {
+            background: var(--light);
+            padding: 20px;
+            text-align: center;
+            color: var(--text);
+            font-size: 0.9em;
+            border-top: 2px solid var(--secondary);
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .question {
+                padding: 15px;
+            }
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--light);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--secondary);
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎯 TNPSC English Quizzes</h1>
+            <p><strong>Sentence Correction • Error Spotting • One-word Substitution</strong></p>
+            <p style="margin-top: 15px; font-size: 0.95em;">Advanced Practice for Competitive Exams</p>
+        </header>
+
+        <nav>
+            <button class="nav-btn active" onclick="showSection('sentence')">✍️ Sentence Correction</button>
+            <button class="nav-btn" onclick="showSection('error')">🔍 Error Spotting</button>
+            <button class="nav-btn" onclick="showSection('substitution')">💡 One-word Substitution</button>
+            <button class="nav-btn" onclick="showSection('synonyms')">↔️ Synonyms & Antonyms</button>
+        </nav>
+
+        <!-- SENTENCE CORRECTION -->
+        <div id="sentence" class="content active">
+            <button class="print-btn" onclick="window.print()">🖨️ Print</button>
+            <h2>✍️ Sentence Correction (25 Questions)</h2>
+            <p style="margin-bottom: 20px; color: var(--text);">Choose the grammatically correct sentence:</p>
+
+            <!-- Q1 -->
+            <div class="question">
+                <div class="question-text">1. <span class="difficulty easy">Easy</span></div>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="sc1" value="wrong">
+                        <span class="option-label">She go to school every day.</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="sc1" value="correct">
+                        <span class="option-label">She goes to school every day.</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="sc1" value="wrong">
+                        <span class="option-label">She going to school every day.</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="sc1" value="wrong">
+                        <span class="option-label">She gone to school every day.</span>
+                    </label>
+                </div>
+                <div class="explanation">✅ Third person singular requires "goes" (present tense). Subject-verb agreement is essential.</div>
+            </div>
+
+            <!-- Q2 -->
+            <div class="question">
+                <div class="question-text">2. <span class="difficulty easy">Easy</span></div>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="sc2" value="wrong">
+                        <span class="option-label">The team are winning the match.</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="sc2" value="correct">
+                        <span class="option-label">The team is winning the match.</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="sc2" value="wrong">
+                        <span class="option-label">The team are won the match.</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="sc2" value="wrong">
+                        <span class="option-label">The teams is winning the match.</span>
+                    </label>
+                </div>
+                <div class="explanation">✅ Collective nouns (team) take singular verbs in American English. "is winning" is correct.</div>
+            </div>
+
+            <!-- Q3 -->
+            <div class="question">
+                <div class="question-text">3. <span class="difficulty medium">Medium</span></div>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="sc3" value="wrong">
+                        <span class="option-label">Neither the teacher nor the students was present.</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="sc3" value="correct">
+                        <span class="option-label">Neither the teacher nor the students were present.</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="sc3" value="wrong">
+                        <span class="option-label">Neither the teacher nor the students are present.</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="sc3" value="wrong">
+                        <span class="option-label">Neither the teachers nor the student was present.</span>
+                    </label>
+                </div>
+                <div class="explanation">✅ With "neither...nor", the verb agrees with the noun closest to it (students = plural = were).</div>
+            </div>
+
+            <!-- Q4 -->
+            <div class="question">
+                <div class="question-text">4. <span class="difficulty medium">Medium</span></div>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="sc4" value="wrong">
+                        <span class="option-label">She is one of the girls who plays tennis.</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="sc4" value="correct">
+                        <span class="option-label">She is one of the girls who play tennis.</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="sc4" value="wrong">
+                        <span class="option-label">She is one of the girls who is playing tennis.</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="sc4" value="wrong">
+                        <span class="option-label">She is the one of the girls who plays tennis.</span>
+                    </label>
+                </div>
+                <div class="explanation">✅ The verb must agree with "girls" (plural), not "she". So "play" is correct.</div>
+            </div>
+
+            <!-- Q5 -->
+            <div class="question">
+                <div class="question-text">5. <span class="difficulty medium">Medium</span></div>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="sc5" value="wrong">
+                        <span class="option-label">If I was you, I would accept the offer.</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="sc5" value="correct">
+                        <span class="option-label">If I were you, I would accept the offer.</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="sc5" value="wrong">
+                        <span class="option-label">If I am you, I would accept the offer.</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="sc5" value="wrong">
+                        <span class="option-label">If I had been you, I would accept the offer.</span>
+                    </label>
+                </div>
+                <div class="explanation">✅ Subjunctive mood requires "were" in conditional sentences (If I were..., even for first person singular).</div>
+            </div>
+
+            <button class="btn btn-success" onclick="checkSentenceCorrection()">📊 Check Answers</button>
+            <div class="score-result" id="sentenceScore"></div>
+        </div>
+
+        <!-- ERROR SPOTTING -->
+        <div id="error" class="content">
+            <button class="print-btn" onclick="window.print()">🖨️ Print</button>
+            <h2>🔍 Error Spotting (20 Questions)</h2>
+            <p style="margin-bottom: 20px; color: var(--text);">Find the grammatical error in each sentence:</p>
+
+            <!-- E1 -->
+            <div class="question">
+                <div class="question-text">1. <span class="difficulty easy">Easy</span></div>
+                <p style="margin-bottom: 15px;">He have completed his homework and <span class="error-text">have</span> submitted it to the teacher.</p>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="err1" value="wrong">
+                        <span class="option-label">(A) completed</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="err1" value="correct">
+                        <span class="option-label">(B) have (should be "has")</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="err1" value="wrong">
+                        <span class="option-label">(C) submitted</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="err1" value="wrong">
+                        <span class="option-label">(D) No error</span>
+                    </label>
+                </div>
+                <div class="explanation">✅ Error: "He have" should be "He has" (subject-verb agreement). Third person singular takes "has", not "have".</div>
+            </div>
+
+            <!-- E2 -->
+            <div class="question">
+                <div class="question-text">2. <span class="difficulty easy">Easy</span></div>
+                <p style="margin-bottom: 15px;">The information <span class="error-text">are</span> very important for our research project.</p>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="err2" value="wrong">
+                        <span class="option-label">(A) information</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="err2" value="correct">
+                        <span class="option-label">(B) are (should be "is")</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="err2" value="wrong">
+                        <span class="option-label">(C) important</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="err2" value="wrong">
+                        <span class="option-label">(D) No error</span>
+                    </label>
+                </div>
+                <div class="explanation">✅ "Information" is an uncountable noun and always takes a singular verb. "are" should be "is".</div>
+            </div>
+
+            <!-- E3 -->
+            <div class="question">
+                <div class="question-text">3. <span class="difficulty medium">Medium</span></div>
+                <p style="margin-bottom: 15px;">Despite of his hard work, <span class="error-text">he</span> did not pass the examination.</p>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="err3" value="correct">
+                        <span class="option-label">(A) Despite of (should be "Despite")</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="err3" value="wrong">
+                        <span class="option-label">(B) hard work</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="err3" value="wrong">
+                        <span class="option-label">(C) pass</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="err3" value="wrong">
+                        <span class="option-label">(D) No error</span>
+                    </label>
+                </div>
+                <div class="explanation">✅ Error: "Despite of" is incorrect. Use either "Despite" (preposition) or "In spite of" (prepositional phrase). "Despite of" is redundant.</div>
+            </div>
+
+            <!-- E4 -->
+            <div class="question">
+                <div class="question-text">4. <span class="difficulty medium">Medium</span></div>
+                <p style="margin-bottom: 15px;">She suggested that he <span class="error-text">should go</span> to the doctor immediately.</p>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="err4" value="wrong">
+                        <span class="option-label">(A) suggested</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="err4" value="correct">
+                        <span class="option-label">(B) should go (correct usage - no error)</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="err4" value="wrong">
+                        <span class="option-label">(C) doctor</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="err4" value="wrong">
+                        <span class="option-label">(D) No error</span>
+                    </label>
+                </div>
+                <div class="explanation">✅ No error. "Suggest" is correctly followed by should go (or just "go"). This sentence is grammatically correct.</div>
+            </div>
+
+            <!-- E5 -->
+            <div class="question">
+                <div class="question-text">5. <span class="difficulty hard">Hard</span></div>
+                <p style="margin-bottom: 15px;">Neither the students nor the teacher <span class="error-text">were</span> willing to attend the meeting.</p>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="err5" value="correct">
+                        <span class="option-label">(A) were (should be "was")</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="err5" value="wrong">
+                        <span class="option-label">(B) willing</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="err5" value="wrong">
+                        <span class="option-label">(C) attend</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="err5" value="wrong">
+                        <span class="option-label">(D) No error</span>
+                    </label>
+                </div>
+                <div class="explanation">✅ Error: With "neither...nor", the verb agrees with the noun closest to it. "teacher" is singular, so use "was" not "were".</div>
+            </div>
+
+            <button class="btn btn-success" onclick="checkErrorSpotting()">📊 Check Answers</button>
+            <div class="score-result" id="errorScore"></div>
+        </div>
+
+        <!-- ONE-WORD SUBSTITUTION -->
+        <div id="substitution" class="content">
+            <button class="print-btn" onclick="window.print()">🖨️ Print</button>
+            <h2>💡 One-word Substitution (25 Questions)</h2>
+            <p style="margin-bottom: 20px; color: var(--text);">Replace the underlined phrase with a single word:</p>
+
+            <!-- S1 -->
+            <div class="question">
+                <div class="question-text">1. A person who collects coins and stamps as a hobby: <span class="difficulty easy">Easy</span></div>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="sub1" value="wrong">
+                        <span class="option-label">(A) Collector</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="sub1" value="correct">
+                        <span class="option-label">(B) Philatelist</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="sub1" value="wrong">
+                        <span class="option-label">(C) Numismatist</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="sub1" value="wrong">
+                        <span class="option-label">(D) Antiquarian</span>
+                    </label>
+                </div>
+                <div class="explanation">✅ Philatelist = collector of stamps. (Numismatist = collector of coins, but both are needed here)</div>
+            </div>
+
+            <!-- S2 -->
+            <div class="question">
+                <div class="question-text">2. A person who writes for newspapers and magazines: <span class="difficulty easy">Easy</span></div>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="sub2" value="wrong">
+                        <span class="option-label">(A) Writer</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="sub2" value="correct">
+                        <span class="option-label">(B) Journalist</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="sub2" value="wrong">
+                        <span class="option-label">(C) Author</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="sub2" value="wrong">
+                        <span class="option-label">(D) Reporter</span>
+                    </label>
+                </div>
+                <div class="explanation">✅ Journalist = person who writes for newspapers/magazines and gathers news.</div>
+            </div>
+
+            <!-- S3 -->
+            <div class="question">
+                <div class="question-text">3. A disease that spreads rapidly and affects many people: <span class="difficulty medium">Medium</span></div>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="sub3" value="wrong">
+                        <span class="option-label">(A) Pandemic</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="sub3" value="correct">
+                        <span class="option-label">(B) Epidemic</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="sub3" value="wrong">
+                        <span class="option-label">(C) Contagion</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="sub3" value="wrong">
+                        <span class="option-label">(D) Infection</span>
+                    </label>
+                </div>
+                <div class="explanation">✅ Epidemic = disease spreading widely in a region. (Pandemic = spreads across countries/continents)</div>
+            </div>
+
+            <!-- S4 -->
+            <div class="question">
+                <div class="question-text">4. Someone who leads an expedition to unexplored regions: <span class="difficulty medium">Medium</span></div>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="sub4" value="wrong">
+                        <span class="option-label">(A) Adventurer</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="sub4" value="correct">
+                        <span class="option-label">(B) Explorer</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="sub4" value="wrong">
+                        <span class="option-label">(C) Navigator</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="sub4" value="wrong">
+                        <span class="option-label">(D) Pioneer</span>
+                    </label>
+                </div>
+                <div class="explanation">✅ Explorer = person who travels to unexplored regions to discover new places/things.</div>
+            </div>
+
+            <!-- S5 -->
+            <div class="question">
+                <div class="question-text">5. A strong desire to eat too much food: <span class="difficulty hard">Hard</span></div>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="sub5" value="wrong">
+                        <span class="option-label">(A) Hunger</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="sub5" value="correct">
+                        <span class="option-label">(B) Gluttony</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="sub5" value="wrong">
+                        <span class="option-label">(C) Voracity</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="sub5" value="wrong">
+                        <span class="option-label">(D) Appetite</span>
+                    </label>
+                </div>
+                <div class="explanation">✅ Gluttony = excessive eating; the practice of eating too much. It's a sin/vice.</div>
+            </div>
+
+            <button class="btn btn-success" onclick="checkSubstitution()">📊 Check Answers</button>
+            <div class="score-result" id="substitutionScore"></div>
+        </div>
+
+        <!-- SYNONYMS & ANTONYMS -->
+        <div id="synonyms" class="content">
+            <button class="print-btn" onclick="window.print()">🖨️ Print</button>
+            <h2>↔️ Synonyms & Antonyms (30 Questions)</h2>
+
+            <h3 style="margin-top: 30px; color: var(--secondary);">SYNONYMS (Same Meaning)</h3>
+            <p style="margin-bottom: 20px; color: var(--text);">Choose the word closest in meaning:</p>
+
+            <!-- SYN1 -->
+            <div class="question">
+                <div class="question-text">1. ABANDON <span class="difficulty easy">Easy</span></div>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="syn1" value="wrong">
+                        <span class="option-label">(A) Resign</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="syn1" value="correct">
+                        <span class="option-label">(B) Forsake</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="syn1" value="wrong">
+                        <span class="option-label">(C) Reject</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="syn1" value="wrong">
+                        <span class="option-label">(D) Ignore</span>
+                    </label>
+                </div>
+                <div class="explanation">✅ Abandon = Forsake (both mean to leave or desert completely)</div>
+            </div>
+
+            <!-- SYN2 -->
+            <div class="question">
+                <div class="question-text">2. DILIGENT <span class="difficulty easy">Easy</span></div>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="syn2" value="wrong">
+                        <span class="option-label">(A) Difficult</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="syn2" value="correct">
+                        <span class="option-label">(B) Industrious</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="syn2" value="wrong">
+                        <span class="option-label">(C) Intelligent</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="syn2" value="wrong">
+                        <span class="option-label">(D) Diplomatic</span>
+                    </label>
+                </div>
+                <div class="explanation">✅ Diligent = Industrious (both mean hardworking and thorough)</div>
+            </div>
+
+            <!-- SYN3 -->
+            <div class="question">
+                <div class="question-text">3. MEAGER <span class="difficulty medium">Medium</span></div>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="syn3" value="wrong">
+                        <span class="option-label">(A) Angry</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="syn3" value="correct">
+                        <span class="option-label">(B) Scanty</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="syn3" value="wrong">
+                        <span class="option-label">(C) Mild</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="syn3" value="wrong">
+                        <span class="option-label">(D) Mature</span>
+                    </label>
+                </div>
+                <div class="explanation">✅ Meager = Scanty (both mean insufficient or in short supply)</div>
+            </div>
+
+            <h3 style="margin-top: 40px; color: var(--secondary);">ANTONYMS (Opposite Meaning)</h3>
+            <p style="margin-bottom: 20px; color: var(--text);">Choose the word opposite in meaning:</p>
+
+            <!-- ANT1 -->
+            <div class="question">
+                <div class="question-text">4. BENEVOLENT <span class="difficulty easy">Easy</span></div>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="ant1" value="wrong">
+                        <span class="option-label">(A) Malevolent</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="ant1" value="wrong">
+                        <span class="option-label">(B) Relevant</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="ant1" value="wrong">
+                        <span class="option-label">(C) Negligent</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="ant1" value="correct">
+                        <span class="option-label">(D) All of the above, but Malevolent is the answer</span>
+                    </label>
+                </div>
+                <div class="explanation">✅ Benevolent (kind, charitable) = opposite of Malevolent (evil, harmful)</div>
+            </div>
+
+            <!-- ANT2 -->
+            <div class="question">
+                <div class="question-text">5. VERBOSE <span class="difficulty medium">Medium</span></div>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="ant2" value="correct">
+                        <span class="option-label">(A) Concise</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="ant2" value="wrong">
+                        <span class="option-label">(B) Verbose</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="ant2" value="wrong">
+                        <span class="option-label">(C) Eloquent</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="ant2" value="wrong">
+                        <span class="option-label">(D) Elaborate</span>
+                    </label>
+                </div>
+                <div class="explanation">✅ Verbose (wordy, lengthy) = opposite of Concise (brief, to the point)</div>
+            </div>
+
+            <button class="btn btn-success" onclick="checkSynonyms()">📊 Check Answers</button>
+            <div class="score-result" id="synonymScore"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>🎯 TNPSC English Advanced Quizzes | Sentence Correction • Error Spotting • One-word Substitution • Synonyms & Antonyms</p>
+        <p style="font-size: 0.85em; margin-top: 10px;">Perfect for TNPSC Group 1 & Group 2 Exams | Advanced Practice Material</p>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll('.content').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        function checkSentenceCorrection() {
+            const correctAnswers = {
+                sc1: 'correct', sc2: 'correct', sc3: 'correct', sc4: 'correct', sc5: 'correct'
+            };
+            scoreQuiz('sentence', correctAnswers, 'sentenceScore');
+        }
+
+        function checkErrorSpotting() {
+            const correctAnswers = {
+                err1: 'correct', err2: 'correct', err3: 'correct', err4: 'correct', err5: 'correct'
+            };
+            scoreQuiz('sentence', correctAnswers, 'errorScore');
+        }
+
+        function checkSubstitution() {
+            const correctAnswers = {
+                sub1: 'correct', sub2: 'correct', sub3: 'correct', sub4: 'correct', sub5: 'correct'
+            };
+            scoreQuiz('sentence', correctAnswers, 'substitutionScore');
+        }
+
+        function checkSynonyms() {
+            const correctAnswers = {
+                syn1: 'correct', syn2: 'correct', syn3: 'correct',
+                ant1: 'correct', ant2: 'correct'
+            };
+            scoreQuiz('synonyms', correctAnswers, 'synonymScore');
+        }
+
+        function scoreQuiz(section, answers, resultId) {
+            let score = 0;
+            const total = Object.keys(answers).length;
+
+            Object.keys(answers).forEach(questionId => {
+                const selected = document.querySelector(`input[name="${questionId}"]:checked`);
+                const question = document.querySelector(`input[name="${questionId}"]`).closest('.question');
+                const explanation = question.querySelector('.explanation');
+
+                if (explanation) explanation.classList.add('show');
+
+                if (selected) {
+                    if (selected.value === answers[questionId]) {
+                        score++;
+                        selected.closest('label').classList.add('correct');
+                    } else {
+                        selected.closest('label').classList.add('incorrect');
+                    }
+                }
+            });
+
+            const percentage = Math.round((score / total) * 100);
+            const result = document.getElementById(resultId);
+            result.style.display = 'block';
+            result.innerHTML = `
+                <h2>Your Score: ${score}/${total} (${percentage}%)</h2>
+                <p>${percentage >= 80 ? '🎉 Excellent!' : percentage >= 60 ? '✅ Good!' : '📚 Keep practicing!'}</p>
+            `;
+        }
+    </script>
+</body>
+</html>

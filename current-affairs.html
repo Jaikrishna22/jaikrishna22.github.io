@@ -6,19 +6,26 @@
     <title>Current Affairs - TNPSC Study Portal</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root { --primary: #1e3c72; --secondary: #2a5298; --accent: #e74c3c; --success: #27ae60; --light: #ecf0f1; --white: #ffffff; --text: #34495e; }
-        body { font-family: 'Segoe UI'; background: #f5f7fa; color: var(--text); }
-        .navbar { background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: var(--white); padding: 0; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
-        .nav-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
-        .logo { font-size: 1.5em; font-weight: bold; padding: 15px 0; text-decoration: none; color: var(--white); }
-        .container { max-width: 1200px; margin: 0 auto; padding: 30px 20px; }
-        .hero { background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: var(--white); padding: 40px 30px; text-align: center; border-radius: 12px; margin-bottom: 30px; }
-        .affair-card { background: var(--white); padding: 25px; margin: 15px 0; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); border-left: 5px solid var(--secondary); }
-        .affair-date { color: var(--secondary); font-size: 0.9em; font-weight: 600; }
-        .affair-title { color: var(--primary); font-size: 1.2em; font-weight: 600; margin: 10px 0; }
-        .affair-desc { color: var(--text); line-height: 1.6; }
-    
-        /* Navigation Bar */
+        :root { 
+            --primary: #1e3c72; 
+            --secondary: #2a5298; 
+            --accent: #e74c3c; 
+            --success: #27ae60; 
+            --light: #ecf0f1; 
+            --white: #ffffff; 
+            --text: #34495e; 
+        }
+        
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: var(--text); 
+            line-height: 1.7;
+            min-height: 100vh;
+            padding: 20px;
+            padding-top: 90px;
+        }
+        
         .navbar {
             background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
             color: white;
@@ -28,20 +35,230 @@
             top: 0;
             z-index: 1000;
         }
-        .navbar-container { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 20px; height: 70px; }
-        .navbar-brand { font-size: 1.8em; font-weight: bold; display: flex; align-items: center; gap: 10px; text-decoration: none; color: white; }
-        .navbar-menu { display: flex; gap: 0; list-style: none; align-items: center; }
-        .navbar-item { position: relative; }
-        .navbar-link { display: flex; align-items: center; gap: 5px; padding: 25px 18px; color: white; text-decoration: none; font-weight: 500; transition: all 0.3s ease; border-bottom: 3px solid transparent; }
-        .navbar-link:hover { background: rgba(255,255,255,0.1); border-bottom-color: #f39c12; }
-        .dropdown-menu { position: absolute; top: 100%; left: 0; background: white; color: #333; min-width: 250px; border-radius: 0 0 8px 8px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); opacity: 0; visibility: hidden; transform: translateY(-10px); transition: all 0.3s ease; margin-top: -3px; }
-        .navbar-item:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
-        .dropdown-item { display: flex; align-items: center; gap: 10px; padding: 12px 20px; color: #333; text-decoration: none; transition: all 0.3s ease; border-left: 3px solid transparent; }
-        .dropdown-item:hover { background: #f5f5f5; border-left-color: #2a5298; padding-left: 25px; }
-        .navbar-cta { background: #e74c3c; color: white; padding: 10px 25px; border-radius: 25px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; }
-        .navbar-cta:hover { background: #c0392b; transform: scale(1.05); }
-        @media (max-width: 768px) { .navbar-menu { display: none; } .navbar-container { height: auto; padding: 15px 20px; } body { padding-top: 70px; } }
-</style>
+        
+        .navbar-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            height: 70px;
+        }
+        
+        .navbar-brand {
+            font-size: 1.8em;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+        }
+        
+        .navbar-menu {
+            display: flex;
+            gap: 0;
+            list-style: none;
+            align-items: center;
+        }
+        
+        .navbar-item {
+            position: relative;
+        }
+        
+        .navbar-link {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 25px 18px;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+        
+        .navbar-link:hover {
+            background: rgba(255,255,255,0.1);
+            border-bottom-color: #f39c12;
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            color: #333;
+            min-width: 250px;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            margin-top: -3px;
+        }
+        
+        .navbar-item:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .dropdown-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 20px;
+            color: #333;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+        
+        .dropdown-item:hover {
+            background: #f5f5f5;
+            border-left-color: #2a5298;
+            padding-left: 25px;
+        }
+        
+        .navbar-cta {
+            background: #e74c3c;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .navbar-cta:hover {
+            background: #c0392b;
+            transform: scale(1.05);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--white);
+            padding: 60px 30px;
+            text-align: center;
+            border-radius: 12px 12px 0 0;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            margin-bottom: 0;
+        }
+        
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+            margin: 10px 0;
+        }
+        
+        .content {
+            background: var(--white);
+            padding: 50px;
+            border-radius: 0 0 12px 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+        }
+        
+        .affair-card {
+            background: var(--white);
+            border: 2px solid var(--light);
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--secondary);
+            transition: all 0.3s ease;
+        }
+        
+        .affair-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-left-color: var(--accent);
+        }
+        
+        .affair-header {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+        
+        .affair-date {
+            color: var(--secondary);
+            font-size: 0.9em;
+            font-weight: 600;
+            background: rgba(42,82,152,0.1);
+            padding: 5px 12px;
+            border-radius: 15px;
+        }
+        
+        .affair-tag {
+            display: inline-block;
+            padding: 5px 12px;
+            background: var(--success);
+            color: white;
+            border-radius: 15px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+        
+        .affair-title {
+            color: var(--primary);
+            font-size: 1.4em;
+            font-weight: 600;
+            margin: 12px 0;
+            line-height: 1.4;
+        }
+        
+        .affair-desc {
+            color: var(--text);
+            line-height: 1.7;
+            margin: 15px 0;
+        }
+        
+        .section-title {
+            color: var(--primary);
+            font-size: 1.8em;
+            margin: 35px 0 20px 0;
+            border-bottom: 3px solid var(--secondary);
+            padding-bottom: 10px;
+        }
+        
+        .info-box {
+            background: linear-gradient(135deg, rgba(39,174,96,0.1), rgba(52,152,219,0.1));
+            border-left: 4px solid var(--success);
+            padding: 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+        
+        footer {
+            background: var(--white);
+            padding: 30px;
+            text-align: center;
+            border-radius: 12px;
+            color: var(--text);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            margin-top: 30px;
+        }
+        
+        @media (max-width: 768px) {
+            .navbar-menu { display: none; }
+            header h1 { font-size: 2em; }
+            .affair-header { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
 </head>
 <body>
     <!-- NAVIGATION BAR -->
@@ -75,8 +292,8 @@
                     <div class="dropdown-menu">
                         <a href="answer-keys.html" class="dropdown-item">🔑 Answer Keys</a>
                         <a href="video-solutions.html" class="dropdown-item">🎥 Video Solutions</a>
+                        <a href="daily-news.html" class="dropdown-item">📰 Daily News</a>
                         <a href="current-affairs.html" class="dropdown-item">🌍 Current Affairs</a>
-                        <a href="pro-platform.html" class="dropdown-item">⭐ Premium Features</a>
                     </div>
                 </li>
                 <li class="navbar-item">
@@ -85,43 +302,169 @@
             </ul>
         </div>
     </nav>
-
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="logo">🌍 Current Affairs</a>
-        </div>
-    </nav>
     
     <div class="container">
-        <div class="hero">
-            <h1>🌍 Daily Current Affairs</h1>
-            <p>Updated every day with relevant news for TNPSC exams</p>
+        <header>
+            <h1>🌍 Current Affairs</h1>
+            <p><strong>Daily Updates for TNPSC General Knowledge Preparation</strong></p>
+            <p style="margin-top: 15px; font-size: 1em;">Important events, policies, and news for competitive exam aspirants</p>
+        </header>
+        
+        <div class="content">
+            <div class="info-box">
+                <p><strong>📖 What is Current Affairs?</strong></p>
+                <p>Current affairs are recent events, news, policies, and developments that are important for competitive exam preparation. Regular practice with current affairs helps you:</p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>✅ Score better in General Knowledge sections</li>
+                    <li>✅ Prepare for interview questions</li>
+                    <li>✅ Understand national & state policies</li>
+                    <li>✅ Stay aware of important developments</li>
+                </ul>
+            </div>
+
+            <div class="section-title">🎯 TNPSC Important Updates</div>
+            
+            <div class="affair-card">
+                <div class="affair-header">
+                    <span class="affair-date">📅 September 1, 2026</span>
+                    <span class="affair-tag">🎯 TNPSC</span>
+                </div>
+                <div class="affair-title">TNPSC Recruitment - 2000+ Vacancies Announced</div>
+                <div class="affair-desc">
+                    Tamil Nadu Public Service Commission has announced recruitment for 2000+ positions across Group 1, 2, and 4 examinations. This is the largest recruitment drive in recent years. Notifications for all groups will be released in phases starting from September 2026. Interested candidates are advised to visit tnpsc.gov.in for detailed notification and eligibility criteria.
+                </div>
+            </div>
+            
+            <div class="affair-card">
+                <div class="affair-header">
+                    <span class="affair-date">📅 August 28, 2026</span>
+                    <span class="affair-tag">🎯 TNPSC</span>
+                </div>
+                <div class="affair-title">TNPSC Exam Schedule Released - Group 2A 2026</div>
+                <div class="affair-desc">
+                    The TNPSC has released the official exam schedule for Group 2A examination. Preliminary examination will be held on October 15, 2026, with Main examination scheduled for December 2026. Final interview rounds are expected in February 2027. Candidates should start their preparation accordingly and download the detailed schedule from the official website.
+                </div>
+            </div>
+
+            <div class="section-title">🏛️ Political & Administrative News</div>
+            
+            <div class="affair-card">
+                <div class="affair-header">
+                    <span class="affair-date">📅 August 31, 2026</span>
+                    <span class="affair-tag">Government</span>
+                </div>
+                <div class="affair-title">Tamil Nadu Cabinet Approves Welfare Schemes</div>
+                <div class="affair-desc">
+                    The Tamil Nadu State Cabinet has approved three new welfare schemes targeting economically weaker sections. The schemes include financial assistance for education, skill development programs, and healthcare support. Total budget allocation for these schemes is ₹500 crores. These welfare initiatives reflect the government's commitment to social security and inclusive development.
+                </div>
+            </div>
+            
+            <div class="affair-card">
+                <div class="affair-header">
+                    <span class="affair-date">📅 August 29, 2026</span>
+                    <span class="affair-tag">Administration</span>
+                </div>
+                <div class="affair-title">New Administrative Reforms in Tamil Nadu</div>
+                <div class="affair-desc">
+                    Tamil Nadu Assembly has approved comprehensive administrative reforms to modernize government services. The reforms include digitalization of all government offices, implementation of online grievance systems, and establishment of citizen service centers in all districts. The objective is to provide faster and transparent services to citizens while reducing corruption.
+                </div>
+            </div>
+
+            <div class="section-title">💰 Economic & Development News</div>
+            
+            <div class="affair-card">
+                <div class="affair-header">
+                    <span class="affair-date">📅 August 30, 2026</span>
+                    <span class="affair-tag">Economy</span>
+                </div>
+                <div class="affair-title">Tamil Nadu GDP Growth Reaches 7.5% - Record High</div>
+                <div class="affair-desc">
+                    Tamil Nadu's economy has achieved a GDP growth rate of 7.5%, the highest in recent years. This growth is driven by strong performance in manufacturing, agriculture, and service sectors. Key contributors include textile industry revival, IT sector expansion, and increased agricultural productivity due to good monsoon rainfall. The state government aims to achieve 8% growth in the coming financial year.
+                </div>
+            </div>
+            
+            <div class="affair-card">
+                <div class="affair-header">
+                    <span class="affair-date">📅 August 27, 2026</span>
+                    <span class="affair-tag">Infrastructure</span>
+                </div>
+                <div class="affair-title">Chennai Metro Phase 2 - 45% Completion Achieved</div>
+                <div class="affair-desc">
+                    Chennai Metro Rail Phase 2 project has achieved 45% completion as of August 2026. The extension from Central Station to CMBT (Bus Terminal) is progressing on schedule and is expected to be operational by late 2027. Once completed, this phase will reduce traffic congestion significantly and improve public transportation in Chennai. Total investment in Phase 2 is ₹15,000 crores.
+                </div>
+            </div>
+
+            <div class="section-title">🌱 Social & Environmental News</div>
+            
+            <div class="affair-card">
+                <div class="affair-header">
+                    <span class="affair-date">📅 August 25, 2026</span>
+                    <span class="affair-tag">Environment</span>
+                </div>
+                <div class="affair-title">Tamil Nadu Water Conservation Initiative Launched</div>
+                <div class="affair-desc">
+                    Tamil Nadu Government has launched an ambitious water conservation initiative across all 38 districts. The program includes rainwater harvesting systems in 5,000 government buildings, groundwater recharge projects in 1,000 villages, and check dam construction along major rivers. The initiative aims to improve groundwater levels and combat drought in the state. Budget allocation: ₹2,000 crores over 3 years.
+                </div>
+            </div>
+            
+            <div class="affair-card">
+                <div class="affair-header">
+                    <span class="affair-date">📅 August 23, 2026</span>
+                    <span class="affair-tag">Education</span>
+                </div>
+                <div class="affair-title">New Educational Policy - Digital Literacy for All</div>
+                <div class="affair-desc">
+                    Tamil Nadu has implemented a new educational policy focusing on digital literacy for all students. All government schools will have computer labs, internet connectivity, and digital learning resources. Teachers will receive training in digital teaching methods. The policy aims to bridge the digital divide and prepare students for the 21st-century job market.
+                </div>
+            </div>
+
+            <div class="section-title">🚀 Science & Technology News</div>
+            
+            <div class="affair-card">
+                <div class="affair-header">
+                    <span class="affair-date">📅 August 20, 2026</span>
+                    <span class="affair-tag">Space</span>
+                </div>
+                <div class="affair-title">ISRO Successfully Launches Satellite Mission</div>
+                <div class="affair-desc">
+                    Indian Space Research Organisation (ISRO) has successfully launched a satellite mission carrying four satellites for Earth observation and communication purposes. The mission demonstrates India's growing capabilities in space technology. The satellites will be used for weather forecasting, disaster management, and agricultural monitoring. This is India's 78th successful space launch.
+                </div>
+            </div>
+
+            <div class="section-title">🎉 National Events & Celebrations</div>
+            
+            <div class="affair-card">
+                <div class="affair-header">
+                    <span class="affair-date">📅 September 1, 2026</span>
+                    <span class="affair-tag">National</span>
+                </div>
+                <div class="affair-title">India Celebrates 80th Independence Day</div>
+                <div class="affair-desc">
+                    India celebrates its 80th Independence Day with national flag hoisting ceremonies, patriotic events, and cultural programs across the country. The day commemorates India's independence from British rule on August 15, 1947. This year's theme focuses on "Viksit Bharat" (Developed India) and highlights achievements in infrastructure, education, healthcare, and economic development.
+                </div>
+            </div>
+
+            <!-- News Sources Information -->
+            <div class="section-title">📰 News Sources</div>
+            <div class="info-box">
+                <p><strong>Where do we get this information?</strong></p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>✅ <strong>Thanthi (தந்தி)</strong> - Tamil newspaper with state-level news</li>
+                    <li>✅ <strong>The Hindu</strong> - English newspaper with national & international coverage</li>
+                    <li>✅ <strong>TNPSC Official Website</strong> - tnpsc.gov.in for exam updates</li>
+                    <li>✅ <strong>BBC Tamil & BBC News</strong> - International news coverage</li>
+                    <li>✅ <strong>Times of India & Indian Express</strong> - National news agencies</li>
+                </ul>
+            </div>
         </div>
         
-        <div class="affair-card">
-            <div class="affair-date">📅 Sept 1, 2026</div>
-            <div class="affair-title">🇮🇳 India Celebrates Independence Day</div>
-            <div class="affair-desc">India celebrates 80th Independence Day with national parades, cultural programs, and patriotic events across the country.</div>
-        </div>
-        
-        <div class="affair-card">
-            <div class="affair-date">📅 Aug 31, 2026</div>
-            <div class="affair-title">💼 New Economic Policy Announced</div>
-            <div class="affair-desc">Government announces new economic policy focusing on digital transformation and ease of doing business for MSMEs.</div>
-        </div>
-        
-        <div class="affair-card">
-            <div class="affair-date">📅 Aug 30, 2026</div>
-            <div class="affair-title">🌱 Environmental Summit 2026</div>
-            <div class="affair-desc">Global environmental summit discusses climate action, renewable energy, and sustainable development goals.</div>
-        </div>
-        
-        <div class="affair-card">
-            <div class="affair-date">📅 Aug 29, 2026</div>
-            <div class="affair-title">🚀 ISRO Space Mission Success</div>
-            <div class="affair-desc">India's space agency successfully launches satellite mission for Earth observation and communication purposes.</div>
-        </div>
+        <footer>
+            <p><strong>🌍 Current Affairs & General Knowledge</strong></p>
+            <p>Updated daily with news relevant to TNPSC exam preparation | Stay informed, Score higher!</p>
+            <p style="font-size: 0.9em; color: #7f8c8d; margin-top: 15px;">
+                Last Updated: September 1, 2026 | Updated Daily for TNPSC Group 1, 2, 2A & 4
+            </p>
+        </footer>
     </div>
 </body>
 </html>
-

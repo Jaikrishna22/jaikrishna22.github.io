@@ -1,0 +1,561 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TNPSC Portal - Login & Registration</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #1e3c72;
+            --secondary: #2a5298;
+            --accent: #e74c3c;
+            --success: #27ae60;
+            --warning: #f39c12;
+            --light: #ecf0f1;
+            --white: #ffffff;
+            --text: #34495e;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .brand {
+            color: var(--white);
+        }
+        
+        .brand h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+        }
+        
+        .brand p {
+            font-size: 1.2em;
+            opacity: 0.95;
+            margin-bottom: 30px;
+        }
+        
+        .features {
+            list-style: none;
+        }
+        
+        .features li {
+            padding: 12px 0;
+            font-size: 1.05em;
+            opacity: 0.9;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .features li:before {
+            content: "✓";
+            font-size: 1.5em;
+            font-weight: bold;
+            color: var(--success);
+        }
+        
+        .card {
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .tabs {
+            display: flex;
+            gap: 0;
+        }
+        
+        .tab-btn {
+            flex: 1;
+            padding: 20px;
+            background: var(--light);
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            color: var(--text);
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+        
+        .tab-btn.active {
+            background: var(--white);
+            border-bottom-color: var(--secondary);
+            color: var(--secondary);
+        }
+        
+        .tab-content {
+            padding: 40px;
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text);
+            font-weight: 600;
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid var(--light);
+            border-radius: 6px;
+            font-size: 1em;
+            transition: all 0.3s ease;
+        }
+        
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 8px rgba(42,82,152,0.2);
+        }
+        
+        .btn {
+            width: 100%;
+            padding: 15px;
+            background: var(--secondary);
+            color: var(--white);
+            border: none;
+            border-radius: 6px;
+            font-size: 1.05em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+        
+        .btn:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+        }
+        
+        .divider {
+            text-align: center;
+            margin: 20px 0;
+            color: #999;
+            position: relative;
+        }
+        
+        .divider:after {
+            content: "OR";
+            background: var(--white);
+            padding: 0 10px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .divider:before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            background: var(--light);
+            top: 50%;
+        }
+        
+        .payment-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .payment-btn {
+            padding: 15px;
+            border: 2px solid var(--light);
+            background: var(--white);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .payment-btn:hover {
+            border-color: var(--secondary);
+            background: rgba(42,82,152,0.05);
+        }
+        
+        .payment-btn.active {
+            border-color: var(--secondary);
+            background: rgba(42,82,152,0.1);
+        }
+        
+        .payment-icon {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .qr-container {
+            background: var(--light);
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            display: none;
+        }
+        
+        .qr-container.active {
+            display: block;
+        }
+        
+        .qr-placeholder {
+            background: var(--white);
+            width: 300px;
+            height: 300px;
+            margin: 0 auto 20px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3em;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .plans {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .plan-card {
+            padding: 20px;
+            border: 2px solid var(--light);
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .plan-card:hover {
+            border-color: var(--secondary);
+            box-shadow: 0 4px 15px rgba(42,82,152,0.2);
+        }
+        
+        .plan-card.selected {
+            background: rgba(42,82,152,0.1);
+            border-color: var(--secondary);
+        }
+        
+        .plan-price {
+            font-size: 2em;
+            color: var(--secondary);
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        
+        .plan-features {
+            list-style: none;
+            text-align: left;
+            margin: 15px 0;
+        }
+        
+        .plan-features li {
+            padding: 5px 0;
+            font-size: 0.9em;
+        }
+        
+        .plan-features li:before {
+            content: "✓ ";
+            color: var(--success);
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        
+        .free-badge {
+            background: var(--success);
+            color: var(--white);
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        
+        .login-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .login-link a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            
+            .brand {
+                text-align: center;
+            }
+            
+            .brand h1 {
+                font-size: 2em;
+            }
+            
+            .tab-content {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- LEFT SIDE - BRANDING -->
+        <div class="brand">
+            <h1>📚 TNPSC Portal</h1>
+            <p>Complete Study Platform for TNPSC Exams</p>
+            <ul class="features">
+                <li>500+ Vocabulary Pairs</li>
+                <li>200+ Question Papers</li>
+                <li>Progress Tracking</li>
+                <li>Certificates & Badges</li>
+                <li>Video Solutions</li>
+                <li>Current Affairs Daily</li>
+            </ul>
+        </div>
+        
+        <!-- RIGHT SIDE - FORM -->
+        <div class="card">
+            <div class="tabs">
+                <button class="tab-btn active" onclick="switchTab('login')">🔐 Login</button>
+                <button class="tab-btn" onclick="switchTab('signup')">📝 Sign Up</button>
+            </div>
+            
+            <!-- LOGIN TAB -->
+            <div id="login" class="tab-content active">
+                <h2 style="margin-bottom: 20px; color: #1e3c72;">Welcome Back!</h2>
+                
+                <form onsubmit="handleLogin(event)">
+                    <div class="form-group">
+                        <label>📧 Email</label>
+                        <input type="email" required placeholder="your.email@example.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>🔐 Password</label>
+                        <input type="password" required placeholder="Enter password">
+                    </div>
+                    
+                    <div class="form-group" style="display: flex; gap: 10px; align-items: center;">
+                        <input type="checkbox" id="remember">
+                        <label for="remember" style="margin: 0;">Remember me</label>
+                    </div>
+                    
+                    <button type="submit" class="btn">✓ Login</button>
+                </form>
+                
+                <div style="text-align: center; margin-top: 15px;">
+                    <a href="#" style="color: #2a5298; text-decoration: none; font-size: 0.9em;">Forgot password?</a>
+                </div>
+            </div>
+            
+            <!-- SIGNUP TAB -->
+            <div id="signup" class="tab-content">
+                <h2 style="margin-bottom: 20px; color: #1e3c72;">Create Account</h2>
+                
+                <form onsubmit="handleSignup(event)">
+                    <div class="form-group">
+                        <label>👤 Full Name</label>
+                        <input type="text" required placeholder="Your Full Name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>📧 Email Address</label>
+                        <input type="email" required placeholder="your.email@example.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>🎯 TNPSC Group</label>
+                        <select required>
+                            <option value="">Select your target exam</option>
+                            <option value="group1">Group 1</option>
+                            <option value="group2">Group 2/2A</option>
+                            <option value="group4">Group 4</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>🔐 Password</label>
+                        <input type="password" required placeholder="Create a strong password">
+                    </div>
+                    
+                    <h3 style="margin-top: 25px; margin-bottom: 15px; color: #1e3c72;">📋 Choose Plan</h3>
+                    
+                    <div class="plans">
+                        <div class="plan-card selected" onclick="selectPlan(this)">
+                            <div class="free-badge">FREE</div>
+                            <div style="font-size: 1.2em; font-weight: 600; margin-bottom: 10px;">Starter</div>
+                            <div class="plan-price">₹0</div>
+                            <ul class="plan-features">
+                                <li>500+ Vocabulary</li>
+                                <li>Plurals Guide</li>
+                                <li>30 Quizzes</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="plan-card" onclick="selectPlan(this)">
+                            <div style="font-size: 1.2em; font-weight: 600; margin-bottom: 10px;">💎 Premium</div>
+                            <div class="plan-price">₹299</div>
+                            <ul class="plan-features">
+                                <li>All Free Features</li>
+                                <li>200+ Papers</li>
+                                <li>Progress Tracker</li>
+                                <li>Video Solutions</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div id="paymentSection" style="display: none;">
+                        <h3 style="margin-top: 20px; margin-bottom: 15px; color: #1e3c72;">💳 Payment Method</h3>
+                        
+                        <div class="payment-options">
+                            <button type="button" class="payment-btn" onclick="selectPayment(this, 'upi')">
+                                <div class="payment-icon">📱</div>
+                                <div>UPI</div>
+                            </button>
+                            <button type="button" class="payment-btn" onclick="selectPayment(this, 'card')">
+                                <div class="payment-icon">💳</div>
+                                <div>Card</div>
+                            </button>
+                        </div>
+                        
+                        <div id="upiContainer" class="qr-container">
+                            <h4 style="margin-bottom: 15px; color: #1e3c72;">📲 Scan QR Code to Pay</h4>
+                            <div class="qr-placeholder" id="qrCode">
+                                📲
+                            </div>
+                            <p style="margin-bottom: 10px; color: #666;">UPI: payments@tnpscportal.com</p>
+                            <p style="color: #666;">Amount: ₹299</p>
+                            <div style="margin-top: 15px; padding: 12px; background: var(--white); border-radius: 6px; border: 1px solid var(--light);">
+                                <strong>Transaction ID:</strong> <input type="text" placeholder="Paste after paying" style="width: 100%; margin-top: 8px; padding: 8px;">
+                            </div>
+                        </div>
+                        
+                        <div id="cardContainer" class="qr-container">
+                            <div class="form-group">
+                                <label>Card Number</label>
+                                <input type="text" placeholder="1234 5678 9012 3456">
+                            </div>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                                <div class="form-group">
+                                    <label>Expiry</label>
+                                    <input type="text" placeholder="MM/YY">
+                                </div>
+                                <div class="form-group">
+                                    <label>CVV</label>
+                                    <input type="text" placeholder="123">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn">✓ Create Account & Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function switchTab(tab) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+            document.getElementById(tab).classList.add('active');
+            event.target.classList.add('active');
+        }
+        
+        function selectPlan(element) {
+            document.querySelectorAll('.plan-card').forEach(el => el.classList.remove('selected'));
+            element.classList.add('selected');
+            
+            const isPremium = element.querySelector('.plan-price').textContent.includes('299');
+            document.getElementById('paymentSection').style.display = isPremium ? 'block' : 'none';
+        }
+        
+        function selectPayment(element, type) {
+            document.querySelectorAll('.payment-btn').forEach(el => el.classList.remove('active'));
+            element.classList.add('active');
+            
+            document.getElementById('upiContainer').classList.remove('active');
+            document.getElementById('cardContainer').classList.remove('active');
+            
+            if (type === 'upi') {
+                document.getElementById('upiContainer').classList.add('active');
+                generateQRCode();
+            } else {
+                document.getElementById('cardContainer').classList.add('active');
+            }
+        }
+        
+        function generateQRCode() {
+            // Placeholder QR code - in production, use a QR library
+            const qrDiv = document.getElementById('qrCode');
+            qrDiv.innerHTML = `
+                <svg width="250" height="250" viewBox="0 0 250 250" style="border: 2px solid #ddd; padding: 10px;">
+                    <rect width="250" height="250" fill="white"/>
+                    <g fill="black">
+                        <rect x="20" y="20" width="60" height="60"/>
+                        <rect x="170" y="20" width="60" height="60"/>
+                        <rect x="20" y="170" width="60" height="60"/>
+                    </g>
+                    <text x="125" y="140" text-anchor="middle" font-size="12" fill="black">UPI QR Code</text>
+                </svg>
+            `;
+        }
+        
+        function handleLogin(e) {
+            e.preventDefault();
+            alert('✅ Login successful! Redirecting to dashboard...');
+            window.location.href = 'dashboard.html';
+        }
+        
+        function handleSignup(e) {
+            e.preventDefault();
+            const isPremium = document.querySelector('.plan-card.selected .plan-price').textContent.includes('299');
+            if (isPremium) {
+                alert('✅ Please complete the payment to activate premium features!');
+            } else {
+                alert('✅ Account created! You can now login with your credentials.');
+                switchTab('login');
+            }
+        }
+    </script>
+</body>
+</html>

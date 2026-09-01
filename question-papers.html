@@ -1,0 +1,363 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TNPSC Previous Question Papers - Group 2, Group 4</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --primary: #1e3c72; --secondary: #2a5298; --accent: #e74c3c; --success: #27ae60; --warning: #f39c12; --light: #ecf0f1; --white: #ffffff; --text: #34495e; --dark: #2c3e50; }
+        body { font-family: 'Segoe UI'; background: #f5f7fa; color: var(--text); }
+        
+        .navbar { background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: var(--white); padding: 0; box-shadow: 0 4px 12px rgba(0,0,0,0.15); position: sticky; top: 0; z-index: 1000; }
+        .nav-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
+        .logo { font-size: 1.5em; font-weight: bold; padding: 15px 0; text-decoration: none; color: var(--white); }
+        .nav-menu { display: flex; gap: 0; list-style: none; }
+        .nav-link { display: block; padding: 20px 18px; color: var(--white); text-decoration: none; transition: all 0.3s; font-weight: 500; }
+        .nav-link:hover { background: rgba(255,255,255,0.2); border-bottom: 3px solid var(--accent); }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 30px 20px; }
+        
+        .hero { background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: var(--white); padding: 50px 30px; text-align: center; border-radius: 12px; margin-bottom: 40px; }
+        .hero h1 { font-size: 2.5em; margin-bottom: 15px; }
+        .hero p { font-size: 1.1em; opacity: 0.95; }
+        
+        .filter-tabs { display: flex; gap: 10px; margin: 30px 0; flex-wrap: wrap; justify-content: center; }
+        .tab-btn { padding: 10px 25px; background: var(--white); color: var(--primary); border: 2px solid var(--secondary); border-radius: 25px; cursor: pointer; font-weight: 600; transition: all 0.3s; }
+        .tab-btn:hover, .tab-btn.active { background: var(--secondary); color: var(--white); }
+        
+        .papers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        
+        .paper-card { background: var(--white); padding: 25px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); transition: all 0.3s; border-left: 5px solid var(--secondary); }
+        .paper-card:hover { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(0,0,0,0.15); border-left-color: var(--accent); }
+        
+        .paper-header { display: flex; justify-content: space-between; align-items: start; margin-bottom: 15px; }
+        .paper-title { color: var(--primary); font-weight: 600; font-size: 1.1em; }
+        .paper-badge { display: inline-block; padding: 5px 12px; background: var(--warning); color: var(--white); border-radius: 15px; font-size: 0.8em; font-weight: 600; }
+        .paper-badge.group2 { background: #3498db; }
+        .paper-badge.group4 { background: #9b59b6; }
+        .paper-badge.english { background: var(--success); }
+        
+        .paper-meta { color: #7f8c8d; font-size: 0.9em; margin: 10px 0; }
+        .paper-details { list-style: none; margin: 15px 0; }
+        .paper-details li { padding: 8px 0; border-bottom: 1px solid var(--light); color: var(--text); }
+        .paper-details li:before { content: "✓ "; color: var(--success); font-weight: bold; }
+        
+        .paper-actions { margin-top: 15px; display: flex; gap: 10px; }
+        .btn { display: inline-block; padding: 10px 15px; background: var(--secondary); color: var(--white); border-radius: 5px; text-decoration: none; font-weight: 600; cursor: pointer; border: none; transition: all 0.3s; }
+        .btn:hover { background: var(--primary); }
+        .btn-download { background: var(--success); }
+        .btn-download:hover { background: #229954; }
+        .btn-preview { background: var(--warning); }
+        .btn-preview:hover { background: #d68910; }
+        
+        .section-title { color: var(--primary); font-size: 1.8em; margin: 40px 0 20px; border-bottom: 3px solid var(--secondary); padding-bottom: 10px; }
+        
+        .info-box { background: rgba(52,152,219,0.1); padding: 20px; border-radius: 8px; border-left: 4px solid #3498db; margin: 20px 0; }
+        .info-box h4 { color: var(--primary); margin-bottom: 10px; }
+        
+        @media (max-width: 768px) {
+            .papers-grid { grid-template-columns: 1fr; }
+            .filter-tabs { justify-content: flex-start; }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">📚 TNPSC Portal</a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">🏠 Home</a></li>
+                <li><a href="dashboard.html" class="nav-link">📊 Dashboard</a></li>
+                <li><a href="tnpsc-english.html" class="nav-link">🇬🇧 Vocabulary</a></li>
+                <li><a href="tnpsc-quizzes.html" class="nav-link">🎯 Quizzes</a></li>
+                <li><a href="question-papers.html" class="nav-link">📄 Papers</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="hero">
+            <h1>📄 TNPSC Previous Question Papers</h1>
+            <p>Group 2, Group 4, General English & Other Subjects</p>
+            <p style="margin-top: 15px; font-size: 0.95em;">Access real exam papers to practice and prepare effectively</p>
+        </div>
+
+        <div class="info-box">
+            <h4>📌 How to Use These Papers?</h4>
+            <p>✓ Practice with actual TNPSC exam questions<br>
+            ✓ Understand exam pattern & difficulty level<br>
+            ✓ Time management practice<br>
+            ✓ Self-evaluation & performance analysis</p>
+        </div>
+
+        <!-- FILTER TABS -->
+        <div class="filter-tabs">
+            <button class="tab-btn active" onclick="filterPapers('all')">📋 All Papers</button>
+            <button class="tab-btn" onclick="filterPapers('group2')">📘 Group 2</button>
+            <button class="tab-btn" onclick="filterPapers('group4')">📗 Group 4</button>
+            <button class="tab-btn" onclick="filterPapers('english')">🇬🇧 General English</button>
+        </div>
+
+        <!-- GROUP 2 PAPERS -->
+        <div class="section-title">📘 Group 2/2A Prelims Papers</div>
+        <div class="papers-grid" id="group2Papers">
+            
+            <div class="paper-card" data-category="group2">
+                <div class="paper-header">
+                    <div class="paper-title">Group II/IIA Combined Paper</div>
+                    <span class="paper-badge group2">Group 2/2A</span>
+                </div>
+                <div class="paper-meta">📅 2024 | 🕐 3 Hours | 300 Marks</div>
+                <ul class="paper-details">
+                    <li>General Studies (Degree Level) - 75Q</li>
+                    <li>Aptitude & Mental Ability (SSLC) - 25Q</li>
+                    <li>General English (SSLC) - 100Q</li>
+                </ul>
+                <div class="paper-actions">
+                    <a href="#" class="btn btn-preview">👁️ Preview</a>
+                    <a href="#" class="btn btn-download">⬇️ Download PDF</a>
+                </div>
+            </div>
+
+            <div class="paper-card" data-category="group2">
+                <div class="paper-header">
+                    <div class="paper-title">Group II/IIA General Studies</div>
+                    <span class="paper-badge group2">Group 2/2A</span>
+                </div>
+                <div class="paper-meta">📅 2023 | 🕐 3 Hours | 150 Marks</div>
+                <ul class="paper-details">
+                    <li>History & Culture - 15 Questions</li>
+                    <li>Geography of India - 10 Questions</li>
+                    <li>Indian Polity - 15 Questions</li>
+                    <li>Economy & Development - 20 Questions</li>
+                </ul>
+                <div class="paper-actions">
+                    <a href="#" class="btn btn-preview">👁️ Preview</a>
+                    <a href="#" class="btn btn-download">⬇️ Download PDF</a>
+                </div>
+            </div>
+
+            <div class="paper-card" data-category="group2">
+                <div class="paper-header">
+                    <div class="paper-title">Group II General English Paper</div>
+                    <span class="paper-badge english">English</span>
+                </div>
+                <div class="paper-meta">📅 2023 | 🕐 3 Hours | 100 Marks</div>
+                <ul class="paper-details">
+                    <li>Grammar & Vocabulary - 40Q</li>
+                    <li>Reading Comprehension - 20Q</li>
+                    <li>Writing Skills & Figures - 20Q</li>
+                    <li>Literary Works & Authors - 20Q</li>
+                </ul>
+                <div class="paper-actions">
+                    <a href="#" class="btn btn-preview">👁️ Preview</a>
+                    <a href="#" class="btn btn-download">⬇️ Download PDF</a>
+                </div>
+            </div>
+
+            <div class="paper-card" data-category="group2">
+                <div class="paper-header">
+                    <div class="paper-title">Group II Aptitude & Reasoning</div>
+                    <span class="paper-badge group2">Group 2/2A</span>
+                </div>
+                <div class="paper-meta">📅 2022 | 🕐 2 Hours | 75 Marks</div>
+                <ul class="paper-details">
+                    <li>Aptitude - 15 Questions</li>
+                    <li>Logical Reasoning - 10 Questions</li>
+                    <li>Number Series & Patterns - 5Q</li>
+                    <li>Visual Reasoning - 5 Questions</li>
+                </ul>
+                <div class="paper-actions">
+                    <a href="#" class="btn btn-preview">👁️ Preview</a>
+                    <a href="#" class="btn btn-download">⬇️ Download PDF</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- GROUP 4 PAPERS -->
+        <div class="section-title">📗 Group 4 Main Exam Papers</div>
+        <div class="papers-grid" id="group4Papers">
+            
+            <div class="paper-card" data-category="group4">
+                <div class="paper-header">
+                    <div class="paper-title">Group IV General Studies</div>
+                    <span class="paper-badge group4">Group 4</span>
+                </div>
+                <div class="paper-meta">📅 2024 | 🕐 2.5 Hours | 100 Marks</div>
+                <ul class="paper-details">
+                    <li>Current Affairs & News - 20Q</li>
+                    <li>History & Culture - 15Q</li>
+                    <li>Geography & Environment - 15Q</li>
+                    <li>Polity & Administration - 20Q</li>
+                    <li>Science & Technology - 15Q</li>
+                </ul>
+                <div class="paper-actions">
+                    <a href="#" class="btn btn-preview">👁️ Preview</a>
+                    <a href="#" class="btn btn-download">⬇️ Download PDF</a>
+                </div>
+            </div>
+
+            <div class="paper-card" data-category="group4">
+                <div class="paper-header">
+                    <div class="paper-title">Group IV General English</div>
+                    <span class="paper-badge english">English</span>
+                </div>
+                <div class="paper-meta">📅 2024 | 🕐 2 Hours | 75 Marks</div>
+                <ul class="paper-details">
+                    <li>Vocabulary & Synonyms - 15Q</li>
+                    <li>Grammar & Tenses - 15Q</li>
+                    <li>Reading Comprehension - 15Q</li>
+                    <li>Writing Skills - 10Q</li>
+                    <li>Figures of Speech - 10Q</li>
+                </ul>
+                <div class="paper-actions">
+                    <a href="#" class="btn btn-preview">👁️ Preview</a>
+                    <a href="#" class="btn btn-download">⬇️ Download PDF</a>
+                </div>
+            </div>
+
+            <div class="paper-card" data-category="group4">
+                <div class="paper-header">
+                    <div class="paper-title">Group IV Arithmetic & Reasoning</div>
+                    <span class="paper-badge group4">Group 4</span>
+                </div>
+                <div class="paper-meta">📅 2023 | 🕐 2 Hours | 75 Marks</div>
+                <ul class="paper-details">
+                    <li>Number System - 10Q</li>
+                    <li>Arithmetic Operations - 15Q</li>
+                    <li>Geometry & Mensuration - 12Q</li>
+                    <li>Logical Reasoning - 15Q</li>
+                    <li>Percentage & Ratio - 13Q</li>
+                </ul>
+                <div class="paper-actions">
+                    <a href="#" class="btn btn-preview">👁️ Preview</a>
+                    <a href="#" class="btn btn-download">⬇️ Download PDF</a>
+                </div>
+            </div>
+
+            <div class="paper-card" data-category="group4">
+                <div class="paper-header">
+                    <div class="paper-title">Group IV Mains 2023 Paper</div>
+                    <span class="paper-badge group4">Group 4</span>
+                </div>
+                <div class="paper-meta">📅 2023 | 🕐 3 Hours | 150 Marks</div>
+                <ul class="paper-details">
+                    <li>Integrated Subjects - 75Q</li>
+                    <li>Comprehension & Analysis - 20Q</li>
+                    <li>Essay & Descriptive - 30Q</li>
+                    <li>Case Study Based - 25Q</li>
+                </ul>
+                <div class="paper-actions">
+                    <a href="#" class="btn btn-preview">👁️ Preview</a>
+                    <a href="#" class="btn btn-download">⬇️ Download PDF</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- GENERAL ENGLISH PAPERS -->
+        <div class="section-title">🇬🇧 General English Topic Papers</div>
+        <div class="papers-grid" id="englishPapers">
+            
+            <div class="paper-card" data-category="english">
+                <div class="paper-header">
+                    <div class="paper-title">Vocabulary & Synonyms</div>
+                    <span class="paper-badge english">English</span>
+                </div>
+                <div class="paper-meta">📅 Practice Paper | 50 Questions</div>
+                <ul class="paper-details">
+                    <li>British vs American English</li>
+                    <li>One-Word Substitution</li>
+                    <li>Synonyms & Antonyms</li>
+                    <li>Idioms & Phrases</li>
+                </ul>
+                <div class="paper-actions">
+                    <a href="tnpsc-english.html" class="btn btn-download">⬇️ Start Learning</a>
+                </div>
+            </div>
+
+            <div class="paper-card" data-category="english">
+                <div class="paper-header">
+                    <div class="paper-title">Grammar & Structure</div>
+                    <span class="paper-badge english">English</span>
+                </div>
+                <div class="paper-meta">📅 Practice Paper | 60 Questions</div>
+                <ul class="paper-details">
+                    <li>Tenses & Verbs</li>
+                    <li>Subject-Verb Agreement</li>
+                    <li>Prepositions & Articles</li>
+                    <li>Transformation of Sentences</li>
+                </ul>
+                <div class="paper-actions">
+                    <a href="tnpsc-quizzes.html" class="btn btn-download">⬇️ Start Practice</a>
+                </div>
+            </div>
+
+            <div class="paper-card" data-category="english">
+                <div class="paper-header">
+                    <div class="paper-title">Plurals & Word Forms</div>
+                    <span class="paper-badge english">English</span>
+                </div>
+                <div class="paper-meta">📅 Practice Paper | 40 Questions</div>
+                <ul class="paper-details">
+                    <li>Regular & Irregular Plurals</li>
+                    <li>Uncountable Nouns</li>
+                    <li>Foreign Plurals</li>
+                    <li>Interactive Quiz - 30 MCQs</li>
+                </ul>
+                <div class="paper-actions">
+                    <a href="tnpsc-plurals.html" class="btn btn-download">⬇️ Start Learning</a>
+                </div>
+            </div>
+
+            <div class="paper-card" data-category="english">
+                <div class="paper-header">
+                    <div class="paper-title">Comprehension & Writing</div>
+                    <span class="paper-badge english">English</span>
+                </div>
+                <div class="paper-meta">📅 Practice Paper | 35 Questions</div>
+                <ul class="paper-details">
+                    <li>Reading Comprehension</li>
+                    <li>Sentence Correction</li>
+                    <li>Error Spotting</li>
+                    <li>Essay Writing Tips</li>
+                </ul>
+                <div class="paper-actions">
+                    <a href="tnpsc-quizzes.html" class="btn btn-download">⬇️ Start Practice</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- DOWNLOAD TIPS -->
+        <div class="info-box" style="margin-top: 50px; background: rgba(39,174,96,0.1); border-left-color: var(--success);">
+            <h4>💡 Tips for Effective Practice</h4>
+            <ul style="list-style: none; padding: 0;">
+                <li>✓ Set a timer - Practice within actual exam time limits</li>
+                <li>✓ Attempt without looking at answers first</li>
+                <li>✓ Check answers and analyze mistakes</li>
+                <li>✓ Track your progress & weak areas</li>
+                <li>✓ Repeat difficult questions until mastery</li>
+                <li>✓ Take mock tests every week</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function filterPapers(category) {
+            const cards = document.querySelectorAll('.paper-card');
+            const buttons = document.querySelectorAll('.tab-btn');
+            
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
